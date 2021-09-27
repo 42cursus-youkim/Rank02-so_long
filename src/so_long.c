@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/09/27 11:03:12 by youkim           ###   ########.fr       */
+/*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
+/*   Updated: 2021/09/27 15:08:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-
-#define BUFFER_SIZE 50
+#include "so_long.h"
 
 int	main(void)
 {
-	int		fd;
-	int		len;
-	char	*buf;
+	void	*mlx;
 
-	fd = open("map.txt", O_RDONLY);
-	if (fd < 1)
-	{
-		printf("open failed");
-		exit(1);
-	}
-	len = read(fd, buf, BUFFER_SIZE);
-	printf("%d\n", 1);
-	// printf("%d, %s\n", len, buf);
-	close(fd);
+	// mlx = mlx_init();
+	return (0);
 }

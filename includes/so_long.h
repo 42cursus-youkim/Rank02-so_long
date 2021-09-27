@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/09/27 11:03:12 by youkim           ###   ########.fr       */
+/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
+/*   Updated: 2021/09/27 15:05:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-#define BUFFER_SIZE 50
+# include <mlx.h>
 
-int	main(void)
+typedef enum e_enum
 {
-	int		fd;
-	int		len;
-	char	*buf;
+	ERROR = -1,
+}	t_enum;
 
-	fd = open("map.txt", O_RDONLY);
-	if (fd < 1)
-	{
-		printf("open failed");
-		exit(1);
-	}
-	len = read(fd, buf, BUFFER_SIZE);
-	printf("%d\n", 1);
-	// printf("%d, %s\n", len, buf);
-	close(fd);
-}
+#endif

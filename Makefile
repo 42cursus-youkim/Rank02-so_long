@@ -6,7 +6,7 @@
 #    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/09/09 15:24:58 by youkim           ###   ########.fr        #
+#    Updated: 2021/09/27 15:10:11 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,14 @@ CC = gcc
 CFLAGS = #-Wall -Wextra -Werror
 RM = rm -rf
 
-SRR = check_map
+SRR = so_long #check_map
+INC = includes/
+
 SRC = $(addprefix src/, $(addsuffix .c, $(SRR)))
 OBJ = $(SRC:%.c=%.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -I$(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
