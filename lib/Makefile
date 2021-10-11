@@ -3,30 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
+#    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/10/07 15:10:50 by youkim           ###   ########.fr        #
+#    Updated: 2021/10/07 15:57:45 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
+# ==== Target & FLAGS ====
+NAME   = libft.a
 
-CC = gcc
+LIBFT  = src/libft/y
+
+CC     = gcc
 CFLAGS = #-Wall -Wextra -Werror
-RM = rm -rf
+AR     = ar rcs
+RM     = rm -f
 
-SRR = so_long #check_map
-INC = -I includes/ -I mlx
-MLX = -l mlx -framework OpenGL -framework Appkit
-SRC = $(addprefix src/, $(addsuffix .c, $(SRR)))
-OBJ = $(SRC:%.c=%.o)
+# ==== Raw Sources ====
+SRR    = strlen
 
+# ==== Sources & Objects & Includes ====
+INC    = -I includes/
+OBJ    = $(SRC:%.c=%.o)
+SRC    = $(addprefix $(LIBFT), $(addsuffix .c, $(SRR)))
+
+# ==== Macros ====
 %.o: %.c
 	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INC) $(MLX) -o $@ $^
+	$(AR) $@ $(OBJECTS)
 
 all: $(NAME)
 
