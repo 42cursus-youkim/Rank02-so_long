@@ -3,3 +3,4 @@ test
 map
 *.o
 *.py
+*.a

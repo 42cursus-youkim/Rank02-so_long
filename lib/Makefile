@@ -6,11 +6,11 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/10/07 15:57:45 by youkim           ###   ########.fr        #
+#    Updated: 2021/10/17 15:41:18 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ==== Target & FLAGS ====
+# ===== Target & FLAGS =====
 NAME   = libft.a
 
 LIBFT  = src/libft/y
@@ -20,20 +20,20 @@ CFLAGS = #-Wall -Wextra -Werror
 AR     = ar rcs
 RM     = rm -f
 
-# ==== Raw Sources ====
+# ===== Raw Sources =====
 SRR    = strlen
 
-# ==== Sources & Objects & Includes ====
+# ===== Sources & Objects & Includes =====
 INC    = -I includes/
 OBJ    = $(SRC:%.c=%.o)
 SRC    = $(addprefix $(LIBFT), $(addsuffix .c, $(SRR)))
 
-# ==== Macros ====
+# ===== Macros =====
 %.o: %.c
 	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	$(AR) $@ $(OBJECTS)
+	$(AR) $@ $^
 
 all: $(NAME)
 
