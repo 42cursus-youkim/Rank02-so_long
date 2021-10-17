@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:12:08 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/07 15:16:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/10/11 10:52:35 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORS_H
 # define COLORS_H
 
+/*
+** ===== COLORS =====
+*/
 # define RED "\x1b[31m"
 # define GREEN "\x1b[32m"
 # define BLUE "\x1b[34m"

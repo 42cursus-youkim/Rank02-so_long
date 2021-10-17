@@ -1,22 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ystructs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/12 19:39:38 by youkim           ###   ########.fr       */
+/*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
+/*   Updated: 2021/10/11 12:15:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef YSTRUCTS_H
+# define YSTRUCTS_H
 
-# include <mlx.h>
-# include <stdio.h>
-# include "lib/includes/libft.h"
-# include "ystructs.h"
-# include "yfunctions.h"
+/*
+** ===== Main Data Structures =====
+*/
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+}	t_game;
+
+typedef enum e_enum_sl
+{
+	TILE_WIDTH = 80,
+	NORTH = 0,
+	EAST = 1,
+	SOUTH = 2,
+	WEST = 3,
+}	t_enum_sl;
+
+typedef struct s_vec
+{
+	int	x;
+	int	y;
+}	t_vec;
+
+typedef struct s_map
+{
+	t_vec	size;
+	t_vec	ppos;
+}	t_map;
 
 #endif

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   yfunctions.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/12 19:39:38 by youkim           ###   ########.fr       */
+/*   Created: 2021/10/12 19:39:50 by youkim            #+#    #+#             */
+/*   Updated: 2021/10/17 13:05:07 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef YFUNCTIONS_H
+# define YFUNCTIONS_H
 
-# include <mlx.h>
-# include <stdio.h>
-# include "lib/includes/libft.h"
-# include "ystructs.h"
-# include "yfunctions.h"
+// ===== @Functions =====
+// < ystrlen copy.c >
+int				ystrlen4(char *str);
+
+// < ystrlen.c >
+extern int		ystrlen(char *str, int a, int b, int c);
 
 #endif
