@@ -4,3 +4,5 @@ map
 *.o
 *.py
 *.a
+
+so_long.code-workspace

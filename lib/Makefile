@@ -6,42 +6,56 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/10/17 15:41:18 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/16 17:18:42 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ===== Target & FLAGS =====
-NAME   = libft.a
+NAME   ?= libft.a
+PRE    ?= src/libft/
 
-LIBFT  = src/libft/y
+CC     := gcc
+CFLAG  := -Wall -Wextra -Werror
+AR     := ar rcs
+RM     ?= rm -f
 
-CC     = gcc
-CFLAGS = #-Wall -Wextra -Werror
-AR     = ar rcs
-RM     = rm -f
+# ===== Colors =====
+R      ?= \033[1;31m
+Y      ?= \033[0;33m
+G      ?= \033[0;32m
+V	   ?= \033[0;35m
+E      ?= \033[0m
 
 # ===== Raw Sources =====
-SRR    = strlen
+ARR    ?= $(addprefix array/, )
+STR    ?= $(addprefix string/, ystrlen)
+SRR    += $(STR) $(ARR)
 
 # ===== Sources & Objects & Includes =====
 INC    = -I includes/
 OBJ    = $(SRC:%.c=%.o)
-SRC    = $(addprefix $(LIBFT), $(addsuffix .c, $(SRR)))
+SRC    = $(addprefix $(PRE), $(addsuffix .c, $(SRR)))
 
 # ===== Macros =====
 %.o: %.c
-	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@echo "$(V)<Compiling Object files...>$(E)"
+	@echo $(SRR)
+	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	$(AR) $@ $^
+	@echo "$(V)<Archiving Object files...>$(E)"
+	@$(AR) $@ $^
+	@echo "$(G)<DONE>$(E)"
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
+	@echo "$(Y)<Cleaned Object files>$(E)"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(Y)<Cleaned Namees>$(E)"
 
 re: fclean all
 

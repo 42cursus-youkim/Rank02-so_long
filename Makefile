@@ -6,21 +6,21 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/10/17 15:43:58 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/16 16:19:20 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ===== Target & FLAGS =====
 NAME = so_long
 
-CC = gcc
-CFLAGS = #-Wall -Wextra -Werror
-RM = rm -rf
+CC ?= clang
+CFLAGS ?= #-Wall -Wextra -Werror
+RM ?= rm -rf
 
-# ===== Raw Sources =====
-SRR = so_long #check_map
+# ===== Sources =====
+SRC = so_long #check_map
 
-# ===== Sources & Objects & Includes =====
+# ===== & Objects & Includes =====
 INC = -I includes/ -I mlx -I lib/libft.a
 MLX = -l mlx -framework OpenGL -framework Appkit
 SRC = $(addprefix src/, $(addsuffix .c, $(SRR)))
