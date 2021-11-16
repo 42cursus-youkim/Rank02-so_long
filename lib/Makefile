@@ -6,21 +6,21 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/16 17:18:42 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/16 18:56:30 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ===== Target & FLAGS =====
 NAME   ?= libft.a
-PRE    ?= src/libft/
 
 CC     := gcc
 CFLAG  := -Wall -Wextra -Werror
 AR     := ar rcs
 RM     ?= rm -f
 
+PRE    ?= src/
+INC    ?= -I includes/
 # ===== Colors =====
-R      ?= \033[1;31m
 Y      ?= \033[0;33m
 G      ?= \033[0;32m
 V	   ?= \033[0;35m
@@ -32,7 +32,6 @@ STR    ?= $(addprefix string/, ystrlen)
 SRR    += $(STR) $(ARR)
 
 # ===== Sources & Objects & Includes =====
-INC    = -I includes/
 OBJ    = $(SRC:%.c=%.o)
 SRC    = $(addprefix $(PRE), $(addsuffix .c, $(SRR)))
 
@@ -55,11 +54,14 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(Y)<Cleaned Namees>$(E)"
+	@echo "$(Y)<Cleaned Names>$(E)"
 
 re: fclean all
 
 test: all
-	@./$(NAME)
+	@echo "$(Y)<Running Test>$(E)"
+	@$(CC) $(INC) $(NAME) test.c -o test
+	@./test
+	@rm test
 
 .PHONY: all re clean fclean test
