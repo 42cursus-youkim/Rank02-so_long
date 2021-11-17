@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yconfig.h                                          :+:      :+:    :+:   */
+/*   ysystem.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 15:18:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 15:26:40 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 15:36:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YCONFIG_H
-# define YCONFIG_H
+#ifndef YSYSTEM_H
+# define YSYSTEM_H
 
-# include <stdbool.h>
-# include <stdlib.h>
+# include <unistd.h>
+# include "ystring.h"
 
-//	===== Marcos & Enums =====
-# define SUCCESS 0
-# define ERROR -1
+// ===== @Functions =====
+// < yexit.c >
+
+void		yexit(int status);
+void		yerror(int status, char *str);
 
 #endif

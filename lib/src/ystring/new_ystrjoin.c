@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:37:28 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 13:03:18 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 15:22:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ystring.h"
 
-//total length of all strings in arr
+//	total length of all strings in arr
 static int	total_length(char *strs[])
 {
 	int	i;
@@ -25,7 +25,11 @@ static int	total_length(char *strs[])
 	return (total);
 }
 
-//merges multiple strings into one. usage: (char *[]){"a", "b", 0}
+/*	merges multiple strings into one.
+	usage: (char *[]){"a", "b", 0}
+	since strs are NOT modified, if you're using exsisting strings,
+	you should free them after calling this function.
+*/
 char	*new_ystrjoin(char *strs[])
 {
 	char	*res;

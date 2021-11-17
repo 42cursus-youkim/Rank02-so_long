@@ -6,53 +6,44 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/17 12:50:59 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/17 15:40:25 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ===== Target & FLAGS =====
-NAME    ?= libft.a
+NAME     := libft.a
 
-CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror -g3
-VFLAGS  := --track-origins=yes --leak-check=full
-AR      := ar -rcs
-RM      ?= rm -f
+CC       := gcc
+CFLAGS   := -Wall -Wextra -Werror -g3
+VFLAGS   := --track-origins=yes --leak-check=full
+AR       := ar -rcs
+RM       := rm -f
 
-PRE     ?= src/
-INC     ?= -I includes/
+PRE      := src/
+INC      := -I includes/
 
-# ===== Colors =====
-Y       ?= \033[0;33m
-G       ?= \033[0;32m
-V       ?= \033[0;35m
-E       ?= \033[0m
-
-# ===== Functions =====
+# ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
 		$(foreach file, $($(pkg)V),\
-			$(PRE)$(pkg)/$(file).c\
+			$(PRE)y$(pkg)/$(file).c\
 		)\
 	)
 endef
 
-define print_obj
-	'$(1) ->$(subst .c,.o, $(1))'
-endef
-
 # ===== Packages =====
-PKGS    := ystring yarray
-yarrayV  := new_yarr
-ystringV := new_ystr new_ystrjoin ystrlen del_ystr
+PKGS     := string array system
+arrayV   := new_yarr
+stringV  := new_ystr new_ystrjoin ystrlen del_ystr
+systemV  := yexit
 
 # ===== Sources & Objects & Includes =====
-SRC     := $(call choose_modules, $(PKGS))
-OBJ     := $(SRC:%.c=%.o)
+SRC      := $(call choose_modules, $(PKGS))
+OBJ      := $(SRC:%.c=%.o)
 
 # ===== Recipes =====
 %.o: %.c
-	@echo $(call print_obj, $(lastword $(subst /, , $<)))
+	@echo  $(subst .c,.o, $(lastword $(subst /, , $<)))
 	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
@@ -78,8 +69,9 @@ ald: docs all
 
 docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
-	@set -e; for p in $(PKGS); do \
-		../../protogen/run.py "" includes/$$p.h src/$$p; \
+	@set -e;\
+		for p in $(PKGS); do\
+			../../protogen/run.py "" includes/y$$p.h src/y$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
@@ -96,3 +88,9 @@ leak: docs all
 	@rm test
 
 .PHONY: all re clean fclean test red docs
+
+# ===== Colors =====
+Y ?= \033[0;33m
+G ?= \033[0;32m
+V ?= \033[0;35m
+E ?= \033[0m
