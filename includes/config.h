@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yfunctions.h                                       :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 19:39:50 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/17 15:27:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 15:53:01 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:13:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YFUNCTIONS_H
-# define YFUNCTIONS_H
+#ifndef CONFIG_H
+# define CONFIG_H
 
-// ===== @Functions =====
+# define TILE_SIZE 64
+# define MAP_WIDTH 20
+# define MAP_HEIGHT 14
+
+# define GAME_NAME "So Long, and Thanks for All the Fish"
+
+typedef enum e_enums
+{
+	NORTH = 0,
+	EAST = 1,
+	SOUTH = 2,
+	WEST = 3,
+}	t_enums;
 
 #endif
