@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.h                                            :+:      :+:    :+:   */
+/*   yarray.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:42:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/16 17:42:59 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 11:56:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_H
-# define ARRAY_H
+#ifndef YARRAY_H
+# define YARRAY_H
 
-# include "libft.h"
+# include "yconfig.h"
+
+// ===== @Functions =====
+// < new_yarr.c >
+
+int		*new_yarr(int size);
 
 #endif

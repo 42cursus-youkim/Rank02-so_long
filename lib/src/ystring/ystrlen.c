@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ystr_len.c                                         :+:      :+:    :+:   */
+/*   ystrlen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/16 17:57:37 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 11:42:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ystring.h"
 
-int	ystr_len(char *str)
+//length of a string. null termination is not counted.
+int	ystrlen(const char *str)
 {
 	int	res;
 

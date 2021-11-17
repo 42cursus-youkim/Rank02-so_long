@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   oper_ystr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/16 17:42:37 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 11:46:12 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+//same as strcat
+int	ystrcat(char *dest, const char *src)
+{
+	int	i;
+	int	j;
 
-# include "libft.h"
-
-// ===== @Functions =====
-// < ystrlen.c >
-int		ystrlen(char *str);
-
-#endif
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j])
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (i);
+}
