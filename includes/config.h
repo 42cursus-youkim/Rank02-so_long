@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:53:01 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 17:19:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 17:51:48 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,15 @@ typedef enum e_keycode
 	KEY_CAPS_LOCK = 57,
 }	t_keycode;
 
+typedef enum e_mousecode
+{
+	MOUSE_LEFT = 1,
+	MOUSE_RIGHT = 2,
+	MOUSE_MIDDLE = 3,
+	MOUSE_SCROLL_UP = 4,
+	MOUSE_SCROLL_DOWN = 5,
+}	t_mousecode;
+
 typedef enum e_x11events
 {
 	KeyPress = 2,
@@ -148,6 +157,7 @@ typedef enum e_x11masks
 	ColormapChangeMask = (1L<<23),
 	OwnerGrabButtonMask = (1L<<24)
 }	t_x11masks;
+
 typedef enum e_enums
 {
 	NORTH = 0,
