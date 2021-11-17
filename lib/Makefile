@@ -6,45 +6,59 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/16 18:56:30 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/17 12:50:59 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ===== Target & FLAGS =====
-NAME   ?= libft.a
+NAME    ?= libft.a
 
-CC     := gcc
-CFLAG  := -Wall -Wextra -Werror
-AR     := ar rcs
-RM     ?= rm -f
+CC      := gcc
+CFLAGS  := -Wall -Wextra -Werror -g3
+VFLAGS  := --track-origins=yes --leak-check=full
+AR      := ar -rcs
+RM      ?= rm -f
 
-PRE    ?= src/
-INC    ?= -I includes/
+PRE     ?= src/
+INC     ?= -I includes/
+
 # ===== Colors =====
-Y      ?= \033[0;33m
-G      ?= \033[0;32m
-V	   ?= \033[0;35m
-E      ?= \033[0m
+Y       ?= \033[0;33m
+G       ?= \033[0;32m
+V       ?= \033[0;35m
+E       ?= \033[0m
 
-# ===== Raw Sources =====
-ARR    ?= $(addprefix array/, )
-STR    ?= $(addprefix string/, ystrlen)
-SRR    += $(STR) $(ARR)
+# ===== Functions =====
+define choose_modules
+	$(foreach pkg, $(1),\
+		$(foreach file, $($(pkg)V),\
+			$(PRE)$(pkg)/$(file).c\
+		)\
+	)
+endef
+
+define print_obj
+	'$(1) ->$(subst .c,.o, $(1))'
+endef
+
+# ===== Packages =====
+PKGS    := ystring yarray
+yarrayV  := new_yarr
+ystringV := new_ystr new_ystrjoin ystrlen del_ystr
 
 # ===== Sources & Objects & Includes =====
-OBJ    = $(SRC:%.c=%.o)
-SRC    = $(addprefix $(PRE), $(addsuffix .c, $(SRR)))
+SRC     := $(call choose_modules, $(PKGS))
+OBJ     := $(SRC:%.c=%.o)
 
-# ===== Macros =====
+# ===== Recipes =====
 %.o: %.c
-	@echo "$(V)<Compiling Object files...>$(E)"
-	@echo $(SRR)
+	@echo $(call print_obj, $(lastword $(subst /, , $<)))
 	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	@echo "$(V)<Archiving Object files...>$(E)"
-	@$(AR) $@ $^
-	@echo "$(G)<DONE>$(E)"
+	@$(AR) $@ $(OBJ)
+	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
 
@@ -58,10 +72,27 @@ fclean: clean
 
 re: fclean all
 
-test: all
+# ===== Custom Recipes =====
+red: fclean docs all
+ald: docs all
+
+docs:
+	@echo "$(G)<Generating Documentation...>$(E)"
+	@set -e; for p in $(PKGS); do \
+		../../protogen/run.py "" includes/$$p.h src/$$p; \
+		done
+	@echo "$(G)<Updated Docs>$(E)"
+
+test: docs all
 	@echo "$(Y)<Running Test>$(E)"
 	@$(CC) $(INC) $(NAME) test.c -o test
 	@./test
 	@rm test
 
-.PHONY: all re clean fclean test
+leak: docs all
+	@echo "$(Y)<Running Leak Test>$(E)"
+	@$(CC) $(INC) $(NAME) test.c -o test
+	@colour-valgrind $(VFLAGS) ./test
+	@rm test
+
+.PHONY: all re clean fclean test red docs
