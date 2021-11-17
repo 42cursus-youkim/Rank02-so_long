@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/17 15:32:26 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/17 16:46:03 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ VFLAGS   := --track-origins=yes --leak-check=full
 RM       := rm -rf
 
 PRE      := src/
-INC      := -I includes/ -I mlx -I lib/libft.a
+INC      := -I includes/ -I mlx lib/libft.a
 MLX      := -l mlx -framework OpenGL -framework Appkit
 
 # ===== Macros =====
@@ -29,10 +29,6 @@ define choose_modules
 			$(PRE)$(pkg)/$(file).c\
 		)\
 	)
-endef
-
-define print_obj
-	'$(1) ->$(subst .c,.o, $(1))'
 endef
 
 define build_library
@@ -51,7 +47,6 @@ OBJ      := $(SRC:%.c=%.o)
 
 # ===== Recipes =====
 %.o: %.c
-	@echo $(call print_obj, $(lastword $(subst /, , $<)))
 	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
@@ -79,7 +74,7 @@ docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
 	@set -e;\
 		for p in $(PKGS); do\
-			../protogen/run.py;\
+			../protogen/run.py "" includes/$$p.h src/$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
