@@ -6,14 +6,12 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 12:00:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:38:49 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSTRING_H
 # define YSTRING_H
-
-# include "yconfig.h"
 
 // ===== @Functions =====
 // < del_ystr.c >

@@ -6,11 +6,11 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:37:28 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 15:22:51 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:36:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ystring.h"
+#include "libft.h"
 
 //	total length of all strings in arr
 static int	total_length(char *strs[])

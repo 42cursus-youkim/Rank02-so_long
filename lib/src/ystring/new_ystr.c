@@ -6,11 +6,11 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 12:56:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:38:56 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ystring.h"
+#include "libft.h"
 
 /*	copy a string. equivalent to strdup()
 	use NULL TERMINATED STRING if you'r passing it implicitly!!!

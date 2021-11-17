@@ -6,19 +6,19 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:24:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 15:37:09 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:37:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ysystem.h"
+#include "libft.h"
 
 void	yexit(int status)
 {
 	exit(status);
 }
 
-void	yerror(int status, char *str)
+void	yerror(char *str)
 {
 	write(2, str, ystrlen(str));
-	exit(status);
+	exit(1);
 }

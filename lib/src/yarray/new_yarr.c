@@ -6,11 +6,11 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:42:38 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 10:34:51 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:37:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "yarray.h"
+#include "libft.h"
 
 // list of functions to allocate array, NULL terminated.
 int	*new_yarr(int size)
