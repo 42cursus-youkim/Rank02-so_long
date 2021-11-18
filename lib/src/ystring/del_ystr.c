@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yfunctions.h                                       :+:      :+:    :+:   */
+/*   del_ystr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 19:39:50 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/17 15:27:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 10:54:05 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:36:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YFUNCTIONS_H
-# define YFUNCTIONS_H
+#include "libft.h"
 
-// ===== @Functions =====
-
-#endif
+//same as free. hmmm....
+void	del_ystr(char *str)
+{
+	free(str);
+}

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ystrlen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:01:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 11:42:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "ystring.h"
 
-# include <stdio.h>
+//length of a string. null termination is not counted.
+int	ystrlen(const char *str)
+{
+	int	res;
 
-//	===== libraries =====
-# include <mlx.h>
-# include "../lib/includes/libft.h"
-
-//	===== bases =====
-# include "config.h"
-# include "structs.h"
-
-//	===== game =====
-# include "game.h"
-
-#endif
+	res = 0;
+	while (str[res])
+		res++;
+	return (res);
+}

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ystrlen.c                                          :+:      :+:    :+:   */
+/*   yexit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/07 15:50:23 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 15:24:21 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:37:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ystrlen(char *str)
+void	yexit(int status)
 {
-	int	res;
+	exit(status);
+}
 
-	res = 0;
-	while (str[res])
-		res++;
-	return (res);
+void	yerror(char *str)
+{
+	write(2, str, ystrlen(str));
+	exit(1);
 }

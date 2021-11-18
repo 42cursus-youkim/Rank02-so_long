@@ -1,6 +1,9 @@
 so_long
 test
+test.c
 map
 *.o
 *.py
 *.a
+
+so_long.code-workspace

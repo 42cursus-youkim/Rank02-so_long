@@ -5,50 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 15:18:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/10/17 15:36:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:38:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
 # include <stdbool.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# include "yconfig.h"
+# include "ysystem.h"
+# include "ystring.h"
 
 /*	===== Documentation =====
 	refactored libft by @youkim
-	only contains needed and lightweight functions
+	needed and lightweight functions, structured
 
-	[convention]
-		[comments]
-			entry: ===== TEXT ===== ("=" x5)
-			prototypes: ===== @Functions =====
-						used as identifier in protogen
-		[doc scopes]
-			header: [TEXT]
-			each scope is indented
-*/
-
-// ===== Marcos & Enums =====
-
-# define SUCCESS 0
-# define ERROR -1
-
-// ===== @Functions =====
-// < ystrlen.c >
-int		ystrlen(char *str);
-
-/* ===== Additional Naming Convention =====
+	[comments]
+		entry: ===== TEXT ===== ("=" x5)
+		prototypes: ===== @Functions =====
+					used as identifier in protogen
+	[doc scopes]
+		header: [TEXT]
+		each scope is indented
+	[file names prefix]
+		mem: uses both NEW_ and DEL_.
+	[types acronym]
+		int: i, float: f, double: d, char: c, bool: b, string: s
+		array: arr, pointer: ptr, function: fn
+	[returns]
+		default: SUCCESS: 0, ERROR: -1
+		bool with 'is_': TRUE: true, FALSE: false
+		string: SUCCESS: non-null value, ERROR: null
 	[prefix]
+		new_: uses MALLOC / dynamic allocation. somewhat c++ style.
+			every malloced pointer should be freed by except for
+				the pointer returned by malloc
+			except: all dynamically allocated pointer is freed
+				before function exit
+		del_: FREE memory allocated by new
 		y: ALL LIBFT function by @youkim!
+	[infix]
+		first 3~4 letters of directory.
+		e.g y + arr + len => y_arrlen
 	[suffix]
-		_m:	uses MALLOC / dynamic allocation
-			since it's the root of all memory errors
-			it should be handled extra carefully
-			except: all malloced pointer is freed before function exit
-		_f: uses FREE
-		i:	return range includes NEGATIVE INT,
+		{types}: same function but with different types
+			default INT if unspecified
+			new_yarrf, del_yarrll
+		i / l / f:	return range includes NEGATIVE VALUES,
 			-1 based ERROR handling is not possible
 */
 

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ysystem.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:01:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:33:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef YSYSTEM_H
+# define YSYSTEM_H
 
-# include <stdio.h>
+// ===== @Functions =====
+// < yexit.c >
 
-//	===== libraries =====
-# include <mlx.h>
-# include "../lib/includes/libft.h"
-
-//	===== bases =====
-# include "config.h"
-# include "structs.h"
-
-//	===== game =====
-# include "game.h"
+void		yexit(int status);
+void		yerror(char *str);
 
 #endif

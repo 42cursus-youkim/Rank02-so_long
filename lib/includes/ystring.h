@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ystring.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:01:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:38:49 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef YSTRING_H
+# define YSTRING_H
 
-# include <stdio.h>
+// ===== @Functions =====
+// < del_ystr.c >
 
-//	===== libraries =====
-# include <mlx.h>
-# include "../lib/includes/libft.h"
+void		del_ystr(char *str);
 
-//	===== bases =====
-# include "config.h"
-# include "structs.h"
+// < new_ystr.c >
 
-//	===== game =====
-# include "game.h"
+char		*new_ystr(const char *from);
+char		*new_ystre(int length);
+
+// < new_ystrjoin.c >
+
+char		*new_ystrjoin(char *strs[]);
+
+// < oper_ystr.c >
+
+int			ystrcat(char *dest, const char *src);
+
+// < ystrlen.c >
+
+int			ystrlen(const char *str);
 
 #endif

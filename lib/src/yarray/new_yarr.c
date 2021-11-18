@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   new_yarr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:01:54 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 09:42:38 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/17 16:37:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
+// list of functions to allocate array, NULL terminated.
+int	*new_yarr(int size)
+{
+	int	*arr;
 
-//	===== libraries =====
-# include <mlx.h>
-# include "../lib/includes/libft.h"
-
-//	===== bases =====
-# include "config.h"
-# include "structs.h"
-
-//	===== game =====
-# include "game.h"
-
-#endif
+	arr = malloc((size + 1) * sizeof(int));
+	if (!arr)
+		return (NULL);
+	arr[size] = '\0';
+	return (arr);
+}
