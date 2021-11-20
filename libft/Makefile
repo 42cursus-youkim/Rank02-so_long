@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/20 16:48:26 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/20 17:50:38 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,18 +27,22 @@ INC      := -I includes/
 
 # ===== Macros =====
 define choose_modules
-	$(foreach pkg, $(1),\
-		$(foreach file, $($(pkg)V),\
-			$(PRE)y$(pkg)/$(file).c\
-		)\
+	$(foreach pkg, $(1),			\
+		$(foreach file, $($(pkg)V),	\
+			$(PRE)y$(pkg)/$(file).c	\
+		)							\
 	)
 endef
 
 # ===== Packages =====
 PKGS     := string array system dict
 arrayV   := new_yarr
-stringV  := new_ystr new_ystrjoin ystrlen del_ystr
-systemV  := yexit yalloc
+stringV  := \
+	new_ystr del_ystr				\
+	ystrlen  ystr_color				\
+	new_ystrjoin					\
+
+systemV  := yexit yalloc ysyscall
 dictV    := new_ydict del_ydict yhash #ydict_set ydict_get
 
 # ===== Sources & Objects & Includes =====

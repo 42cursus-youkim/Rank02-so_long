@@ -25,4 +25,8 @@ void		*ycalloc(size_t count, size_t size);
 
 void		yexit(int status);
 void		yerror(char *err);
+/*
+** < ysyscall.c > */
+
+int			ywrite(int fd, char *str);
 #endif
