@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/17 15:40:25 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/20 13:09:19 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,11 @@ define choose_modules
 endef
 
 # ===== Packages =====
-PKGS     := string array system
+PKGS     := string array system hashmap
 arrayV   := new_yarr
 stringV  := new_ystr new_ystrjoin ystrlen del_ystr
-systemV  := yexit
+systemV  := yexit yalloc
+hashampV := del_yhmap new_yhmap yhmap_set yhmap_get
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

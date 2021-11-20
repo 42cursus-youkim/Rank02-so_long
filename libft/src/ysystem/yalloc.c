@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   yalloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 15:18:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:34:59 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 13:23:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YCONFIG_H
-# define YCONFIG_H
+#include "libft.h"
 
-//	===== Marcos & Enums =====
-# define SUCCESS 0
-# define ERROR -1
+void	*ymemset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-#endif
+	ptr = (unsigned char *)b;
+	while (--len > 0)
+		ptr[len] = c;
+	return (b);
+}
+
+void	ybzero(void *s, size_t n)
+{
+	ymemset(s, 0, n);
+}
+
+void	*ycalloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(size * count);
+	if (ptr)
+		ybzero(ptr, size * count);
+	return (ptr);
+}
