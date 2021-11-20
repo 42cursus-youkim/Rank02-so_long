@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:38:49 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 19:50:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,16 @@ char		*new_ystrjoin(char *strs[]);
 /*
 ** < oper_ystr.c > */
 
-int			ystrcat(char *dest, const char *src);
+int			ystr_cat(char *dest, const char *src);
 /*
 ** < ystr_color.c > */
 
 void		ystr_color(char **pstr, char *color);
+/*
+** < ystrcmp.c > */
+
+int			ystrcmp(const char *s1, const char *s2);
+bool		is_same(const char *s1, const char *s2);
 /*
 ** < ystrlen.c > */
 

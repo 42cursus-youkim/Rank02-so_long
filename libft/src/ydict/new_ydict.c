@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_ydict.c                                          :+:      :+:    :+:   */
+/*   new_ydict.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 12:26:34 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 16:42:30 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 19:25:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // initializes dictionary and NULLs items
-static void ydict_init(t_dict *dict)
+static void	ydict_init(t_dict *dict)
 {
 	int	i;
 
@@ -34,12 +34,12 @@ t_dict	*new_ydict(void)
 	if (!dict)
 		return (NULL);
 	ydict_init(dict);
-	return (dict);
-	// if (dict->items)
-	// 	return (dict);
-	// else
-	// {
-	// 	free(dict);
-	// 	return (NULL);
-	// }
+	if (dict->items)
+		return (dict);
+	else
+	{
+		free(dict->items);
+		free(dict);
+		return (NULL);
+	}
 }

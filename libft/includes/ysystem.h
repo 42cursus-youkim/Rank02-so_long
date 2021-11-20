@@ -29,4 +29,5 @@ void		yerror(char *err);
 ** < ysyscall.c > */
 
 int			ywrite(int fd, char *str);
+int			ywritecolor(int fd, char *str, char *color);
 #endif
