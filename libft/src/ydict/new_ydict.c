@@ -6,11 +6,24 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 19:25:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 20:50:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// creates a new dictonary item, with key and value
+t_dictitem	*new_ydictitem(const char *key, const char *value)
+{
+	t_dictitem	*item;
+
+	item = malloc(sizeof(t_dictitem));
+	if (!item)
+		return (NULL);
+	item->key = new_ystr(key);
+	item->value = new_ystr(value);
+	return (item);
+}
 
 // initializes dictionary and NULLs items
 static void	ydict_init(t_dict *dict)
@@ -43,3 +56,4 @@ t_dict	*new_ydict(void)
 		return (NULL);
 	}
 }
+

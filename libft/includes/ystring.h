@@ -19,6 +19,16 @@
 
 void		del_ystr(char *str);
 /*
+** < func_ystr.c > */
+
+int			ystrlen(const char *str);
+int			ystrcmp(const char *s1, const char *s2);
+/*
+** < mod_ystr.c > */
+
+int			ystr_cat(char *dest, const char *src);
+void		ystr_color(char **pstr, char *color);
+/*
 ** < new_ystr.c > */
 
 char		*new_ystr(const char *from);
@@ -27,21 +37,4 @@ char		*new_ystre(int length);
 ** < new_ystrjoin.c > */
 
 char		*new_ystrjoin(char *strs[]);
-/*
-** < oper_ystr.c > */
-
-int			ystr_cat(char *dest, const char *src);
-/*
-** < ystr_color.c > */
-
-void		ystr_color(char **pstr, char *color);
-/*
-** < ystrcmp.c > */
-
-int			ystrcmp(const char *s1, const char *s2);
-bool		is_same(const char *s1, const char *s2);
-/*
-** < ystrlen.c > */
-
-int			ystrlen(const char *str);
 #endif

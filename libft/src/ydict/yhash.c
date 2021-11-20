@@ -6,21 +6,24 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:40:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 16:51:02 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 21:20:09 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// returns hashed value
-int	yhash(char *str)
+// FNV-1a hash algorithm
+uint64_t	yhash_fnv1a(const char *key)
 {
-	int	i;
-    int sum;
+	int			i;
+	uint64_t	hash;
 
 	i = -1;
-	sum = 0;
-    while (str[++i])
-        sum += str[i];
-    return sum % YDICT_INITIAL_CAPACITY;
+	hash = FNV_OFFSET;
+	while (key[++i])
+	{
+		hash ^= key[i];
+		hash *= FNV_PRIME;
+	}
+	return (hash);
 }

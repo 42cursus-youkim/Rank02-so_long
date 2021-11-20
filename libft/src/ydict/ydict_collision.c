@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yarray.h                                           :+:      :+:    :+:   */
+/*   ydict_collision.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:42:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 12:29:24 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 21:25:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YARRAY_H
-# define YARRAY_H
+#include "libft.h"
 
-// ===== @Functions =====
-/*
-** < new_yarr.c > */
-
-int		*new_yarr(int size);
-#endif
+void	ydict_handlecollision(t_dict *dict, t_dictitem *item)
+{
+}

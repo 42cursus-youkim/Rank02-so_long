@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_yarr.c                                         :+:      :+:    :+:   */
+/*   ydict_get.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 09:42:38 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:37:04 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 21:24:42 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// list of functions to allocate array, NULL terminated.
-int	*new_yarr(int size)
+char	*ydict_get(t_dict *dict, char *key)
 {
-	int	*arr;
+	int			id;
+	t_dictitem	*item;
 
-	arr = malloc((size + 1) * sizeof(int));
-	if (!arr)
+	id = yhash_fnv1a(key) % (uint64_t)dict->capacity;
+	item = dict->items[id];
+	if (!item || ystrcmp (item->key, key) != 0)
 		return (NULL);
-	arr[size] = '\0';
-	return (arr);
+	return (item->value);
 }

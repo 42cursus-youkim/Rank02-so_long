@@ -14,6 +14,8 @@
 # define YDICT_H
 
 # define YDICT_INITIAL_CAPACITY 2
+# define FNV_OFFSET 14695981039346656037UL
+# define FNV_PRIME 1099511628211UL
 
 typedef struct s_dictitem
 {
@@ -32,14 +34,27 @@ typedef struct s_dict
 /*
 ** < del_ydict.c > */
 
-void		del_ydictitem(t_dictitem *item);
-void		del_ydict(t_dict *dict);
+void			del_ydictitem(t_dictitem *item);
+void			del_ydict(t_dict *dict);
 /*
 ** < new_ydict.c > */
 
-t_dict		*new_ydict(void);
+t_dictitem		*new_ydictitem(const char *key, const char *value);
+t_dict			*new_ydict(void);
+/*
+** < ydict_collision.c > */
+
+void			ydict_handlecollision(t_dict *dict, t_dictitem *item);
+/*
+** < ydict_get.c > */
+
+char			*ydict_get(t_dict *dict, char *key);
+/*
+** < ydict_set.c > */
+
+void			ydict_set(t_dict *dict, char *key, char *value);
 /*
 ** < yhash.c > */
 
-int			yhash(char *str);
+uint64_t		yhash_fnv1a(const char *key);
 #endif
