@@ -24,5 +24,5 @@ void		*ycalloc(size_t count, size_t size);
 ** < yexit.c > */
 
 void		yexit(int status);
-void		yerror(char *str);
+void		yerror(char *err);
 #endif
