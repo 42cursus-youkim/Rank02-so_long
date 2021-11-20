@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:38:56 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:33:05 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 char	*new_ystr(const char *from)
 {
 	int		i;
-	int		len;
 	char	*str;
 
-	len = ystrlen(from);
-	str = new_ystre(len);
+	i = ystrlen(from);
+	str = malloc((i + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	i = -1;
-	while (++i < len)
+	str[i] = '\0';
+	while (i-- > 0)
 		str[i] = from[i];
 	return (str);
 }
