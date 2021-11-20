@@ -32,6 +32,10 @@ char		*new_ystrjoin(char *strs[]);
 
 int			ystrcat(char *dest, const char *src);
 /*
+** < ystr_color.c > */
+
+void		ystr_color(char **pstr, char *color);
+/*
 ** < ystrlen.c > */
 
 int			ystrlen(const char *str);
