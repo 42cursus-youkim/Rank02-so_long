@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   del_ydict.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:43:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 17:05:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#include "libft.h"
 
-// ===== @Functions =====
-/*
-** < hooks.c > */
+void	del_ydictitem(t_dictitem *item)
+{
+	del_ystr(item->key);
+	del_ystr(item->value);
+	free(item);
+}
 
-int			mouse_hook(int button, int x, int y, t_game *game);
-int			key_hook(int keycode, t_game *game);
-int			loop_hook(t_game *game);
-/*
-** < so_long.c > */
+void	del_ydict(t_dict *dict)
+{
+	int	i;
 
-void		init_map(t_game *game);
-void		init_game(t_game *game);
-int			end_game(int keycode, t_game *game);
-#endif
+	i = -1;
+	while (++i < (int)dict->capacity)
+		if (dict->items[i])
+			del_ydictitem(dict->items[i]);
+	free(dict->items);
+	free(dict);
+}

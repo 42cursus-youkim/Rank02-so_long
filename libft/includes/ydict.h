@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   yhashmap.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:43:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 10:29:34 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 12:28:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef YDICT_H
+# define YDICT_H
+
+# define YDICT_INITIAL_CAPACITY 2
+
+typedef struct s_dictitem
+{
+	char	*key;
+	char	*value;
+}	t_dictitem;
+
+typedef struct s_dict
+{
+	t_dictitem	**items;
+	size_t		size;
+	size_t		capacity;
+}	t_dict;
 
 // ===== @Functions =====
 /*
-** < hooks.c > */
+** < del_ydict.c > */
 
-int			mouse_hook(int button, int x, int y, t_game *game);
-int			key_hook(int keycode, t_game *game);
-int			loop_hook(t_game *game);
+void		del_ydictitem(t_dictitem *item);
+void		del_ydict(t_dict *dict);
 /*
-** < so_long.c > */
+** < new_ydict.c > */
 
-void		init_map(t_game *game);
-void		init_game(t_game *game);
-int			end_game(int keycode, t_game *game);
+t_dict		*new_ydict(void);
+/*
+** < yhash.c > */
+
+int			yhash(char *str);
 #endif

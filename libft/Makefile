@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/20 13:09:19 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/20 16:48:26 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME     := libft.a
 
 CC       := gcc
 CFLAGS   := -Wall -Wextra -Werror -g3
-VFLAGS   := --track-origins=yes --leak-check=full
+VFLAGS   := --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes \
+			--suppressions=./valgrind.suppressions \
+			#--gen-suppressions=yes
 AR       := ar -rcs
 RM       := rm -f
 
@@ -32,11 +35,11 @@ define choose_modules
 endef
 
 # ===== Packages =====
-PKGS     := string array system hashmap
+PKGS     := string array system dict
 arrayV   := new_yarr
 stringV  := new_ystr new_ystrjoin ystrlen del_ystr
 systemV  := yexit yalloc
-hashampV := del_yhmap new_yhmap yhmap_set yhmap_get
+dictV    := new_ydict del_ydict yhash #ydict_set ydict_get
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

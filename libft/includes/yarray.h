@@ -6,18 +6,16 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:42:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:35:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 12:29:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YARRAY_H
 # define YARRAY_H
 
-# include "yconfig.h"
-
 // ===== @Functions =====
-// < new_yarr.c >
+/*
+** < new_yarr.c > */
 
 int		*new_yarr(int size);
-
 #endif

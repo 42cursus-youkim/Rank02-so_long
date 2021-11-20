@@ -14,25 +14,25 @@
 # define YSTRING_H
 
 // ===== @Functions =====
-// < del_ystr.c >
+/*
+** < del_ystr.c > */
 
 void		del_ystr(char *str);
-
-// < new_ystr.c >
+/*
+** < new_ystr.c > */
 
 char		*new_ystr(const char *from);
 char		*new_ystre(int length);
-
-// < new_ystrjoin.c >
+/*
+** < new_ystrjoin.c > */
 
 char		*new_ystrjoin(char *strs[]);
-
-// < oper_ystr.c >
+/*
+** < oper_ystr.c > */
 
 int			ystrcat(char *dest, const char *src);
-
-// < ystrlen.c >
+/*
+** < ystrlen.c > */
 
 int			ystrlen(const char *str);
-
 #endif

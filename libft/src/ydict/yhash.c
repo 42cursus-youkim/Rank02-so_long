@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   yhash.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:43:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 16:40:39 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 16:51:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#include "libft.h"
 
-// ===== @Functions =====
-/*
-** < hooks.c > */
+// returns hashed value
+int	yhash(char *str)
+{
+	int	i;
+    int sum;
 
-int			mouse_hook(int button, int x, int y, t_game *game);
-int			key_hook(int keycode, t_game *game);
-int			loop_hook(t_game *game);
-/*
-** < so_long.c > */
-
-void		init_map(t_game *game);
-void		init_game(t_game *game);
-int			end_game(int keycode, t_game *game);
-#endif
+	i = -1;
+	sum = 0;
+    while (str[++i])
+        sum += str[i];
+    return sum % YDICT_INITIAL_CAPACITY;
+}
