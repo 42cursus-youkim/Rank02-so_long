@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/17 17:43:39 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/17 19:31:02 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ VFLAGS   := --track-origins=yes --leak-check=full
 RM       := rm -rf
 
 PRE      := src/
-INC      := -I includes/ -I mlx lib/libft.a
+INC      := -I includes/ -I mlx libft/libft.a
 MLX      := -l mlx -framework OpenGL -framework Appkit
 
 # ===== Macros =====
@@ -32,10 +32,9 @@ define choose_modules
 endef
 
 define build_library
-	@make all -C lib/
+	@make all -C libft/
 	@echo "$(G)<Built Library>$(E)"
 endef
-#REPLACE WITH make all -C lib/
 
 # ===== Packages =====
 PKGS     := game
