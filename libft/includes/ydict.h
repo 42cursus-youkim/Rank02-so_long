@@ -13,7 +13,7 @@
 #ifndef YDICT_H
 # define YDICT_H
 
-# define YDICT_INITIAL_CAPACITY 8
+# define YDICT_INITIAL_CAPACITY 2
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
@@ -40,12 +40,11 @@ void			del_ydict(t_dict *dict);
 ** < new_ydict.c > */
 
 t_dictitem		*new_ydictitem(const char *key, const char *value);
-t_dictitem		**new_ydictitem_arr(int capacity);
+t_dictitem		**new_ydictitem_arr(size_t capacity);
 t_dict			*new_ydict(void);
 /*
 ** < ydict_expand.c > */
 
-bool			is_capacity_overflow(int new, int old);
 bool			ydict_expand(t_dict *dict);
 /*
 ** < ydict_get.c > */
@@ -62,6 +61,7 @@ bool			is_dict_almostfull(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
+void			ydict_insert(t_dict *dict, int id, char *key, char *value);
 void			ydict_set(t_dict *dict, char *key, char *value);
 /*
 ** < yhash.c > */

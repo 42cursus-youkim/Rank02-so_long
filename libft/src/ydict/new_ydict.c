@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:14:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:24:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ t_dictitem	*new_ydictitem(const char *key, const char *value)
 }
 
 //	creates new NULL-set array of items
-t_dictitem	**new_ydictitem_arr(int capacity)
+t_dictitem	**new_ydictitem_arr(size_t capacity)
 {
-	int			i;
+	size_t		id;
 	t_dictitem	**items;
 
 	items = ycalloc(capacity, sizeof(t_dictitem *));
-	i = -1;
-	while (++i < capacity)
-		items[i] = NULL;
+	if (!items)
+		return (NULL);
+	id = 0;
+	while (id < capacity)
+		items[id++] = NULL;
 	return (items);
 }
 

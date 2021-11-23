@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:07:31 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:21:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define YDICT_INITIAL_CAPACITY 16
 
 //	insert new item at empty index of dictionary
-static void	ydict_insert(t_dict *dict, int id, char *key, char *value)
+void	ydict_insert(t_dict *dict, int id, char *key, char *value)
 {
 	t_dictitem	*item;
 
