@@ -34,6 +34,7 @@ void		ystr_color(char **pstr, char *color);
 
 char		*new_ystr(const char *from);
 char		*new_ystre(int length);
+char		*new_ystrm(int length);
 /*
 ** < new_ystrjoin.c > */
 

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/23 11:24:11 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 12:59:47 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,15 @@ define choose_modules
 endef
 
 # ===== Packages =====
-PKGS     := string array system dict
-# arrayV   := new_yarr
-systemV  := yexit yalloc ysyscall
+PKGS     := string linked system dict math
+
+# linkedV   := new_ylist new_ydeque
+mathV  := \
+	func_ymath new_yitoa
+
+systemV  := \
+	yexit yalloc ysyscall
+
 stringV  := \
 	new_ystr new_ystrjoin del_ystr	\
 	mod_ystr func_ystr				\
