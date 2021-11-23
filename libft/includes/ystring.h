@@ -28,7 +28,7 @@ bool		ystrequ(const char *s1, const char *s2);
 /*
 ** < mod_ystr.c > */
 
-int			ystr_cat(char *dest, const char *src);
+int			ystr_append(char **pstr, char *src);
 void		ystr_color(char **pstr, char *color);
 /*
 ** < new_ystr.c > */
