@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:01:54 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:30:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 //	===== libraries =====
 # include <mlx.h>
-# include "../lib/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 //	===== bases =====
 # include "config.h"

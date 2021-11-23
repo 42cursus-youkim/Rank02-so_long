@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 19:03:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:05:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	key_hook(int keycode, t_game *game)
 //	called every screen refresh by mlx_loop_hook()
 int	loop_hook(t_game *game)
 {
-	// printf("Hello from loop_hook!\n");
 	mlx_put_image_to_window(game->mlx, game->win, game->test_img.data, 0, 0);
 	return (0);
 }

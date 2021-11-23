@@ -6,22 +6,30 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:38:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:58:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+//	===== includes =====
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
-# include "yconfig.h"
-# include "ysystem.h"
 # include "ystring.h"
+# include "ysystem.h"
+# include "ydict.h"
+# include "ymath.h"
+# include "colors.h"
 
-/*	===== Documentation =====
+//	===== Marcos & Enums =====
+# define SUCCESS 0
+# define ERROR -1
+
+/*	===== Documentations =====
 	refactored libft by @youkim
 	needed and lightweight functions, structured
 
@@ -32,15 +40,22 @@
 	[doc scopes]
 		header: [TEXT]
 		each scope is indented
+
 	[file names prefix]
-		mem: uses both NEW_ and DEL_.
+		new_ : functions that needs to be del_ed.
+		del_ : frees allocated memory from new_.
+		mod_ : modifys given parameter. similar to methods.
+		func_: pure functions. do not modify any given params.
+
 	[types acronym]
 		int: i, float: f, double: d, char: c, bool: b, string: s
 		array: arr, pointer: ptr, function: fn
+
 	[returns]
 		default: SUCCESS: 0, ERROR: -1
 		bool with 'is_': TRUE: true, FALSE: false
 		string: SUCCESS: non-null value, ERROR: null
+
 	[prefix]
 		new_: uses MALLOC / dynamic allocation. somewhat c++ style.
 			every malloced pointer should be freed by except for
@@ -49,15 +64,22 @@
 				before function exit
 		del_: FREE memory allocated by new
 		y: ALL LIBFT function by @youkim!
+
 	[infix]
 		first 3~4 letters of directory.
 		e.g y + arr + len => y_arrlen
+
 	[suffix]
 		{types}: same function but with different types
 			default INT if unspecified
 			new_yarrf, del_yarrll
 		i / l / f:	return range includes NEGATIVE VALUES,
 			-1 based ERROR handling is not possible
+		_verb: acts like an 'METHOD'.
+			e.g ystr_color is used like ystr.color()
+			recieves 'reference' to modify.
+			only use if the function changes state of given value.
+			e.g ystrlen is not method
 */
 
 #endif

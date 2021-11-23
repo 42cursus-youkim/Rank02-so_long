@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   new_yitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:43:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 12:45:25 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 13:27:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#include "libft.h"
 
-// ===== @Functions =====
-/*
-** < hooks.c > */
+char	*new_yitoa(int n)
+{
+	char	*str;
+	int		digit;
+	long	num;
 
-int			mouse_hook(int button, int x, int y, t_game *game);
-int			key_hook(int keycode, t_game *game);
-int			loop_hook(t_game *game);
-/*
-** < so_long.c > */
-
-void		init_map(t_game *game);
-void		init_game(t_game *game);
-int			end_game(int keycode, t_game *game);
-#endif
+	num = n;
+	if (num == 0)
+		return (new_ystr("0"));
+	digit = ydigits(num);
+	if (num < 0)
+		digit++;
+	str = new_ystrm(digit);
+	if (num < 0)
+	{
+		num = -num;
+		str[0] = '-';
+	}
+	while (num > 0)
+	{
+		str[--digit] = '0' + (num % 10);
+		num /= 10;
+	}
+	return (str);
+}

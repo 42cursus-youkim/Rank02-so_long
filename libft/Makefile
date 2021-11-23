@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/17 15:40:25 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 15:46:27 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME     := libft.a
 
 CC       := gcc
 CFLAGS   := -Wall -Wextra -Werror -g3
-VFLAGS   := --track-origins=yes --leak-check=full
+VFLAGS   := --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes \
+			--suppressions=./valgrind.suppressions
 AR       := ar -rcs
 RM       := rm -f
 
@@ -24,18 +26,31 @@ INC      := -I includes/
 
 # ===== Macros =====
 define choose_modules
-	$(foreach pkg, $(1),\
-		$(foreach file, $($(pkg)V),\
-			$(PRE)y$(pkg)/$(file).c\
-		)\
+	$(foreach pkg, $(1),			\
+		$(foreach file, $($(pkg)V),	\
+			$(PRE)y$(pkg)/$(file).c	\
+		)							\
 	)
 endef
 
 # ===== Packages =====
-PKGS     := string array system
-arrayV   := new_yarr
-stringV  := new_ystr new_ystrjoin ystrlen del_ystr
-systemV  := yexit
+PKGS     := string linked system dict math
+
+# linkedV   := new_ylist new_ydeque
+mathV  := \
+	func_ymath new_yitoa
+
+systemV  := \
+	yexit yalloc ysyscall ylog
+
+stringV  := \
+	new_ystr new_ystrjoin del_ystr	\
+	mod_ystr func_ystr				\
+
+dictV    := \
+	new_ydict del_ydict yhash			\
+	ydict_set ydict_get	ydict_expand	\
+	ydict_property ydict_status
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
@@ -80,6 +95,7 @@ test: docs all
 	@$(CC) $(INC) $(NAME) test.c -o test
 	@./test
 	@rm test
+	@echo "$(G)<Ended Test>$(E)"
 
 leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
@@ -87,10 +103,16 @@ leak: docs all
 	@colour-valgrind $(VFLAGS) ./test
 	@rm test
 
+leaksup: docs all
+	@echo "$(Y)<Creating Leak Suppressions>$(E)"
+	@$(CC) $(INC) $(NAME) test.c -o test
+	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
+	@rm test
+
 .PHONY: all re clean fclean test red docs
 
 # ===== Colors =====
 Y ?= \033[0;33m
-G ?= \033[0;32m
+G ?= \033[0;92m
 V ?= \033[0;35m
 E ?= \033[0m

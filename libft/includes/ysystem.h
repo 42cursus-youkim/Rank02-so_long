@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   ysystem.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:43:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 12:33:56 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef YSYSTEM_H
+# define YSYSTEM_H
 
 // ===== @Functions =====
 /*
-** < hooks.c > */
+** < yalloc.c > */
 
-int			mouse_hook(int button, int x, int y, t_game *game);
-int			key_hook(int keycode, t_game *game);
-int			loop_hook(t_game *game);
+void		*ymemset(void *b, int c, size_t len);
+void		ybzero(void *s, size_t n);
+void		*ycalloc(size_t count, size_t size);
 /*
-** < so_long.c > */
+** < yexit.c > */
 
-void		init_map(t_game *game);
-void		init_game(t_game *game);
-int			end_game(int keycode, t_game *game);
+void		yexit(int status);
+/*
+** < ylog.c > */
+
+void		ywarn(char *warn);
+void		yerror(char *where, char *err);
+/*
+** < ysyscall.c > */
+
+int			ywrite(int fd, char *str);
+int			ywritecolor(int fd, char *str, char *color);
 #endif

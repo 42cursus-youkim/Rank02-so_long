@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 18:55:18 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:05:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	end_game(int keycode, t_game *game)
 int	main(int argc, char *argv[])
 {
 	t_game	game;
-
+	
 	init_game(&game);
 	game.test_img.data = mlx_xpm_file_to_image(game.mlx, "img/test.xpm", &game.test_img.data, &game.test_img.data);
 	// mlx_key_hook(game.win, key_hook, &game);

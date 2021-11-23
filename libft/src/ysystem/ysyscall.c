@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_yarr.c                                         :+:      :+:    :+:   */
+/*   ysyscall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 09:42:38 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:37:04 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 13:29:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// list of functions to allocate array, NULL terminated.
-int	*new_yarr(int size)
+//	just an wrapper for write() but without annoying length parameter
+int	ywrite(int fd, char *str)
 {
-	int	*arr;
+	return (write(fd, str, ystrlen(str)));
+}
 
-	arr = malloc((size + 1) * sizeof(int));
-	if (!arr)
-		return (NULL);
-	arr[size] = '\0';
-	return (arr);
+//	same as write but with colors
+int	ywritecolor(int fd, char *str, char *color)
+{
+	int		result;
+	char	*temp;
+
+	temp = new_ystr(str);
+	ystr_color(&temp, color);
+	result = ywrite(fd, temp);
+	del_ystr(temp);
+	return (result);
 }

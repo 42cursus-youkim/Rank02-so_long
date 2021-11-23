@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:37:28 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:36:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/20 17:54:31 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	total_length(char *strs[])
 }
 
 /*	merges multiple strings into one.
-	usage: (char *[]){"a", "b", 0}
+	usage: (char *[]){"a", "b", NULL}
 	since strs are NOT modified, if you're using exsisting strings,
 	you should free them after calling this function.
 */

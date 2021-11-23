@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yarray.h                                           :+:      :+:    :+:   */
+/*   yalloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:42:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 16:35:10 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/20 13:33:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YARRAY_H
-# define YARRAY_H
+#include "libft.h"
 
-# include "yconfig.h"
+void	*ymemset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-// ===== @Functions =====
-// < new_yarr.c >
+	ptr = (unsigned char *)b;
+	while (--len > 0)
+		ptr[len] = c;
+	return (b);
+}
 
-int		*new_yarr(int size);
+void	ybzero(void *s, size_t n)
+{
+	ymemset(s, 0, n);
+}
 
-#endif
+void	*ycalloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(size * count);
+	if (ptr)
+		ybzero(ptr, size * count);
+	return (ptr);
+}
