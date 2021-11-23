@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:24:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 19:00:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // creates a new dictonary item, with key and value
-t_dictitem	*new_ydictitem(const char *key, const char *value)
+t_dictitem	*new_ydictitem(const char *key, void *value)
 {
 	t_dictitem	*item;
 
@@ -21,7 +21,7 @@ t_dictitem	*new_ydictitem(const char *key, const char *value)
 	if (!item)
 		return (NULL);
 	item->key = new_ystr(key);
-	item->value = new_ystr(value);
+	item->value = value;
 	return (item);
 }
 
@@ -48,7 +48,11 @@ static void	ydict_init(t_dict *dict)
 	dict->items = new_ydictitem_arr(dict->capacity);
 }
 
-// creates an empty dict. returns NULL if memory allocation fails.
+/*	creates an empty dict.
+	Internal structure assumes all items are of SAME TYPE.
+	(or, it should be able to deconstructed with same del_func pointer)
+	returns NULL if memory allocation fails.
+*/
 t_dict	*new_ydict(void)
 {
 	t_dict	*dict;

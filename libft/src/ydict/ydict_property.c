@@ -6,12 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:46:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 16:06:54 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 18:40:33 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//	visualize list. only works when EVERY values are string.
 void	ydict_list_items(t_dict *dict)
 {
 	size_t		id;

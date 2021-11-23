@@ -20,7 +20,7 @@
 typedef struct s_dictitem
 {
 	char	*key;
-	char	*value;
+	void	*value;
 }	t_dictitem;
 
 typedef struct s_dict
@@ -34,12 +34,13 @@ typedef struct s_dict
 /*
 ** < del_ydict.c > */
 
-void			del_ydictitem(t_dictitem *item);
+void			del_ydictitem(t_dictitem *item, void (*del_value)(void *));
+void			del_ydictff(t_dict *dict, void (*del_value)(void *));
 void			del_ydict(t_dict *dict);
 /*
 ** < new_ydict.c > */
 
-t_dictitem		*new_ydictitem(const char *key, const char *value);
+t_dictitem		*new_ydictitem(const char *key, void *value);
 t_dictitem		**new_ydictitem_arr(size_t capacity);
 t_dict			*new_ydict(void);
 /*
@@ -59,7 +60,8 @@ void			ydict_list_items(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
-void			ydict_set(t_dict *dict, char *key, char *value);
+void			ydict_set(t_dict *dict, char *key, void *value);
+void			ydict_setstr(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
 
