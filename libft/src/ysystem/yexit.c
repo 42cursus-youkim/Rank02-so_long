@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:24:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 18:25:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:33:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	yexit(int status)
 	exit(status);
 }
 
-void	yerror(char *err)
+void	yerror(char *where, char *err)
 {
 	char	*msg;
 
 	msg = new_ystrjoin((char *[]) \
-		{"[Error!]\n    ", err, "\n", NULL} \
+		{"[Error! @ ", where, "]\n    ", err, "\n", NULL} \
 	);
 	ywritecolor(2, msg, BHRED);
 	del_ystr(msg);

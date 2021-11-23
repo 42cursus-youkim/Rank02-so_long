@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 18:15:49 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:34:00 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 int	ywrite(int fd, char *str)
 {
 	return (write(fd, str, ystrlen(str)));
+}
+
+void	ywarn(char *where, char *warn)
+{
+	char	*msg;
+
+	msg = new_ystrjoin((char *[]) \
+		{"[Warning @", where, "]\n    ", warn, "\n", NULL} \
+	);
+	ywritecolor(2, msg, YEL);
+	del_ystr(msg);
 }
 
 //	same as write but with colors

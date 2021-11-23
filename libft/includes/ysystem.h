@@ -24,10 +24,11 @@ void		*ycalloc(size_t count, size_t size);
 ** < yexit.c > */
 
 void		yexit(int status);
-void		yerror(char *err);
+void		yerror(char *where, char *err);
 /*
 ** < ysyscall.c > */
 
 int			ywrite(int fd, char *str);
+void		ywarn(char *where, char *warn);
 int			ywritecolor(int fd, char *str, char *color);
 #endif
