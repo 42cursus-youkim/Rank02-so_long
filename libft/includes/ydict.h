@@ -13,7 +13,7 @@
 #ifndef YDICT_H
 # define YDICT_H
 
-# define YDICT_INITIAL_CAPACITY 2
+# define YDICT_INITIAL_CAPACITY 4
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
@@ -45,12 +45,13 @@ t_dict			*new_ydict(void);
 /*
 ** < ydict_expand.c > */
 
-bool			ydict_expand(t_dict *dict);
+int				ydict_expand(t_dict *dict);
 /*
 ** < ydict_get.c > */
 
 int				ydict_getid(size_t capacity, char *key);
 char			*ydict_get(t_dict *dict, char *key);
+char			*ydict_getd(t_dict *dict, char *key, char *defaultv);
 /*
 ** < ydict_property.c > */
 
@@ -58,15 +59,16 @@ void			ydict_list_items(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
-void			ydict_insert(t_dict *dict, int id, char *key, char *value);
+void			ydict_insert(t_dict *dict, size_t id, char *key, char *value);
 void			ydict_set(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
 
 bool			is_input_valid(t_dict *dict, char *key, void *value);
-bool			is_key_vacant(t_dict *dict, int id);
-bool			is_key_update(t_dict *dict, int id, char *key);
+bool			is_key_vacant(t_dict *dict, size_t id);
+bool			is_key_update(t_dict *dict, size_t id, char *key);
 bool			is_dict_almostfull(t_dict *dict);
+bool			is_capacity_overflow(t_dict *dict);
 /*
 ** < yhash.c > */
 

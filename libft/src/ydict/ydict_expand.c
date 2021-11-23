@@ -6,19 +6,45 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 15:53:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:01:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_capacity_overflow(int new, int old)
+static bool	is_newkey_vacant(t_dictitem **new_items, size_t id)
 {
-	return (new < old);
+	return (!new_items[id]);
+}
+
+static void	ydict_moveprobeditem(
+	t_dictitem **new_items, size_t id, t_dictitem *item
+)
+{
+	ywarn("PROBE HERE");
+	new_items[id] = item;
+}
+
+static void	ydict_probenew(
+	t_dictitem **new_items, size_t new_capacity, size_t id, t_dictitem *item
+)
+{
+	size_t	i;
+
+	i = id;
+	while (++i < new_capacity)
+		if (is_newkey_vacant(new_items, i))
+			return (ydict_moveprobeditem(new_items, i, item));
+	i = 0;
+	while (i < id)
+		if (is_newkey_vacant(new_items, ++i))
+			return (ydict_moveprobeditem(new_items, --i, item));
+	ywarn("for some mysterious reason new dict is FULL! how come???");
 }
 
 static void	ydict_move_items(
-	t_dict *dict, t_dictitem **new_items, int new_capacity)
+	t_dict *dict, t_dictitem **new_items, int new_capacity
+)
 {
 	size_t		i;
 	size_t		id;
@@ -31,7 +57,10 @@ static void	ydict_move_items(
 		if (item && item->key)
 		{
 			id = ydict_getid(new_capacity, item->key);
-			new_items[id] = item;
+			if (is_newkey_vacant(new_items, id))
+				new_items[id] = item;
+			else
+				ydict_probenew(new_items, new_capacity, id, item);
 		}
 		i++;
 	}
@@ -39,18 +68,19 @@ static void	ydict_move_items(
 	dict->items = new_items;
 }
 
-bool	ydict_expand(t_dict *dict)
+//	returns
+int	ydict_expand(t_dict *dict)
 {
 	size_t		new_capacity;
 	t_dictitem	**new_items;
 
+	if (is_capacity_overflow(dict))
+		return (ERROR);
 	new_capacity = dict->capacity * 2;
-	if (is_capacity_overflow(new_capacity, dict->capacity))
-		return (false);
 	new_items = new_ydictitem_arr(new_capacity);
 	if (!new_items)
-		return (false);
+		return (ERROR);
 	ydict_move_items(dict, new_items, new_capacity);
 	dict->capacity = new_capacity;
-	return (true);
+	return (SUCCESS);
 }

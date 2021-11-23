@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 15:43:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:22:14 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define YDICT_INITIAL_CAPACITY 16
 
 //	insert new item at empty index of dictionary
-void	ydict_insert(t_dict *dict, int id, char *key, char *value)
+static void	ydict_insert(t_dict *dict, size_t id, char *key, char *value)
 {
 	t_dictitem	*item;
 
@@ -25,27 +25,45 @@ void	ydict_insert(t_dict *dict, int id, char *key, char *value)
 }
 
 //	replace the value of an existing key
-static void	ydict_update(t_dict *dict, int id, char *value)
+static void	ydict_update(t_dict *dict, size_t id, char *value)
 {
 	free(dict->items[id]->value);
 	dict->items[id]->value = new_ystr(value);
 }
 
+static void	ydict_probe(t_dict *dict, size_t id, char *key, char *value)
+{
+	size_t	i;
+
+	i = id;
+	while (++i < dict->capacity)
+		if (is_key_vacant(dict, i))
+			return (ydict_insert(dict, i, key, value));
+	i = 0;
+	while (i < id)
+		if (is_key_vacant(dict, i++))
+			return (ydict_insert(dict, --i, key, value));
+	ywarn("for some mysterious reason the dict is FULL! how come???");
+}
+
+/*	key vacant: inserts new item
+	key same  : replaces value
+	key diff  : probe for empty index
+*/
 void	ydict_set(t_dict *dict, char *key, char *value)
 {
-	int	id;
+	size_t	id;
 
 	if (!is_input_valid(dict, key, value))
-		yerror("ydict_set", "invalid input");
+		yerror("ydict_set", "invalid input!");
+	// if (is_dict_almostfull(dict))
+	// 	if (ydict_expand(dict) == ERROR)
+	// 		return ;
 	id = ydict_getid(dict->capacity, key);
 	if (is_key_vacant(dict, id))
 		ydict_insert(dict, id, key, value);
 	else if (is_key_update(dict, id, key))
 		ydict_update(dict, id, value);
 	else
-		yerror("ydict_set", "hash conflict!");
-	printf("ydict_set:id: %d | capacity %zu/%zu\n", id,
-		dict->size, dict->capacity);
-	if (is_dict_almostfull(dict))
-		ydict_expand(dict);
+		ydict_probe(dict, id, key, value);
 }
