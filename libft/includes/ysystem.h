@@ -27,7 +27,7 @@ void		yexit(int status);
 /*
 ** < ylog.c > */
 
-void		ywarn(char *where, char *warn);
+void		ywarn(char *warn);
 void		yerror(char *where, char *err);
 /*
 ** < ysyscall.c > */

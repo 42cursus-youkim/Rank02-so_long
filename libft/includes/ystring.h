@@ -6,19 +6,20 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:15:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 16:53:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSTRING_H
 # define YSTRING_H
 
-# define NODIFF 0
+# define SAME 0
 // ===== @Functions =====
 /*
 ** < del_ystr.c > */
 
 void		del_ystr(char *str);
+void		del_ystrs(char *strs[]);
 /*
 ** < func_ystr.c > */
 
