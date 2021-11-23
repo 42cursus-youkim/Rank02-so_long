@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:29:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 13:33:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:34:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//	log at STDERR, but does not kill process
+//	log at STDOUT, but does not kill process
 void	ywarn(char *where, char *warn)
 {
 	char	*msg;
@@ -20,7 +20,7 @@ void	ywarn(char *where, char *warn)
 	msg = new_ystrjoin((char *[]) \
 		{"[Warning @", where, "]\n    ", warn, "\n", NULL} \
 	);
-	ywritecolor(2, msg, YEL);
+	ywritecolor(1, msg, YEL);
 	del_ystr(msg);
 }
 

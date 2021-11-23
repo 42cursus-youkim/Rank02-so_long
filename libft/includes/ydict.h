@@ -49,20 +49,24 @@ bool			ydict_expand(t_dict *dict);
 /*
 ** < ydict_get.c > */
 
-int				ydict_getid(t_dict *dict, char *key);
+int				ydict_getid(size_t capacity, char *key);
 char			*ydict_get(t_dict *dict, char *key);
 /*
 ** < ydict_property.c > */
 
-bool			is_input_valid(t_dict *dict, char *key, void *value);
-bool			is_key_vacant(t_dict *dict, int id);
-bool			is_key_update(t_dict *dict, int id, char *key);
-bool			is_dict_almostfull(t_dict *dict);
+void			ydict_list_items(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
 void			ydict_insert(t_dict *dict, int id, char *key, char *value);
 void			ydict_set(t_dict *dict, char *key, char *value);
+/*
+** < ydict_status.c > */
+
+bool			is_input_valid(t_dict *dict, char *key, void *value);
+bool			is_key_vacant(t_dict *dict, int id);
+bool			is_key_update(t_dict *dict, int id, char *key);
+bool			is_dict_almostfull(t_dict *dict);
 /*
 ** < yhash.c > */
 

@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 11:17:16 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:07:23 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 15:46:37 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 16:06:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	is_input_valid(t_dict *dict, char *key, void *value)
+void	ydict_list_items(t_dict *dict)
 {
-	return (dict && key && value);
-}
+	size_t		id;
+	t_dictitem	*item;
 
-bool	is_key_vacant(t_dict *dict, int id)
-{
-	return (!dict->items[id]);
-}
-
-bool	is_key_update(t_dict *dict, int id, char *key)
-{
-	return (ystrcmp(dict->items[id]->key, key) == NODIFF);
-}
-
-bool	is_dict_almostfull(t_dict *dict)
-{
-	return (dict->size >= dict->capacity / 2);
+	id = 0;
+	printf("%sID |%-8s|%-12s%s\n", UMAG, "KEY", "VALUE", END);
+	while (id < dict->capacity)
+	{
+		item = dict->items[id];
+		if (item && item->key)
+			printf("%s%2zu |%-8s|%s\n%s",
+				HGRN, id++, item->key, item->value, END);
+		else
+			printf("%2zu |%8s|\n", id++, "");
+	}
 }

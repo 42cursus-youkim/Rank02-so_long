@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/23 13:33:55 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 15:46:27 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,8 @@ stringV  := \
 
 dictV    := \
 	new_ydict del_ydict yhash			\
-	ydict_set ydict_get	ydict_property	\
-	ydict_expand
+	ydict_set ydict_get	ydict_expand	\
+	ydict_property ydict_status
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
