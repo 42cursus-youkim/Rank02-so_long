@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:21:51 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:43:43 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ void	ydict_set(t_dict *dict, char *key, char *value)
 
 	if (!is_input_valid(dict, key, value))
 		yerror("ydict_set", "invalid input");
-	id = ydict_getid(dict, key);
-	if (is_dict_almostfull(dict))
-		ydict_expand(dict);
+	id = ydict_getid(dict->capacity, key);
 	if (is_key_vacant(dict, id))
 		ydict_insert(dict, id, key, value);
 	else if (is_key_update(dict, id, key))
 		ydict_update(dict, id, value);
+	else
+		yerror("ydict_set", "hash conflict!");
 	printf("ydict_set:id: %d | capacity %zu/%zu\n", id,
 		dict->size, dict->capacity);
+	if (is_dict_almostfull(dict))
+		ydict_expand(dict);
 }
