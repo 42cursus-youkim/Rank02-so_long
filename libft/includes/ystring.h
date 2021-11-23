@@ -6,13 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 19:50:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:40:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSTRING_H
 # define YSTRING_H
 
+# define NODIFF 0
 // ===== @Functions =====
 /*
 ** < del_ystr.c > */

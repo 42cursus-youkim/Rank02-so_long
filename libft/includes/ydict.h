@@ -13,7 +13,7 @@
 #ifndef YDICT_H
 # define YDICT_H
 
-# define YDICT_INITIAL_CAPACITY 2
+# define YDICT_INITIAL_CAPACITY 1
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
@@ -42,13 +42,20 @@ void			del_ydict(t_dict *dict);
 t_dictitem		*new_ydictitem(const char *key, const char *value);
 t_dict			*new_ydict(void);
 /*
-** < ydict_collision.c > */
+** < ydict_expand.c > */
 
-void			ydict_handlecollision(t_dict *dict, t_dictitem *item);
+void			ydict_expand(t_dict *dict);
 /*
 ** < ydict_get.c > */
 
+int				ydict_getid(t_dict *dict, char *key);
 char			*ydict_get(t_dict *dict, char *key);
+/*
+** < ydict_property.c > */
+
+bool			is_input_valid(t_dict *dict, char *key, void *value);
+bool			is_key_vacant(t_dict *dict, int id);
+bool			is_key_update(t_dict *dict, int id, char *key);
 /*
 ** < ydict_set.c > */
 

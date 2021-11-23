@@ -6,53 +6,45 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 21:25:23 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:50:13 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_valid(t_dict *dict, char *key, void *value)
+//	insert new item at empty index of dictionary
+static void	ydict_insert(t_dict *dict, int id, char *key, char *value)
 {
-	if (!dict || !key || !value)
-		yerror("ydict_set: invalid argument");
-	if (dict->size == dict->capacity)
-	{
-		ywritecolor(2, "ydict_set: dict is full\n", RED);
-		return (false);
-	}
-	return (true);
+	t_dictitem	*item;
+
+	item = new_ydictitem(key, value);
+	dict->items[id] = item;
+	dict->size++;
 }
 
-static bool	is_key_vacant(t_dict *dict, int id)
+//	replace the value of an existing key
+static void	ydict_update(t_dict *dict, int id, char *value)
 {
-	return (!dict->items[id]);
-}
-
-static bool	is_key_update(t_dict *dict, int id, char *key)
-{
-	return (ystrcmp(dict->items[id]->key, key) != 0);
+	free(dict->items[id]->value);
+	dict->items[id]->value = new_ystr(value);
 }
 
 void	ydict_set(t_dict *dict, char *key, char *value)
 {
 	int			id;
-	t_dictitem	*item;
 
-	if (!is_valid(dict, key, value))
+	if (!is_input_valid(dict, key, value))
 		return ;
-	id = yhash_fnv1a(key) % (uint64_t)dict->capacity;
-	item = new_ydictitem(key, value);
+	id = ydict_getid(dict, key);
+	printf("ydict_set:id: %d | capacity %zu/%zu\n", id,
+		dict->size, dict->capacity);
 	if (is_key_vacant(dict, id))
-	{
-		dict->items[id] = item;
-		dict->size++;
-	}
+		ydict_insert(dict, id, key, value);
 	else if (is_key_update(dict, id, key))
+		ydict_update(dict, id, value);
+	else
 	{
-		free(dict->items[id]->value);
-		dict->items[id]->value = new_ystr(value);
+		ywarn("ydict_set", "hash collision");
+		ydict_expand(dict);
 	}
-	// else
-		// ydict_handlecollision(dict, item);
 }

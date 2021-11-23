@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 17:16:47 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:36:31 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	del_ydict(t_dict *dict)
 	int	i;
 
 	if (!dict)
-		yerror("tryed to remove nonexsistant ydict\n");
+		yerror("del_ydict", "tried to free nonexsistant ydict struct");
 	i = -1;
 	while (++i < (int)dict->capacity)
 		if (dict->items[i])

@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ydict_collision.c                                  :+:      :+:    :+:   */
+/*   ydict_expand.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 21:25:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:32:10 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ydict_handlecollision(t_dict *dict, t_dictitem *item)
+void	ydict_expand(t_dict *dict)
 {
+	if (dict)
+		return ;
 }
