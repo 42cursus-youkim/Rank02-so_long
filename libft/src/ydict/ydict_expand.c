@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:26:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:45:30 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	ydict_probenew(
 	while (i < id)
 		if (is_newkey_vacant(new_items, ++i))
 			return (ydict_moveprobeditem(new_items, --i, item));
-	ywarn("for some mysterious reason new dict is FULL! how come???");
+	ywarn("could not move item to new array due to NO SPACE LEFT in new array");
 }
 
 static void	ydict_move_items(

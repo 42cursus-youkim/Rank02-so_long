@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ylinked.h                                          :+:      :+:    :+:   */
+/*   new_ydeque.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 09:22:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:56:09 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 18:02:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YLINKED_H
-# define YLINKED_H
+#include "libft.h"
 
-typedef struct s_dequenode
+t_dequenode	*new_ydequenode(int num)
 {
-	int					num;
-	struct s_dequenode	*left;
-	struct s_dequenode	*right;
-}	t_dequenode;
+	t_dequenode	*node;
 
-typedef struct s_deque
+	node = malloc(sizeof(t_dequenode));
+	if (!node)
+		return (NULL);
+}
+
+t_deque	*new_ydeque(int size, int nums[])
 {
-	int			size;
-	t_dequenode	*head;
-	t_dequenode	*tail;
-}	t_deque;
-
-// ===== @Functions =====
-/*
-** < new_ydeque.c > */
-
-t_dequenode		*new_ydequenode(int num);
-#endif
+	
+}
