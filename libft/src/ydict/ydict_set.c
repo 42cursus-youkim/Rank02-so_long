@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:52:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 19:08:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ static void	ydict_probe(t_dict *dict, size_t id, char *key, void *value)
 	ywarn("dict is full, probe failed");
 }
 
-/*	key vacant: inserts new item
+/*	all values provided are MOVED and NOT COPIED!
+	external function should handle these kind of ops.
+	key vacant: inserts new item
 	key same  : replaces value
 	key diff  : probe for empty index
 */
@@ -69,7 +71,9 @@ void	ydict_set(t_dict *dict, char *key, void *value)
 		ydict_probe(dict, id, key, value);
 }
 
-//	safe way to set string.
+/*	safe way to set string. allocates new string internally.
+	it's not really new_ because it would be all freed with del_ydict
+*/
 void	ydict_setstr(t_dict *dict, char *key, char *value)
 {
 	void	*vptr;
