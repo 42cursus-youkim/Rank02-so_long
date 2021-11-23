@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:28:59 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 18:31:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include <stdio.h>
-
-//	===== libraries =====
-# include <mlx.h>
-# include "../libft/includes/libft.h"
-
-//	===== includes =====
-# include "config.h"
-# include "structs.h"
-# include "map.h"
-# include "engine.h"
-
-#endif
+void	render_tile(t_engine *engine, int x, int y)
+{
+	
+	mlx_put_image_to_window(
+		engine->mlx, engine->win, engine->test_img.data, 0, 0);
+}

@@ -6,49 +6,49 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 19:05:50 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 18:31:19 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //	init map
-void	init_map(t_game *game)
+void	init_map(t_engine *engine)
 {
-	game->map = malloc(sizeof(t_map));
-	if (!game->map)
-		yerror("malloc error");
+	engine->map = malloc(sizeof(t_map));
+	if (!engine->map)
+		yerror("init_map", "malloc error");
 }
 
 //	init mlx, create window
-void	init_game(t_game *game)
+void	init_engine(t_engine *engine)
 {
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(
-			game->mlx,
+	engine->mlx = mlx_init();
+	engine->win = mlx_new_window(
+			engine->mlx,
 			TILE_SIZE * MAP_WIDTH,
 			TILE_SIZE * MAP_HEIGHT, GAME_NAME
 			);
 }
 
-//	kill game
-int	end_game(int keycode, t_game *game)
+//	kill engine
+int	end_game(int keycode, t_engine *engine)
 {
 	printf("kill them all!\n");
 	exit(0);
 	return (0);
 }
 
-//	The game!
+//	The engine!
 int	main(int argc, char *argv[])
 {
-	t_game	game;
-	
-	init_game(&game);
-	game.test_img.data = mlx_xpm_file_to_image(game.mlx, "img/test.xpm", &game.test_img.data, &game.test_img.data);
-	// mlx_key_hook(game.win, key_hook, &game);
-	// mlx_mouse_hook(game.win, mouse_hook, &game);
-	mlx_hook(game.win, DestroyNotify, StructureNotifyMask, end_game, &game);
-	mlx_loop_hook(game.mlx, loop_hook, &game);
-	mlx_loop(game.mlx);
+	t_engine	engine;
+
+	init_engine(&engine);
+	engine.test_img.data = mlx_xpm_file_to_image(engine.mlx, "img/test.xpm", &engine.test_img.data, &engine.test_img.data);
+	// mlx_key_hook(engine.win, key_hook, &engine);
+	// mlx_mouse_hook(engine.win, mouse_hook, &engine);
+	mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
+	mlx_loop_hook(engine.mlx, loop_hook, &engine);
+	mlx_loop(engine.mlx);
 }

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/20 18:26:55 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 18:29:52 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,9 @@ define build_library
 endef
 
 # ===== Packages =====
-PKGS     := game
-gameV    := so_long hooks
+PKGS     := engine
+engineV  := so_long hooks render
+mapV     := tiles
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
