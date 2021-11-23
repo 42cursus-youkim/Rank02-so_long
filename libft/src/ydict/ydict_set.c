@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:22:14 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:36:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	ydict_update(t_dict *dict, size_t id, char *value)
 	dict->items[id]->value = new_ystr(value);
 }
 
+//	probe around empty index to insert new item
 static void	ydict_probe(t_dict *dict, size_t id, char *key, char *value)
 {
 	size_t	i;
@@ -43,7 +44,7 @@ static void	ydict_probe(t_dict *dict, size_t id, char *key, char *value)
 	while (i < id)
 		if (is_key_vacant(dict, i++))
 			return (ydict_insert(dict, --i, key, value));
-	ywarn("for some mysterious reason the dict is FULL! how come???");
+	ywarn("dict is full, probe failed");
 }
 
 /*	key vacant: inserts new item
@@ -56,9 +57,9 @@ void	ydict_set(t_dict *dict, char *key, char *value)
 
 	if (!is_input_valid(dict, key, value))
 		yerror("ydict_set", "invalid input!");
-	// if (is_dict_almostfull(dict))
-	// 	if (ydict_expand(dict) == ERROR)
-	// 		return ;
+	if (is_dict_almostfull(dict))
+		if (ydict_expand(dict) == ERROR)
+			return ;
 	id = ydict_getid(dict->capacity, key);
 	if (is_key_vacant(dict, id))
 		ydict_insert(dict, id, key, value);

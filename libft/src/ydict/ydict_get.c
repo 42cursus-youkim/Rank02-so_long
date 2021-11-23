@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:18:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:27:15 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // wrapper for hash that returns index got from hash
 int	ydict_getid(size_t capacity, char *key)
 {
-	return (3);
 	return (yhash_fnv1a(key) % (uint64_t)capacity);
 }
 

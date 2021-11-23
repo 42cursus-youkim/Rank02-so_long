@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:01:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:26:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	ydict_moveprobeditem(
 	t_dictitem **new_items, size_t id, t_dictitem *item
 )
 {
-	ywarn("PROBE HERE");
 	new_items[id] = item;
 }
 

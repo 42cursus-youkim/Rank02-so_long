@@ -13,7 +13,7 @@
 #ifndef YDICT_H
 # define YDICT_H
 
-# define YDICT_INITIAL_CAPACITY 4
+# define YDICT_INITIAL_CAPACITY 8
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
@@ -59,7 +59,6 @@ void			ydict_list_items(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
-void			ydict_insert(t_dict *dict, size_t id, char *key, char *value);
 void			ydict_set(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
