@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/23 12:59:47 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 13:33:55 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ mathV  := \
 	func_ymath new_yitoa
 
 systemV  := \
-	yexit yalloc ysyscall
+	yexit yalloc ysyscall ylog
 
 stringV  := \
 	new_ystr new_ystrjoin del_ystr	\
@@ -95,6 +95,7 @@ test: docs all
 	@$(CC) $(INC) $(NAME) test.c -o test
 	@./test
 	@rm test
+	@echo "$(G)<Ended Test>$(E)"
 
 leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
