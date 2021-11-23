@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 11:05:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:14:35 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,25 @@ t_dictitem	*new_ydictitem(const char *key, const char *value)
 	return (item);
 }
 
-// initializes dictionary and NULLs items
+//	creates new NULL-set array of items
+t_dictitem	**new_ydictitem_arr(int capacity)
+{
+	int			i;
+	t_dictitem	**items;
+
+	items = ycalloc(capacity, sizeof(t_dictitem *));
+	i = -1;
+	while (++i < capacity)
+		items[i] = NULL;
+	return (items);
+}
+
+//	initializes dictionary and NULLs items
 static void	ydict_init(t_dict *dict)
 {
-	int	i;
-
 	dict->size = 0;
 	dict->capacity = YDICT_INITIAL_CAPACITY;
-	dict->items = ycalloc(dict->capacity, sizeof(t_dictitem *));
-	i = -1;
-	while (++i < (int)dict->capacity)
-		dict->items[i] = NULL;
+	dict->items = new_ydictitem_arr(dict->capacity);
 }
 
 // creates an empty dict. returns NULL if memory allocation fails.

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 11:34:00 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:43:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ywrite(int fd, char *str)
 	return (write(fd, str, ystrlen(str)));
 }
 
+//	log at STDERR, but does not kill process
 void	ywarn(char *where, char *warn)
 {
 	char	*msg;

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/20 21:25:12 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 11:24:11 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ CC       := gcc
 CFLAGS   := -Wall -Wextra -Werror -g3
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
-			--suppressions=./valgrind.suppressions \
-			#--gen-suppressions=yes
+			--suppressions=./valgrind.suppressions
 AR       := ar -rcs
 RM       := rm -f
 
@@ -40,13 +39,12 @@ PKGS     := string array system dict
 systemV  := yexit yalloc ysyscall
 stringV  := \
 	new_ystr new_ystrjoin del_ystr	\
-	ystrlen	ystrcmp					\
-	ystr_color						\
+	mod_ystr func_ystr				\
 
 dictV    := \
-	new_ydict del_ydict 				\
-	ydict_set ydict_get		\
-	yhash #ydict_collision
+	new_ydict del_ydict yhash			\
+	ydict_set ydict_get	ydict_property	\
+	ydict_expand
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
@@ -96,6 +94,12 @@ leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
 	@$(CC) $(INC) $(NAME) test.c -o test
 	@colour-valgrind $(VFLAGS) ./test
+	@rm test
+
+leaksup: docs all
+	@echo "$(Y)<Creating Leak Suppressions>$(E)"
+	@$(CC) $(INC) $(NAME) test.c -o test
+	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
 	@rm test
 
 .PHONY: all re clean fclean test red docs
