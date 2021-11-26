@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 15:56:18 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 15:57:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ static char	*result(char **backup, int read_length)
 char	*new_yreadline(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
-	static char	*backup;
+	static char	*backup[OPEN_MAX];
 	int			nl_idx;
 	int			read_length;
 
 	nl_idx = -1;
 	read_length = 0;
-	if (!backup)
-		backup = new_ystr("");
+	if (!backup[fd])
+		backup[fd] = new_ystr("");
 	while (true)
 	{
 		read_length = yread(fd, buf, BUFFER_SIZE);
 		if (read_length <= 0)
 			break ;
-		ystr_append(&backup, buf);
-		nl_idx = ystrchri(backup, '\n');
+		ystr_append(&backup[fd], buf);
+		nl_idx = ystrchri(backup[fd], '\n');
 		if (nl_idx >= 0)
-			return (sliced(&backup, nl_idx));
+			return (sliced(&backup[fd], nl_idx));
 	}
-	return (result(&backup, read_length));
+	return (result(&backup[fd], read_length));
 }
