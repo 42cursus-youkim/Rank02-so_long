@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:04:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool	does_itemmatch(t_dictitem *item, char *key)
 }
 
 //	finds value by key, return NULL is not found
-char	*ydict_get(t_dict *dict, char *key)
+void	*ydict_get(t_dict *dict, char *key)
 {
 	int		i;
 	int		id;

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/26 16:49:07 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/26 17:06:04 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,9 +84,9 @@ test: docs all
 
 leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
-	@$(CC) $(INC) $(NAME) test.c -o test
-	@colour-valgrind $(VFLAGS) ./test
+	@colour-valgrind $(VFLAGS) ./so_long
 	@rm test
+# @$(CC) $(INC) $(NAME) test.c -o test
 
 .PHONY: all re clean fclean test
 

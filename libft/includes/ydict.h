@@ -52,7 +52,7 @@ int				ydict_expand(t_dict *dict);
 ** < ydict_get.c > */
 
 int				ydict_getid(int capacity, char *key);
-char			*ydict_get(t_dict *dict, char *key);
+void			*ydict_get(t_dict *dict, char *key);
 char			*ydict_getd(t_dict *dict, char *key, char *defaultv);
 /*
 ** < ydict_property.c > */

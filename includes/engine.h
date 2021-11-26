@@ -23,7 +23,7 @@ int			engine_update(t_engine *engine);
 /*
 ** < render.c > */
 
-void		render_tile(t_engine *engine, int tile_x, int tile_y);
+void		render_tile(t_engine *engine, char *key, int tile_x, int tile_y);
 /*
 ** < so_long.c > */
 

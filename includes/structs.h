@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 16:46:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 16:59:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_size
 
 typedef struct s_img
 {
-	struct s_engine	*engineptr;
+	// struct s_engine	*engineptr;
 	void			*data;
 	t_size			size;
 }	t_img;
@@ -42,8 +42,8 @@ typedef struct s_engine
 	void	*mlx;
 	void	*win;
 	t_map	*map;
-	// t_dict	*imgs;
-	t_img	test_img;
+	t_dict	*imgs;
+	// t_img	test_img;
 }	t_engine;
 
 #endif

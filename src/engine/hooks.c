@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 16:35:40 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:06:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	key_hook(int keycode, t_engine *engine)
 //	called every screen refresh by mlx_loop_hook()
 int	engine_update(t_engine *engine)
 {
-	render_tile(engine, 0, 0);
-	render_tile(engine, 1, 0);
-	render_tile(engine, 2, 0);
+	render_tile(engine, "test", 0, 0);
+	render_tile(engine, "test", 1, 0);
+	render_tile(engine, "test", 2, 0);
 	return (0);
 }

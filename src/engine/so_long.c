@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 16:52:03 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:02:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,29 @@ void	init_engine(t_engine *engine)
 			TILE_SIZE * MAP_WIDTH,
 			TILE_SIZE * MAP_HEIGHT, GAME_NAME
 			);
-	// engine->imgs = new_ydict();
+	engine->imgs = new_ydict(free);
 }
+
+// void	new_img(t_engine *engine)
+// {
+// 	engine->test_img.engineptr = engine;
+// 	engine->test_img.data = mlx_xpm_file_to_image(
+// 			engine->mlx, "img/test.xpm",
+// 			&engine->test_img.size.w, &engine->test_img.size.h);
+// }
 
 void	new_img(t_engine *engine)
 {
-	engine->test_img.engineptr = engine;
-	engine->test_img.data = mlx_xpm_file_to_image(
+	t_img	*img;
+
+	img = malloc(sizeof(t_img));
+	img->data = mlx_xpm_file_to_image(
 			engine->mlx, "img/test.xpm",
-			&engine->test_img.size.w, &engine->test_img.size.h);
+			&img->size.w, &img->size.h);
+	ydict_set(engine->imgs, "test", img);
+	// engine->test_img.data = mlx_xpm_file_to_image(
+	// 		engine->mlx, "img/test.xpm",
+	// 		&engine->test_img.size.w, &engine->test_img.size.h);
 }
 
 //	kill engine
