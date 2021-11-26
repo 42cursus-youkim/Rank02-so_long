@@ -19,7 +19,11 @@
 
 int			mouse_hook(int button, int x, int y, t_engine *engine);
 int			key_hook(int keycode, t_engine *engine);
-int			loop_hook(t_engine *engine);
+int			engine_update(t_engine *engine);
+/*
+** < render.c > */
+
+void		render_tile(t_engine *engine, int tile_x, int tile_y);
 /*
 ** < so_long.c > */
 

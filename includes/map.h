@@ -18,5 +18,5 @@
 /*
 ** < tiles.c > */
 
-void		position_to_pixel(t_engine *engine, t_vec **pixel, t_vec *pos);
+void		position_to_pixel(t_vec *pixel, int x, int y);
 #endif
