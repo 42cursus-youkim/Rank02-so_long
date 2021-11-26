@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:53:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 18:02:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void	ydict_move_items(
 	t_dict *dict, t_dictitem **new_items, int new_capacity
 )
 {
-	int		i;
-	int		id;
+	int			i;
+	int			id;
 	t_dictitem	*item;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:02:38 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 18:01:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ t_dequenode	*new_ydequenode(int num)
 
 t_deque	*new_ydeque(int size, int nums[])
 {
-	
+	return (NULL);
 }

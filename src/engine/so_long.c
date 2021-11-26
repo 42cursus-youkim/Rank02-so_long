@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 17:02:50 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:02:31 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	init_map(t_engine *engine)
 	engine->map = malloc(sizeof(t_map));
 	if (!engine->map)
 		yerror("init_map", "malloc error");
+	engine->map->ppos.x = 0;
+	engine->map->ppos.y = 0;
 }
 
 //	init mlx, create window
@@ -30,28 +32,20 @@ void	init_engine(t_engine *engine)
 			TILE_SIZE * MAP_HEIGHT, GAME_NAME
 			);
 	engine->imgs = new_ydict(free);
+	init_map(engine);
 }
 
-// void	new_img(t_engine *engine)
-// {
-// 	engine->test_img.engineptr = engine;
-// 	engine->test_img.data = mlx_xpm_file_to_image(
-// 			engine->mlx, "img/test.xpm",
-// 			&engine->test_img.size.w, &engine->test_img.size.h);
-// }
-
-void	new_img(t_engine *engine)
+void	new_img(t_engine *engine, char *name)
 {
 	t_img	*img;
+	char	*path;
 
+	path = new_ystrjoin((char *[]){"img/", name, ".xpm", NULL});
 	img = malloc(sizeof(t_img));
 	img->data = mlx_xpm_file_to_image(
-			engine->mlx, "img/test.xpm",
-			&img->size.w, &img->size.h);
-	ydict_set(engine->imgs, "test", img);
-	// engine->test_img.data = mlx_xpm_file_to_image(
-	// 		engine->mlx, "img/test.xpm",
-	// 		&engine->test_img.size.w, &engine->test_img.size.h);
+			engine->mlx, path, &img->size.w, &img->size.h);
+	del_ystr(path);
+	ydict_set(engine->imgs, name, img);
 }
 
 //	kill engine
@@ -62,16 +56,32 @@ int	end_game(int keycode, t_engine *engine)
 	return (0);
 }
 
+
 //	The engine!
 int	main(int argc, char *argv[])
 {
 	t_engine	engine;
 
 	init_engine(&engine);
-	new_img(&engine);
-	//	mlx_key_hook(engine.win, key_hook, &engine);
-	//	mlx_mouse_hook(engine.win, mouse_hook, &engine);
+	new_img(&engine, "test");
+	mlx_key_hook(engine.win, key_hook, &engine);
+	// mlx_mouse_hook(engine.win, mouse_hook, &engine);
 	mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
 	mlx_loop_hook(engine.mlx, engine_update, &engine);
 	mlx_loop(engine.mlx);
+	while(1) {}
+	return (0);
 }
+
+
+	// init_engine(&engine);
+	// printf("will remove dict\n");
+	// new_img(&engine, "test");
+	// mlx_destroy_window(engine.mlx, engine.win);
+	// printf("removed dict\n");
+	// del_ydict(engine.imgs);
+	//	mlx_key_hook(engine.win, key_hook, &engine);
+	//	mlx_mouse_hook(engine.win, mouse_hook, &engine);
+	// mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
+	// mlx_loop_hook(engine.mlx, engine_update, &engine);
+	// mlx_loop(engine.mlx);

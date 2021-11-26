@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 17:06:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:16:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,25 @@ int	mouse_hook(int button, int x, int y, t_engine *engine)
 	return (0);
 }
 
+void	player_move(t_engine *engine, int keycode)
+{
+	if (keycode == KEY_UP)
+		engine->map->ppos.y -= 1;
+	if (keycode == KEY_DOWN)
+		engine->map->ppos.y += 1;
+	if (keycode == KEY_LEFT)
+		engine->map->ppos.x -= 1;
+	if (keycode == KEY_RIGHT)
+		engine->map->ppos.x += 1;
+}
+
 //	 called every time a key is pressed. see e_keycode in so_long.h
 int	key_hook(int keycode, t_engine *engine)
 {
-	printf("Hello from key_hook! it's %d\n", keycode);
 	if (keycode == KEY_ESC)
-		printf("ESC pressed, should make it quit later\n");
+		end_game(keycode, engine);
+	if (KEY_LEFT <= keycode && keycode <= KEY_UP)
+		player_move(engine, keycode);
 	return (0);
 }
 
@@ -32,6 +45,6 @@ int	engine_update(t_engine *engine)
 {
 	render_tile(engine, "test", 0, 0);
 	render_tile(engine, "test", 1, 0);
-	render_tile(engine, "test", 2, 0);
+	render_tile(engine, "test", engine->map->ppos.x, engine->map->ppos.y);
 	return (0);
 }

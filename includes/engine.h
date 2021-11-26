@@ -18,6 +18,7 @@
 ** < hooks.c > */
 
 int			mouse_hook(int button, int x, int y, t_engine *engine);
+void		player_move(t_engine *engine, int keycode);
 int			key_hook(int keycode, t_engine *engine);
 int			engine_update(t_engine *engine);
 /*
@@ -29,6 +30,6 @@ void		render_tile(t_engine *engine, char *key, int tile_x, int tile_y);
 
 void		init_map(t_engine *engine);
 void		init_engine(t_engine *engine);
-void		new_img(t_engine *engine);
+void		new_img(t_engine *engine, char *name);
 int			end_game(int keycode, t_engine *engine);
 #endif
