@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:27:59 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 16:23:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,18 @@ typedef struct s_img
 	void	*data;
 	t_size	size;
 }	t_img;
+
+typedef struct s_map
+{
+	t_vec	ppos;
+}	t_map;
+
+typedef struct s_engine
+{
+	void	*mlx;
+	void	*win;
+	t_map	*map;
+	t_img	test_img;
+}	t_engine;
+
 #endif

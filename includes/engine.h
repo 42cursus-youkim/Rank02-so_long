@@ -6,20 +6,12 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:46:44 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 16:22:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENGINE_H
 # define ENGINE_H
-
-typedef struct s_engine
-{
-	void	*mlx;
-	void	*win;
-	t_map	*map;
-	t_img	test_img;
-}	t_engine;
 
 //	===== @Functions =====
 /*
@@ -28,10 +20,6 @@ typedef struct s_engine
 int			mouse_hook(int button, int x, int y, t_engine *engine);
 int			key_hook(int keycode, t_engine *engine);
 int			loop_hook(t_engine *engine);
-/*
-** < render.c > */
-
-void		render_tile(t_engine *engine, int x, int y);
 /*
 ** < so_long.c > */
 
