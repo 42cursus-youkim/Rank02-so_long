@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 19:02:31 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:28:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	init_map(t_engine *engine)
 	engine->map = malloc(sizeof(t_map));
 	if (!engine->map)
 		yerror("init_map", "malloc error");
-	engine->map->ppos.x = 0;
-	engine->map->ppos.y = 0;
+	engine->map->ppos.x = 3;
+	engine->map->ppos.y = 3;
 }
 
 //	init mlx, create window
@@ -56,7 +56,6 @@ int	end_game(int keycode, t_engine *engine)
 	return (0);
 }
 
-
 //	The engine!
 int	main(int argc, char *argv[])
 {
@@ -64,8 +63,10 @@ int	main(int argc, char *argv[])
 
 	init_engine(&engine);
 	new_img(&engine, "test");
-	mlx_key_hook(engine.win, key_hook, &engine);
+	mlx_do_key_autorepeaton(engine.mlx);
+	// mlx_key_hook(engine.win, key_hook, &engine);
 	// mlx_mouse_hook(engine.win, mouse_hook, &engine);
+	mlx_hook(engine.win, KeyPress, KeyPressMask, key_hook, &engine);
 	mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
 	mlx_loop_hook(engine.mlx, engine_update, &engine);
 	mlx_loop(engine.mlx);
