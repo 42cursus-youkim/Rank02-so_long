@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yalloc.c                                           :+:      :+:    :+:   */
+/*   func_ylist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 19:51:10 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 19:56:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ymemset(void *b, int c, int len)
+int	ylistlen(t_list *lst)
 {
-	unsigned char	*ptr;
+	int		len;
 
-	ptr = (unsigned char *)b;
-	while (--len > 0)
-		ptr[len] = c;
-	return (b);
+	len = 0;
+	while (lst && len++ >= 0)
+		lst = lst->next;
+	return (len);
 }
 
-void	ybzero(void *s, int n)
+t_list	*ylistindex(t_list *lst, int index)
 {
-	ymemset(s, 0, n);
-}
+	int		i;
 
-void	*ycalloc(int count, int size)
-{
-	void	*ptr;
-
-	ptr = malloc(size * count);
-	if (ptr)
-		ybzero(ptr, size * count);
-	return (ptr);
+	i = 0;
+	while (lst && i++ < index)
+		lst = lst->next;
+	return (lst);
 }

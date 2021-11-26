@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 19:08:44 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define YDICT_INITIAL_CAPACITY 16
 
 //	insert new item at empty index of dictionary
-static void	ydict_insert(t_dict *dict, size_t id, char *key, void *value)
+static void	ydict_insert(t_dict *dict, int id, char *key, void *value)
 {
 	t_dictitem	*item;
 
@@ -25,16 +25,16 @@ static void	ydict_insert(t_dict *dict, size_t id, char *key, void *value)
 }
 
 //	replace the value of an existing key
-static void	ydict_update(t_dict *dict, size_t id, void *value)
+static void	ydict_update(t_dict *dict, int id, void *value)
 {
 	free(dict->items[id]->value);
 	dict->items[id]->value = value;
 }
 
 //	probe around empty index to insert new item
-static void	ydict_probe(t_dict *dict, size_t id, char *key, void *value)
+static void	ydict_probe(t_dict *dict, int id, char *key, void *value)
 {
-	size_t	i;
+	int	i;
 
 	i = id;
 	while (++i < dict->capacity)
@@ -55,7 +55,7 @@ static void	ydict_probe(t_dict *dict, size_t id, char *key, void *value)
 */
 void	ydict_set(t_dict *dict, char *key, void *value)
 {
-	size_t	id;
+	int	id;
 
 	if (!is_input_valid(dict, key, value))
 		yerror("ydict_set", "invalid input!");

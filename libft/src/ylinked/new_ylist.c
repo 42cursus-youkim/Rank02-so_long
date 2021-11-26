@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yalloc.c                                           :+:      :+:    :+:   */
+/*   new_ylist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 19:45:54 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 19:53:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ymemset(void *b, int c, int len)
+//	returns NULL if allocation fails
+t_list	*new_ylist(void *content)
 {
-	unsigned char	*ptr;
+	t_list	*lst;
 
-	ptr = (unsigned char *)b;
-	while (--len > 0)
-		ptr[len] = c;
-	return (b);
-}
-
-void	ybzero(void *s, int n)
-{
-	ymemset(s, 0, n);
-}
-
-void	*ycalloc(int count, int size)
-{
-	void	*ptr;
-
-	ptr = malloc(size * count);
-	if (ptr)
-		ybzero(ptr, size * count);
-	return (ptr);
+	lst = malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }

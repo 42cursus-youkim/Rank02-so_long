@@ -17,7 +17,7 @@
 /*
 ** < del_ystr.c > */
 
-void		del_ystr(char *str);
+void		del_ystr(void *str);
 void		del_ystrs(char *strs[]);
 /*
 ** < func_ystr.c > */

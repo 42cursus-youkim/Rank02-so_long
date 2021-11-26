@@ -6,21 +6,24 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:59:18 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:48:30 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	del_ydictitem(t_dictitem *item, void (*del_value)(void *))
+void	del_ydictitem(t_dict *dict, int id)
 {
+	t_dictitem	*item;
+
+	item = dict->items[id];
 	del_ystr(item->key);
-	del_value(item->value);
+	dict->del_value(item->value);
 	free(item);
 }
 
-//	uses function pointer as destructor.
-void	del_ydictff(t_dict *dict, void (*del_value)(void *))
+//	uses internal function pointer as destructor.
+void	del_ydict(t_dict *dict)
 {
 	int	i;
 
@@ -29,13 +32,7 @@ void	del_ydictff(t_dict *dict, void (*del_value)(void *))
 	i = -1;
 	while (++i < (int)dict->capacity)
 		if (dict->items[i])
-			del_ydictitem(dict->items[i], del_value);
+			del_ydictitem(dict, i);
 	free(dict->items);
 	free(dict);
-}
-
-//	for simple values that does not require destructor.
-void	del_ydict(t_dict *dict)
-{
-	del_ydictff(dict, free);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:59:05 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:48:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
+# include "yconfig.h"
 # include "ymath.h"
 # include "ystring.h"
 # include "ysystem.h"
@@ -45,7 +46,7 @@
 	[file names prefix]
 		new_ : functions that needs to be del_ed.
 		del_ : frees allocated memory from new_.
-		mod_ : modifys given parameter. similar to methods.
+		mod_ : modifies given parameter. similar to methods.
 		func_: pure functions. do not modify any given params.
 
 	[types acronym]
@@ -76,6 +77,7 @@
 			new_yarrf, del_yarrll
 		i / l / f:	return range includes NEGATIVE VALUES,
 			-1 based ERROR handling is not possible
+		_f: typedefed function pointers
 		_verb: acts like an 'METHOD'.
 			e.g ystr_color is used like ystr.color()
 			recieves 'reference' to modify.

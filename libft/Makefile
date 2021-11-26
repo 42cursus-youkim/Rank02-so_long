@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/23 18:03:17 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/23 19:53:35 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,8 @@ define choose_modules
 endef
 
 # ===== Packages =====
-PKGS     := string system dict math #linked 
+PKGS     := string system dict math linked
 
-# linkedV   := new_ylist new_ydeque
 mathV  := \
 	func_ymath new_yitoa
 
@@ -53,7 +52,8 @@ dictV    := \
 	ydict_property ydict_status
 
 linkedV  := \
-	new_ydeque
+	new_ylist func_ylist
+#new_ydeque
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

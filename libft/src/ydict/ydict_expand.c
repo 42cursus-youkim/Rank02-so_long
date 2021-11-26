@@ -6,29 +6,29 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:45:30 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_newkey_vacant(t_dictitem **new_items, size_t id)
+static bool	is_newkey_vacant(t_dictitem **new_items, int id)
 {
 	return (!new_items[id]);
 }
 
 static void	ydict_moveprobeditem(
-	t_dictitem **new_items, size_t id, t_dictitem *item
+	t_dictitem **new_items, int id, t_dictitem *item
 )
 {
 	new_items[id] = item;
 }
 
 static void	ydict_probenew(
-	t_dictitem **new_items, size_t new_capacity, size_t id, t_dictitem *item
+	t_dictitem **new_items, int new_capacity, int id, t_dictitem *item
 )
 {
-	size_t	i;
+	int	i;
 
 	i = id;
 	while (++i < new_capacity)
@@ -45,8 +45,8 @@ static void	ydict_move_items(
 	t_dict *dict, t_dictitem **new_items, int new_capacity
 )
 {
-	size_t		i;
-	size_t		id;
+	int		i;
+	int		id;
 	t_dictitem	*item;
 
 	i = 0;
@@ -70,7 +70,7 @@ static void	ydict_move_items(
 //	returns
 int	ydict_expand(t_dict *dict)
 {
-	size_t		new_capacity;
+	int		new_capacity;
 	t_dictitem	**new_items;
 
 	if (is_capacity_overflow(dict))

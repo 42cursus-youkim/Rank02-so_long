@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:11:02 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ystrlen(const char *str)
 // compare two null-terminated strings. returns non-zero if they differ
 int	ystrcmp(const char *s1, const char *s2)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
