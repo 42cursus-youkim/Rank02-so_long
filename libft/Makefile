@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/26 12:21:33 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/26 18:49:57 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC       := gcc
 CFLAGS   := -Wall -Wextra -Werror -g3
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
-			--suppressions=./valgrind.suppressions
+			--suppressions=./macos.supp
 AR       := ar -rcs
 RM       := rm -f
 
