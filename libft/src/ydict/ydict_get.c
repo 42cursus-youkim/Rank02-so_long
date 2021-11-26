@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:02:49 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ char	*ydict_get(t_dict *dict, char *key)
 	int		id;
 
 	id = ydict_getid(dict->capacity, key);
-	i = id;
-	while (i < dict->capacity)
-		if (does_itemmatch(dict->items[i++], key))
-			return (dict->items[--i]->value);
-	i = 0;
-	while (i < id)
-		if (does_itemmatch(dict->items[i++], key))
-			return (dict->items[--i]->value);
+	i = id - 1;
+	while (++i < dict->capacity)
+		if (does_itemmatch(dict->items[i], key))
+			return (dict->items[i]->value);
+	i = -1;
+	while (++i < id)
+		if (does_itemmatch(dict->items[i], key))
+			return (dict->items[i]->value);
 	return (NULL);
 }
 

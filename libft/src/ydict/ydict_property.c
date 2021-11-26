@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:46:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:48:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:01:30 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ydict_list_items(t_dict *dict)
 	t_dictitem	*item;
 
 	id = 0;
-	printf("%sID |%-8s|%-12s%s\n", UMAG, "KEY", "VALUE", END);
+	printf("%sID |%-8s|%-6s(%d/%d)%s\n",
+		UMAG, "KEY", "VALUE", dict->size, dict->capacity, END);
 	while (id < dict->capacity)
 	{
 		item = dict->items[id];

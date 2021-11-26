@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:48:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:55:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# include "yconfig.h"
 # include "ymath.h"
 # include "ystring.h"
 # include "ysystem.h"

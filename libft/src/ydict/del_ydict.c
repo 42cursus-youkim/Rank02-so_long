@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:48:30 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:50:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	del_ydictitem(t_dict *dict, int id)
 //	uses internal function pointer as destructor.
 void	del_ydict(t_dict *dict)
 {
-	int	i;
+	int	id;
 
 	if (!dict)
 		yerror("del_ydict", "tried to free nonexsistant ydict struct");
-	i = -1;
-	while (++i < (int)dict->capacity)
-		if (dict->items[i])
-			del_ydictitem(dict, i);
+	id = -1;
+	while (++id < dict->capacity)
+		if (dict->items[id])
+			del_ydictitem(dict, id);
 	free(dict->items);
 	free(dict);
 }

@@ -13,7 +13,7 @@
 #ifndef YDICT_H
 # define YDICT_H
 
-# include "yconfig.h"
+# include "ytypes.h"
 
 # define YDICT_INITIAL_CAPACITY 8
 # define FNV_OFFSET 14695981039346656037UL

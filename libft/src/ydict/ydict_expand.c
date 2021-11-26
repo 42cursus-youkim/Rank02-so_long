@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:53:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static void	ydict_probenew(
 	while (++i < new_capacity)
 		if (is_newkey_vacant(new_items, i))
 			return (ydict_moveprobeditem(new_items, i, item));
-	i = 0;
-	while (i < id)
-		if (is_newkey_vacant(new_items, ++i))
-			return (ydict_moveprobeditem(new_items, --i, item));
+	i = -1;
+	while (++i < id)
+		if (is_newkey_vacant(new_items, i))
+			return (ydict_moveprobeditem(new_items, i, item));
 	ywarn("could not move item to new array due to NO SPACE LEFT in new array");
 }
 
@@ -67,10 +67,10 @@ static void	ydict_move_items(
 	dict->items = new_items;
 }
 
-//	returns
+//	creates new dictitems, and moves all items to new array with new hash ids
 int	ydict_expand(t_dict *dict)
 {
-	int		new_capacity;
+	int			new_capacity;
 	t_dictitem	**new_items;
 
 	if (is_capacity_overflow(dict))
