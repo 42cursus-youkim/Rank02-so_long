@@ -29,5 +29,6 @@ void		render_tile(t_engine *engine, int tile_x, int tile_y);
 
 void		init_map(t_engine *engine);
 void		init_engine(t_engine *engine);
+void		new_img(t_engine *engine);
 int			end_game(int keycode, t_engine *engine);
 #endif

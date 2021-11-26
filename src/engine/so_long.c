@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 16:27:20 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 16:52:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ void	init_engine(t_engine *engine)
 			TILE_SIZE * MAP_WIDTH,
 			TILE_SIZE * MAP_HEIGHT, GAME_NAME
 			);
+	// engine->imgs = new_ydict();
+}
+
+void	new_img(t_engine *engine)
+{
+	engine->test_img.engineptr = engine;
+	engine->test_img.data = mlx_xpm_file_to_image(
+			engine->mlx, "img/test.xpm",
+			&engine->test_img.size.w, &engine->test_img.size.h);
 }
 
 //	kill engine
@@ -45,9 +54,7 @@ int	main(int argc, char *argv[])
 	t_engine	engine;
 
 	init_engine(&engine);
-	engine.test_img.data = mlx_xpm_file_to_image(
-			engine.mlx, "img/test.xpm",
-			&engine.test_img.size.w, &engine.test_img.size.h);
+	new_img(&engine);
 	//	mlx_key_hook(engine.win, key_hook, &engine);
 	//	mlx_mouse_hook(engine.win, mouse_hook, &engine);
 	mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
