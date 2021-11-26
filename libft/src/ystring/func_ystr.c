@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 13:00:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:10:43 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ int	ystrcmp(const char *s1, const char *s2)
 	return (s1[i] - s2[i]);
 }
 
+//	returns true if two strings are same
+bool	ystrequ(const char *s1, const char *s2)
+{
+	return (ystrcmp(s1, s2) == 0);
+}
+
 //	returns index of first char occurence in a string. returns -1 if not found
 int	ystrchri(const char *str, const char c)
 {
@@ -44,10 +50,4 @@ int	ystrchri(const char *str, const char c)
 		if (str[i] == c)
 			return (i);
 	return (-1);
-}
-
-//	returns true if two strings are same
-bool	ystrequ(const char *s1, const char *s2)
-{
-	return (ystrcmp(s1, s2) == 0);
 }

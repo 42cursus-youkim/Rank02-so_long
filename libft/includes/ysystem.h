@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 13:01:39 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:42:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSYSTEM_H
 # define YSYSTEM_H
 
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 20
 # define OPEN_MAX 128
 //	===== @Functions =====
 /*
@@ -29,7 +29,7 @@ void		yexit(int status);
 /*
 ** < ygnl.c > */
 
-char		*ygnl(int fd);
+char		*new_yreadline(int fd);
 /*
 ** < ylog.c > */
 
@@ -40,4 +40,5 @@ void		yerror(char *where, char *err);
 
 int			ywrite(int fd, char *str);
 int			ywritecolor(int fd, char *str, char *color);
+int			yread(int fd, char *buf, int buffer_size);
 #endif

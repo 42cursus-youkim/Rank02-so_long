@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:15:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:33:47 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,14 @@ int	ywritecolor(int fd, char *str, char *color)
 	return (result);
 }
 
+/*	similar to read but NULL-terminates the string. returns sizes read.
+	string size should be at least 1 bigger than the buffer_size.
+*/
+int	yread(int fd, char *buf, int buffer_size)
+{
+	int	read_size;
+
+	read_size = read(fd, buf, buffer_size);
+	buf[read_size] = '\0';
+	return (read_size);
+}
