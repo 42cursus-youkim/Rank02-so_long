@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 13:29:50 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:15:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ int	ywritecolor(int fd, char *str, char *color)
 	del_ystr(temp);
 	return (result);
 }
+

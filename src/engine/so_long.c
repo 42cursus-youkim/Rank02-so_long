@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 18:31:19 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(int argc, char *argv[])
 
 	init_engine(&engine);
 	engine.test_img.data = mlx_xpm_file_to_image(engine.mlx, "img/test.xpm", &engine.test_img.data, &engine.test_img.data);
-	// mlx_key_hook(engine.win, key_hook, &engine);
-	// mlx_mouse_hook(engine.win, mouse_hook, &engine);
+	//	mlx_key_hook(engine.win, key_hook, &engine);
+	//	mlx_mouse_hook(engine.win, mouse_hook, &engine);
 	mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
 	mlx_loop_hook(engine.mlx, loop_hook, &engine);
 	mlx_loop(engine.mlx);

@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:43:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// creates a new dictonary item, with key and value
+//	creates a new dictonary item, with key and value
 t_dictitem	*new_ydictitem(const char *key, void *value)
 {
 	t_dictitem	*item;

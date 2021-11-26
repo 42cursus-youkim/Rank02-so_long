@@ -6,21 +6,21 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:22:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 19:52:17 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:03:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YLINKED_H
 # define YLINKED_H
 
-// ===== Linked List =====
+//	===== Linked List =====
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-// ===== Deque =====
+//	===== Deque =====
 typedef struct s_dequenode
 {
 	void				*value;
@@ -35,7 +35,7 @@ typedef struct s_deque
 	t_dequenode	*tail;
 }	t_deque;
 
-// ===== @Functions =====
+//	===== @Functions =====
 /*
 ** < func_ylist.c > */
 

@@ -32,7 +32,7 @@ typedef struct s_dict
 	t_destructor_f	del_value;
 }	t_dict;
 
-// ===== @Functions =====
+//	===== @Functions =====
 /*
 ** < del_ydict.c > */
 

@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:00:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//length of a string. null termination is not counted.
+//	length of a string. null termination is not counted.
 int	ystrlen(const char *str)
 {
 	int	i;
@@ -23,7 +23,7 @@ int	ystrlen(const char *str)
 	return (i);
 }
 
-// compare two null-terminated strings. returns non-zero if they differ
+//	compare two null-terminated strings. returns non-zero if they differ
 int	ystrcmp(const char *s1, const char *s2)
 {
 	int	i;
@@ -34,7 +34,19 @@ int	ystrcmp(const char *s1, const char *s2)
 	return (s1[i] - s2[i]);
 }
 
-// returns true if two strings are same
+//	returns index of first char occurence in a string. returns -1 if not found
+int	ystrchri(const char *str, const char c)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (str[i] == c)
+			return (i);
+	return (-1);
+}
+
+//	returns true if two strings are same
 bool	ystrequ(const char *s1, const char *s2)
 {
 	return (ystrcmp(s1, s2) == 0);

@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:02:49 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// wrapper for hash that returns index got from hash
+//	wrapper for hash that returns index got from hash
 int	ydict_getid(int capacity, char *key)
 {
 	return (yhash_fnv1a(key) % (uint64_t)capacity);
