@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 17:56:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:25:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	key_hook(int keycode, t_engine *engine)
 		end_game(keycode, engine);
 	if (KEY_LEFT <= keycode && keycode <= KEY_UP)
 		player_move(engine, keycode);
+	engine->frame = !engine->frame;
 	return (0);
 }
 
@@ -44,7 +45,6 @@ int	key_hook(int keycode, t_engine *engine)
 int	engine_update(t_engine *engine)
 {
 	mlx_clear_window(engine->mlx, engine->win);
-	render_tile(engine, "hatch-closed", 4, 6);
-	render_tile(engine, "player0", engine->map->ppos.x, engine->map->ppos.y);
+	render_map(engine);
 	return (0);
 }

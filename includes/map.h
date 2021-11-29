@@ -16,7 +16,9 @@
 
 //	===== @Functions =====
 /*
-** < tiles.c > */
+** < render.c > */
 
-void		position_to_pixel(t_vec *pixel, int x, int y);
+void		render_tile(t_engine *engine, char *key, int tilex, int tiley);
+void		render_tile_animated(t_engine *engine, char *key, int tilex, int tiley);
+void		render_map(t_engine *engine);
 #endif

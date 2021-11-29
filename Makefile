@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/29 18:07:19 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/29 19:18:09 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,8 @@ endef
 
 # ===== Packages =====
 PKGS     := engine map
-engineV  := so_long hooks render initialize
-mapV     := #tiles #check_map
+engineV  := so_long hooks initialize
+mapV     := render #tiles #check_map
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

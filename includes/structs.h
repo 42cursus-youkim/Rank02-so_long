@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 19:00:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:16:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_engine
 	void	*win;
 	t_map	*map;
 	t_dict	*imgs;
+	bool	frame;
 	// t_img	test_img;
 }	t_engine;
 
