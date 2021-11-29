@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 20:16:46 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 21:38:47 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 21:45:28 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	count_words(char const *s, char delim)
 {
 	int		i;
-	int	count;
+	int		count;
 	bool	prev_delim;
 
 	i = -1;
@@ -54,13 +54,18 @@ static char	**write_words(char **strarr, int words, char const *s, char c)
 	int	word_idx;
 
 	i = 0;
-	--words;
 	word_idx = -1;
-	while (word_idx < words)
+	while (++word_idx < words)
 	{
 		while (s[i] == c)
 			i++;
-		strarr[++word_idx] = new_ystrm(wordlen(i, s, c));
+		strarr[word_idx] = new_ystrm(wordlen(i, s, c));
+		if (!strarr[word_idx])
+		{
+			del_ystrs(strarr);
+			free(strarr);
+			return (NULL);
+		}
 		j = 0;
 		while (s[i] && s[i] != c)
 			strarr[word_idx][j++] = s[i++];
