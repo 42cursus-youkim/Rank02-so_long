@@ -22,14 +22,17 @@ void		player_move(t_engine *engine, int keycode);
 int			key_hook(int keycode, t_engine *engine);
 int			engine_update(t_engine *engine);
 /*
+** < initialize.c > */
+
+void		init_engine(t_engine *engine);
+void		init_map(t_engine *engine);
+void		init_imgs(t_engine *engine, char *files[]);
+/*
 ** < render.c > */
 
 void		render_tile(t_engine *engine, char *key, int tile_x, int tile_y);
 /*
 ** < so_long.c > */
 
-void		init_map(t_engine *engine);
-void		init_engine(t_engine *engine);
-void		new_img(t_engine *engine, char *name);
 int			end_game(int keycode, t_engine *engine);
 #endif

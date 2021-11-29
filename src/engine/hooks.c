@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 19:21:47 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 17:56:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	key_hook(int keycode, t_engine *engine)
 int	engine_update(t_engine *engine)
 {
 	mlx_clear_window(engine->mlx, engine->win);
-	render_tile(engine, "test", engine->map->ppos.x, engine->map->ppos.y);
+	render_tile(engine, "hatch-closed", 4, 6);
+	render_tile(engine, "player0", engine->map->ppos.x, engine->map->ppos.y);
 	return (0);
 }
