@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 15:25:57 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:06:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	looks like strjoin but is memory safe. returns: length of joined string
-	usage: ystr_append(&str, STRING)
+/*	looks like strjoin but is memory safe, by replacing the original string
+	returns: length of joined string, usage: ystr_append(&str, STRING)
 */
 int	ystr_append(char **pstr, char *src)
 {

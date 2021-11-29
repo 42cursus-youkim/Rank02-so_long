@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 19:25:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:44:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	mouse_hook(int button, int x, int y, t_engine *engine)
 
 void	player_move(t_engine *engine, int keycode)
 {
+	if (!(KEY_LEFT <= keycode && keycode <= KEY_UP))
+		return ;
 	if (keycode == KEY_UP)
 		engine->map->ppos.y -= 1;
 	if (keycode == KEY_DOWN)
@@ -35,9 +37,9 @@ int	key_hook(int keycode, t_engine *engine)
 {
 	if (keycode == KEY_ESC)
 		end_game(keycode, engine);
-	if (KEY_LEFT <= keycode && keycode <= KEY_UP)
-		player_move(engine, keycode);
-	engine->frame = !engine->frame;
+	player_move(engine, keycode);
+	engine->info.frame = !engine->info.frame;
+	engine->info.walks++;
 	return (0);
 }
 
@@ -46,5 +48,7 @@ int	engine_update(t_engine *engine)
 {
 	mlx_clear_window(engine->mlx, engine->win);
 	render_map(engine);
+	render_tile_animated(
+		engine, "player", engine->map->ppos.x, engine->map->ppos.y);
 	return (0);
 }

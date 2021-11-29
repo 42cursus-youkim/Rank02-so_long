@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 15:57:38 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:52:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static char	*result(char **backup, int read_length)
 	return (temp);
 }
 
-//	gnl but with fancy name. returns NULL if no line to read.
-char	*new_yreadline(int fd)
+/*	gnl but with fancy name. returns NULL if no line to read.
+	keep in mind that it uses static char*[] to hold the lines.
+*/
+char	*yreadline(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
 	static char	*backup[OPEN_MAX];

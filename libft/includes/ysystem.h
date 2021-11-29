@@ -29,7 +29,7 @@ void		yexit(int status);
 /*
 ** < ygnl.c > */
 
-char		*new_yreadline(int fd);
+char		*yreadline(int fd);
 /*
 ** < ylog.c > */
 

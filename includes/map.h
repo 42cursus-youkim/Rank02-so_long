@@ -16,6 +16,10 @@
 
 //	===== @Functions =====
 /*
+** < load.c > */
+
+void		load_map(t_map *map, char *file_name);
+/*
 ** < render.c > */
 
 void		render_tile(t_engine *engine, char *key, int tilex, int tiley);

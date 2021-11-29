@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 19:16:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:04:39 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,14 @@ typedef struct s_img
 typedef struct s_map
 {
 	t_vec	ppos;
+	char	**grid;
 }	t_map;
+
+typedef struct s_info
+{
+	size_t	walks;
+	bool	frame;
+}	t_info;
 
 typedef struct s_engine
 {
@@ -43,8 +50,7 @@ typedef struct s_engine
 	void	*win;
 	t_map	*map;
 	t_dict	*imgs;
-	bool	frame;
-	// t_img	test_img;
+	t_info	info;
 }	t_engine;
 
 #endif
