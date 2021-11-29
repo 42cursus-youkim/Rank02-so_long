@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/26 18:49:57 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/29 20:17:31 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,8 @@ systemV  := \
 	yexit yalloc ysyscall ylog ygnl
 
 stringV  := \
-	new_ystr new_ystrjoin del_ystr	\
-	mod_ystr func_ystr				\
+	new_ystr new_ystrjoin new_ysplit	\
+	del_ystr mod_ystr func_ystr			\
 
 dictV    := \
 	new_ydict del_ydict yhash			\

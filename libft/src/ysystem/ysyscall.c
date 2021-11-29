@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 13:33:47 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:46:09 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,9 @@ int	yread(int fd, char *buf, int buffer_size)
 	buf[read_size] = '\0';
 	return (read_size);
 }
+
+// TODO: ymemcpy
+// void	*ymemcpy(void *dest, const void *src, size_t count)
+// {
+
+// }

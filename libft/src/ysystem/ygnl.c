@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 19:52:44 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:18:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static char	*sliced(char **backup, int nl_idx)
 {
 	char	*sliced_str;
 
-	sliced_str = new_ystrslice(*backup, 0, nl_idx + 1);
-	ystr_replace(backup, new_ystrslice(*backup, nl_idx + 1, ystrlen(*backup)));
+	sliced_str = new_yslice(*backup, 0, nl_idx + 1);
+	ystr_replace(backup, new_yslice(*backup, nl_idx + 1, ystrlen(*backup)));
 	return (sliced_str);
 }
 

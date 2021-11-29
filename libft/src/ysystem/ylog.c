@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:29:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 16:32:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:11:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,11 @@ void	yerror(char *where, char *err)
 	ywritecolor(2, msg, BHRED);
 	del_ystr(msg);
 	yexit(1);
+}
+
+int	ycheckerr(int statement, char *err)
+{
+	if (statement == ERROR)
+		yerror("ycheckerr", err);
+	return (statement);
 }

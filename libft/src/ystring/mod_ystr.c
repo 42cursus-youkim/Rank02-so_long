@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:06:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:45:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,32 @@ void	ystr_replace(char **pstr, char *new_str)
 	temp = new_str;
 	del_ystr(*pstr);
 	*pstr = temp;
+}
+
+// TODO: ystr_cut
+//	cut the original string. memory safe!
+// void	ystr_cut(char **pstr, int start, int end)
+// {
+// 	char	*temp;
+
+// 	temp = new_ystrm(end - start);
+// 	if (!temp)
+// 		return ;
+// }
+
+//	new str from sliced range.
+char	*new_yslice(const char *str, int start, int end)
+{
+	int		i;
+	char	*new_str;
+
+	if (start < 0 || end < 0 || start > end || end > ystrlen(str))
+		return (NULL);
+	i = end - start;
+	new_str = new_ystrm(i);
+	if (!new_str)
+		return (NULL);
+	while (i-- > 0)
+		new_str[i] = str[start + i];
+	return (new_str);
 }

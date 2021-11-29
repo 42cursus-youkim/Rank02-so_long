@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 13:01:42 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:18:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ int			ystrchri(const char *str, const char c);
 int			ystr_append(char **pstr, char *src);
 void		ystr_color(char **pstr, char *color);
 void		ystr_replace(char **pstr, char *new_str);
+char		*new_yslice(const char *str, int start, int end);
+/*
+** < new_ysplit.c > */
+
+char		**new_ysplit(char const *s, char c);
 /*
 ** < new_ystr.c > */
 
 char		*new_ystr(const char *from);
 char		*new_ystre(int length);
 char		*new_ystrm(int length);
-char		*new_ystrslice(const char *str, int start, int end);
 /*
 ** < new_ystrjoin.c > */
 

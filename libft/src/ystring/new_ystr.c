@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 15:11:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:18:08 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,4 @@ char	*new_ystrm(int length)
 		return (NULL);
 	str[length] = '\0';
 	return (str);
-}
-
-//	new str from sliced range.
-char	*new_ystrslice(const char *str, int start, int end)
-{
-	int		i;
-	char	*new_str;
-
-	if (start < 0 || end < 0 || start > end || end > ystrlen(str))
-		return (NULL);
-	i = end - start;
-	new_str = new_ystrm(i);
-	if (!new_str)
-		return (NULL);
-	while (i-- > 0)
-		new_str[i] = str[start + i];
-	return (new_str);
 }
