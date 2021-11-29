@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper_ystr.c                                        :+:      :+:    :+:   */
+/*   mod_ystr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 19:50:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:06:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//same as strcat
-int	ystr_cat(char *dest, const char *src)
+/*	looks like strjoin but is memory safe, by replacing the original string
+	returns: length of joined string, usage: ystr_append(&str, STRING)
+*/
+int	ystr_append(char **pstr, char *src)
 {
-	int	i;
-	int	j;
+	char	*temp;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
-		dest[i++] = src[j++];
-	dest[i] = '\0';
-	return (i);
+	temp = new_ystrjoin((char *[]){*pstr, src, NULL});
+	del_ystr(*pstr);
+	*pstr = temp;
+	return (ystrlen(*pstr));
 }
 
 /*	colorize given string. memory safe!
 	(frees given string then reallocates with colorized one)
-	usage: ystrcolor(&str, RED)
+	usage: ystr_color(&str, RED)
 */
 void	ystr_color(char **pstr, char *color)
 {
@@ -38,5 +35,15 @@ void	ystr_color(char **pstr, char *color)
 
 	temp = new_ystrjoin((char *[]){color, *pstr, END, 0});
 	free(*pstr);
+	*pstr = temp;
+}
+
+//	replace given NEW string with OLD string. memory safe!
+void	ystr_replace(char **pstr, char *new_str)
+{
+	char	*temp;
+
+	temp = new_str;
+	del_ystr(*pstr);
 	*pstr = temp;
 }

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/23 15:46:27 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/26 18:49:57 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC       := gcc
 CFLAGS   := -Wall -Wextra -Werror -g3
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
-			--suppressions=./valgrind.suppressions
+			--suppressions=./macos.supp
 AR       := ar -rcs
 RM       := rm -f
 
@@ -34,14 +34,13 @@ define choose_modules
 endef
 
 # ===== Packages =====
-PKGS     := string linked system dict math
+PKGS     := string system dict math linked
 
-# linkedV   := new_ylist new_ydeque
 mathV  := \
 	func_ymath new_yitoa
 
 systemV  := \
-	yexit yalloc ysyscall ylog
+	yexit yalloc ysyscall ylog ygnl
 
 stringV  := \
 	new_ystr new_ystrjoin del_ystr	\
@@ -51,6 +50,10 @@ dictV    := \
 	new_ydict del_ydict yhash			\
 	ydict_set ydict_get	ydict_expand	\
 	ydict_property ydict_status
+
+linkedV  := \
+	new_ylist func_ylist
+#new_ydeque
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

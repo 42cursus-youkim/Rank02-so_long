@@ -7,3 +7,4 @@ map
 *.a
 
 so_long.code-workspace
+*.supp

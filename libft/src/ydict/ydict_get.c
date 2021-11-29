@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:27:15 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:04:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// wrapper for hash that returns index got from hash
-int	ydict_getid(size_t capacity, char *key)
+//	wrapper for hash that returns index got from hash
+int	ydict_getid(int capacity, char *key)
 {
 	return (yhash_fnv1a(key) % (uint64_t)capacity);
 }
@@ -24,20 +24,20 @@ static bool	does_itemmatch(t_dictitem *item, char *key)
 }
 
 //	finds value by key, return NULL is not found
-char	*ydict_get(t_dict *dict, char *key)
+void	*ydict_get(t_dict *dict, char *key)
 {
-	size_t		i;
-	size_t		id;
+	int		i;
+	int		id;
 
 	id = ydict_getid(dict->capacity, key);
-	i = id;
-	while (i < dict->capacity)
-		if (does_itemmatch(dict->items[i++], key))
-			return (dict->items[--i]->value);
-	i = 0;
-	while (i < id)
-		if (does_itemmatch(dict->items[i++], key))
-			return (dict->items[--i]->value);
+	i = id - 1;
+	while (++i < dict->capacity)
+		if (does_itemmatch(dict->items[i], key))
+			return (dict->items[i]->value);
+	i = -1;
+	while (++i < id)
+		if (does_itemmatch(dict->items[i], key))
+			return (dict->items[i]->value);
 	return (NULL);
 }
 

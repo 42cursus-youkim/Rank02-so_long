@@ -1,4 +1,6 @@
-test
 *.o
 *.out
-valgrind.suppressions
+*.txt
+
+test
+*.supp

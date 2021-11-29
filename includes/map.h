@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 18:28:05 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/26 17:57:32 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#ifndef MAP_H
+# define MAP_H
+
 
 //	===== @Functions =====
 /*
-** < func_ymath.c > */
+** < load.c > */
 
-int			ydigits(long long n);
+void		load_map(t_map *map, char *file_name);
 /*
-** < new_yitoa.c > */
+** < render.c > */
 
-char		*new_yitoa(int n);
+void		render_tile(t_engine *engine, char *key, int tilex, int tiley);
+void		render_tile_animated(t_engine *engine, char *key, int tilex, int tiley);
+void		render_map(t_engine *engine);
 #endif

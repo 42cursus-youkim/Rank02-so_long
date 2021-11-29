@@ -6,24 +6,30 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 12:33:56 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:42:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSYSTEM_H
 # define YSYSTEM_H
 
-// ===== @Functions =====
+# define BUFFER_SIZE 20
+# define OPEN_MAX 128
+//	===== @Functions =====
 /*
 ** < yalloc.c > */
 
-void		*ymemset(void *b, int c, size_t len);
-void		ybzero(void *s, size_t n);
-void		*ycalloc(size_t count, size_t size);
+void		*ymemset(void *b, int c, int len);
+void		ybzero(void *s, int n);
+void		*ycalloc(int count, int size);
 /*
 ** < yexit.c > */
 
 void		yexit(int status);
+/*
+** < ygnl.c > */
+
+char		*yreadline(int fd);
 /*
 ** < ylog.c > */
 
@@ -34,4 +40,5 @@ void		yerror(char *where, char *err);
 
 int			ywrite(int fd, char *str);
 int			ywritecolor(int fd, char *str, char *color);
+int			yread(int fd, char *buf, int buffer_size);
 #endif

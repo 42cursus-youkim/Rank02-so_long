@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   func_ylist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 19:51:10 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 19:56:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#include "libft.h"
 
-//	===== @Functions =====
-/*
-** < func_ymath.c > */
+int	ylistlen(t_list *lst)
+{
+	int		len;
 
-int			ydigits(long long n);
-/*
-** < new_yitoa.c > */
+	len = 0;
+	while (lst && len++ >= 0)
+		lst = lst->next;
+	return (len);
+}
 
-char		*new_yitoa(int n);
-#endif
+t_list	*ylistindex(t_list *lst, int index)
+{
+	int		i;
+
+	i = 0;
+	while (lst && i++ < index)
+		lst = lst->next;
+	return (lst);
+}

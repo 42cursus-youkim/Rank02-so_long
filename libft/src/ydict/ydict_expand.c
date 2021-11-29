@@ -6,47 +6,47 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 17:26:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 18:02:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_newkey_vacant(t_dictitem **new_items, size_t id)
+static bool	is_newkey_vacant(t_dictitem **new_items, int id)
 {
 	return (!new_items[id]);
 }
 
 static void	ydict_moveprobeditem(
-	t_dictitem **new_items, size_t id, t_dictitem *item
+	t_dictitem **new_items, int id, t_dictitem *item
 )
 {
 	new_items[id] = item;
 }
 
 static void	ydict_probenew(
-	t_dictitem **new_items, size_t new_capacity, size_t id, t_dictitem *item
+	t_dictitem **new_items, int new_capacity, int id, t_dictitem *item
 )
 {
-	size_t	i;
+	int	i;
 
 	i = id;
 	while (++i < new_capacity)
 		if (is_newkey_vacant(new_items, i))
 			return (ydict_moveprobeditem(new_items, i, item));
-	i = 0;
-	while (i < id)
-		if (is_newkey_vacant(new_items, ++i))
-			return (ydict_moveprobeditem(new_items, --i, item));
-	ywarn("for some mysterious reason new dict is FULL! how come???");
+	i = -1;
+	while (++i < id)
+		if (is_newkey_vacant(new_items, i))
+			return (ydict_moveprobeditem(new_items, i, item));
+	ywarn("could not move item to new array due to NO SPACE LEFT in new array");
 }
 
 static void	ydict_move_items(
 	t_dict *dict, t_dictitem **new_items, int new_capacity
 )
 {
-	size_t		i;
-	size_t		id;
+	int			i;
+	int			id;
 	t_dictitem	*item;
 
 	i = 0;
@@ -67,10 +67,10 @@ static void	ydict_move_items(
 	dict->items = new_items;
 }
 
-//	returns
+//	creates new dictitems, and moves all items to new array with new hash ids
 int	ydict_expand(t_dict *dict)
 {
-	size_t		new_capacity;
+	int			new_capacity;
 	t_dictitem	**new_items;
 
 	if (is_capacity_overflow(dict))

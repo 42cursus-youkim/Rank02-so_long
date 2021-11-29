@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   new_ylist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 19:45:54 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/23 19:53:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#include "libft.h"
 
-//	===== @Functions =====
-/*
-** < func_ymath.c > */
+//	returns NULL if allocation fails
+t_list	*new_ylist(void *content)
+{
+	t_list	*lst;
 
-int			ydigits(long long n);
-/*
-** < new_yitoa.c > */
-
-char		*new_yitoa(int n);
-#endif
+	lst = malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
+}

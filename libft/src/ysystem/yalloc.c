@@ -6,13 +6,13 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/20 13:33:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ymemset(void *b, int c, size_t len)
+void	*ymemset(void *b, int c, int len)
 {
 	unsigned char	*ptr;
 
@@ -22,12 +22,12 @@ void	*ymemset(void *b, int c, size_t len)
 	return (b);
 }
 
-void	ybzero(void *s, size_t n)
+void	ybzero(void *s, int n)
 {
 	ymemset(s, 0, n);
 }
 
-void	*ycalloc(size_t count, size_t size)
+void	*ycalloc(int count, int size)
 {
 	void	*ptr;
 

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   new_ydeque.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/26 18:01:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#include "libft.h"
 
-//	===== @Functions =====
-/*
-** < func_ymath.c > */
+t_dequenode	*new_ydequenode(int num)
+{
+	t_dequenode	*node;
 
-int			ydigits(long long n);
-/*
-** < new_yitoa.c > */
+	node = malloc(sizeof(t_dequenode));
+	if (!node)
+		return (NULL);
+}
 
-char		*new_yitoa(int n);
-#endif
+t_deque	*new_ydeque(int size, int nums[])
+{
+	return (NULL);
+}

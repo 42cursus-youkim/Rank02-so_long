@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:40:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 19:30:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/26 16:22:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 
 # include <stdio.h>
 
-//	===== libraries =====
 # include <mlx.h>
 # include "../libft/includes/libft.h"
 
-//	===== bases =====
 # include "config.h"
 # include "structs.h"
-
-//	===== game =====
-# include "game.h"
+# include "engine.h"
+# include "map.h"
 
 #endif

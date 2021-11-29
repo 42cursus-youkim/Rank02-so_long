@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/20 18:26:55 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/29 19:46:05 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,19 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g3 #-Wall -Wextra -Werror
-VFLAGS   := --track-origins=yes --leak-check=full
+CFLAGS   := #-g3 #-Wall -Wextra -Werror
+VFLAGS   := --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes --show-reachable=no \
+			--suppressions=./libft/macos.supp \
+			--suppressions=./mlx.supp
+VSFLAGS  := --show-reachable=yes --error-limit=no --gen-suppressions=all \
+			# --log-file=./mlx.supp
 RM       := rm -rf
 
 PRE      := src/
-INC      := -I includes/ -I mlx libft/libft.a
+INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
-
+LIBFT    := libft/libft.a
 # ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
@@ -37,8 +42,9 @@ define build_library
 endef
 
 # ===== Packages =====
-PKGS     := game
-gameV    := so_long hooks
+PKGS     := engine map
+engineV  := so_long hooks initialize
+mapV     := load render
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
@@ -46,11 +52,12 @@ OBJ      := $(SRC:%.c=%.o)
 
 # ===== Recipes =====
 %.o: %.c
+	@echo  $(subst .c,.o, $(lastword $(subst /, , $<)))
 	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	@$(call build_library)
-	@$(CC) $(CFLAGS) $(INC) $(MLX) -o $@ $^
+	@$(CC) $(CFLAGS) $(INC) $(LIBFT) $(MLX) -o $@ $^
 	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
@@ -80,12 +87,24 @@ docs:
 test: docs all
 	@echo "$(Y)<Running Test>$(E)"
 	@./so_long
+	@echo "$(G)<Ended Test>$(E)"
 
 leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
-	@$(CC) $(INC) $(NAME) test.c -o test
-	@colour-valgrind $(VFLAGS) ./test
-	@rm test
+	@colour-valgrind $(VFLAGS) ./so_long
+	@rm so_long
+
+leaksupp: docs all
+	@echo "$(Y)<Creating Leak Suppressions>$(E)"
+	@valgrind $(VFLAGS) $(VSFLAGS) ./so_long
+	@rm so_long
+
+leaks: docs all
+	@echo "$(Y)<Info for Leaks>$(E)"
+	@./so_long &
+	ps -U $(USER) | grep -i so_long
+
+# @$(CC) $(INC) $(NAME) test.c -o test
 
 .PHONY: all re clean fclean test
 

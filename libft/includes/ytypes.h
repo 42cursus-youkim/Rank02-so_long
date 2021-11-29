@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   ytypes.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/26 11:46:51 by youkim            #+#    #+#             */
+/*   Updated: 2021/11/26 11:47:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#ifndef YTYPES_H
+# define YTYPES_H
 
-//	===== @Functions =====
-/*
-** < func_ymath.c > */
+typedef void	(*t_destructor_f)(void *);
 
-int			ydigits(long long n);
-/*
-** < new_yitoa.c > */
-
-char		*new_yitoa(int n);
 #endif
