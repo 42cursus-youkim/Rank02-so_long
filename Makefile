@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/29 19:46:05 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/30 20:04:19 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ PRE      := src/
 INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
 LIBFT    := libft/libft.a
+
+TEST     := ./so_long map/map.ber
 # ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
@@ -42,9 +44,10 @@ define build_library
 endef
 
 # ===== Packages =====
-PKGS     := engine map
-engineV  := so_long hooks initialize
-mapV     := load render
+PKGS     := engine map utils
+engineV  := so_long initialize hooks images
+mapV     := initialize render
+utilsV   := vectors
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
@@ -86,22 +89,22 @@ docs:
 
 test: docs all
 	@echo "$(Y)<Running Test>$(E)"
-	@./so_long
+	@$(TEST)
 	@echo "$(G)<Ended Test>$(E)"
 
 leak: docs all
 	@echo "$(Y)<Running Leak Test>$(E)"
-	@colour-valgrind $(VFLAGS) ./so_long
+	@colour-valgrind $(VFLAGS) $(TEST)
 	@rm so_long
 
 leaksupp: docs all
 	@echo "$(Y)<Creating Leak Suppressions>$(E)"
-	@valgrind $(VFLAGS) $(VSFLAGS) ./so_long
+	@valgrind $(VFLAGS) $(VSFLAGS) $(TEST)
 	@rm so_long
 
 leaks: docs all
 	@echo "$(Y)<Info for Leaks>$(E)"
-	@./so_long &
+	@$(TEST) &
 	ps -U $(USER) | grep -i so_long
 
 # @$(CC) $(INC) $(NAME) test.c -o test

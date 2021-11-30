@@ -22,11 +22,14 @@ void		player_move(t_engine *engine, int keycode);
 int			key_hook(int keycode, t_engine *engine);
 int			engine_update(t_engine *engine);
 /*
+** < images.c > */
+
+void		init_imgs(t_engine *engine, char *files[]);
+/*
 ** < initialize.c > */
 
-void		init_engine(t_engine *engine);
-void		init_map(t_engine *engine);
-void		init_imgs(t_engine *engine, char *files[]);
+void		init_engine(t_engine *engine, t_map *map);
+t_map		*init_map(const char *map_name);
 /*
 ** < so_long.c > */
 

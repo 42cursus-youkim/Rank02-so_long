@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:04:39 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:00:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_img
 typedef struct s_map
 {
 	t_vec	ppos;
+	t_size	size;
 	char	**grid;
 }	t_map;
 

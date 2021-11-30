@@ -6,19 +6,26 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:28:05 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 17:57:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/29 20:15:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
+typedef struct s_checklist
+{
+	bool	has_exit;
+	bool	has_player;
+	bool	has_collectible;
+}	t_checklist;
 
 //	===== @Functions =====
 /*
-** < load.c > */
+** < initialize.c > */
 
-void		load_map(t_map *map, char *file_name);
+char		**new_loadgrid(const char *file_name);
+void		place_player(t_map *map);
 /*
 ** < render.c > */
 

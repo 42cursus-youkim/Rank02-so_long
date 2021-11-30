@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:08:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 19:54:05 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,13 @@ static void	run_engine(t_engine *engine)
 }
 
 //	The engine!
-int	main(int argc, char *argv[])
+int	main(const int argc, const char *argv[])
 {
 	t_engine	engine;
 
-	// if (argc != 2)
-	// {
-	// 	printf("usage: ./so_long [map]\n");
-	// 	return (0);
-	// }
-	load_map(NULL, "map/map.ber");
-	// load_map(NULL, argv[1]);
-	// engine.map = load_map(argv[1]);
-	// init_engine(&engine);
-	// run_engine(&engine);
+	yassert(argc == 2, "usage: ./so_long [map]\n");
+	init_engine(&engine, init_map(argv[1]));
+	run_engine(&engine);
 	return (0);
 }
 

@@ -1,10 +1,10 @@
 so_long
 test
 test.c
-map
 *.o
 *.py
 *.a
+map/*
 
 so_long.code-workspace
 *.supp
