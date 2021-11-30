@@ -43,6 +43,7 @@ char		**new_ysplit(char const *s, char c);
 char		*new_ystr(const char *from);
 char		*new_ystre(int length);
 char		*new_ystrm(int length);
+char		*new_yctostr(char c);
 /*
 ** < new_ystrjoin.c > */
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:15:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_dictitem	**new_ydictitem_arr(int capacity)
 }
 
 //	initializes dictionary, NULLs items, saves
-static void	ydict_init(t_dict *dict, t_destructor_f del_value)
+static void	ydict_setup(t_dict *dict, t_destructor_f del_value)
 {
 	dict->size = 0;
 	dict->capacity = YDICT_INITIAL_CAPACITY;
@@ -61,7 +61,7 @@ t_dict	*new_ydict(t_destructor_f del_value)
 	dict = malloc(sizeof(t_dict));
 	if (!dict)
 		return (NULL);
-	ydict_init(dict, del_value);
+	ydict_setup(dict, del_value);
 	if (dict->items)
 		return (dict);
 	else
@@ -70,4 +70,19 @@ t_dict	*new_ydict(t_destructor_f del_value)
 		free(dict);
 		return (NULL);
 	}
+}
+
+//	creates a new dict with string k,v
+t_dict	*new_ydictinits(t_destructor_f del_value, char *key[], char *value[])
+{
+	int		i;
+	t_dict	*dict;
+
+	dict = new_ydict(del_value);
+	if (!dict)
+		return (NULL);
+	i = -1;
+	while (key[++i] && value[i])
+		ydict_setstr(dict, key[i], value[i]);
+	return (dict);
 }

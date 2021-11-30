@@ -29,7 +29,6 @@ void		init_imgs(t_engine *engine, char *files[]);
 ** < initialize.c > */
 
 void		init_engine(t_engine *engine, t_map *map);
-t_map		*init_map(const char *map_name);
 /*
 ** < so_long.c > */
 

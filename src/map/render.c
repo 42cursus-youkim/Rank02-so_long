@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 19:54:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:06:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	render_tile(t_engine *engine, char *key, int tilex, int tiley)
 		tilex * TILE_SIZE, tiley * TILE_SIZE);
 }
 
-void	render_tile_animated(t_engine *engine, char *key, int tilex, int tiley)
+void	render_tile_anim(t_engine *engine, char *key, int tilex, int tiley)
 {
 	char	*anim_key;
 	char	*frame;

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:00:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:08:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_size
 
 typedef struct s_img
 {
-	// struct s_engine	*engineptr;
 	void			*data;
 	t_size			size;
 }	t_img;
@@ -36,6 +35,7 @@ typedef struct s_map
 {
 	t_vec	ppos;
 	t_size	size;
+	t_dict	*symbols;
 	char	**grid;
 }	t_map;
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 19:44:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:06:28 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	engine_update(t_engine *engine)
 {
 	mlx_clear_window(engine->mlx, engine->win);
 	render_map(engine);
-	render_tile_animated(
+	render_tile_anim(
 		engine, "player", engine->map->ppos.x, engine->map->ppos.y);
 	return (0);
 }

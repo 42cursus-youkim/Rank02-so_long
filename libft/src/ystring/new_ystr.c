@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:18:08 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:21:35 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,17 @@ char	*new_ystrm(int length)
 	if (!str)
 		return (NULL);
 	str[length] = '\0';
+	return (str);
+}
+
+//	char to NULL-terminated string
+char	*new_yctostr(char c)
+{
+	char	*str;
+
+	str = new_ystrm(1);
+	if (!str)
+		return (NULL);
+	str[0] = c;
 	return (str);
 }
