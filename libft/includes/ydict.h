@@ -44,8 +44,7 @@ void			del_ydict(t_dict *dict);
 t_dictitem		*new_ydictitem(const char *key, void *value);
 t_dictitem		**new_ydictitem_arr(int capacity);
 t_dict			*new_ydict(t_destructor_f del_value);
-t_dict			*new_ydictinits(t_destructor_f del_value,
-					char *key[], char *value[]);
+t_dict			*new_ydictinits(t_destructor_f del_value, char *key[], char *value[]);
 /*
 ** < ydict_expand.c > */
 

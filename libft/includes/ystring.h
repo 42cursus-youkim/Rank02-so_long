@@ -29,6 +29,7 @@ int			ystrchri(const char *str, const char c);
 /*
 ** < mod_ystr.c > */
 
+int			ystrcpy(char *dst, const char *src);
 int			ystr_append(char **pstr, char *src);
 void		ystr_color(char **pstr, char *color);
 void		ystr_replace(char **pstr, char *new_str);

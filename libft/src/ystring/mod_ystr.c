@@ -6,20 +6,38 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:45:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:36:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+//	returns length of strings appended.
+int	ystrcpy(char *dst, const char *src)
+{
+	int	i;
+
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = 0;
+	return (ystrlen(src));
+}
 
 /*	looks like strjoin but is memory safe, by replacing the original string
 	returns: length of joined string, usage: ystr_append(&str, STRING)
 */
 int	ystr_append(char **pstr, char *src)
 {
+	int		org_len;
+	int		src_len;
 	char	*temp;
 
-	temp = new_ystrjoin((char *[]){*pstr, src, NULL});
+	org_len = ystrlen(*pstr);
+	src_len = ystrlen(src);
+	temp = new_ystrm(org_len + src_len);
+	ystrcpy(temp, *pstr);
+	ystrcpy(temp + org_len, src);
 	del_ystr(*pstr);
 	*pstr = temp;
 	return (ystrlen(*pstr));
