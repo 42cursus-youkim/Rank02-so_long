@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:06:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:47:32 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,30 @@ void	render_tile_anim(t_engine *engine, char *key, int tilex, int tiley)
 	del_ystrs((char *[]){anim_key, frame, NULL});
 }
 
+void	render_background(t_engine *engine)
+{
+	t_vec	vec;
+	t_map	*map;
+	char	*name;
+
+	map = engine->map;
+	vec.y = -1;
+	while (++vec.y < map->size.h)
+	{
+		vec.x = -1;
+		while (++vec.x < map->size.w)
+		{
+			name = ydict_get(map->symbols,
+					new_yctostr(map->grid[vec.y][vec.x]));
+			if (name && !ystrequ(name, "player"))
+				render_tile(engine, name, vec.x, vec.y);
+		}
+	}
+}
+
 void	render_map(t_engine *engine)
 {
-	for (int i = 4; i < 10; i++)
-		render_tile(engine, "wall", i, 7);
+	render_background(engine);
+	// render_tile(engine, "wall", i, 7);
 	render_tile(engine, "hatch-closed", 4, 6);
 }

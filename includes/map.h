@@ -32,5 +32,6 @@ t_map		*init_map(const char *map_name);
 
 void		render_tile(t_engine *engine, char *key, int tilex, int tiley);
 void		render_tile_anim(t_engine *engine, char *key, int tilex, int tiley);
+void		render_background(t_engine *engine);
 void		render_map(t_engine *engine);
 #endif

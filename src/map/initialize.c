@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:34:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 20:48:16 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ t_map	*init_map(const char *map_name)
 	map->symbols = new_ydictinits(del_ystr,
 			(char *[]){"0", "1", "C", "E", "P", NULL}, \
 			(char *[]){"ground", "wall", "data0",
-			"hatch-closed", "player0", NULL});
+			"hatch-closed", "player", NULL});
 	ydict_list_items(map->symbols);
 	map->grid = new_loadgrid(map_name);
 	set_map_size(map);
-	// yassert(valdidate_map_file(map) == SUCCESS, "invalid map!");
 	place_player(map);
+	// yassert(valdidate_map_file(map) == SUCCESS, "invalid map!");
 	return (map);
 }
