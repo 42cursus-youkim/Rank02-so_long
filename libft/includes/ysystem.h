@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 14:42:11 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 18:18:47 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char		*yreadline(int fd);
 void		ywarn(char *warn);
 void		yerror(char *where, char *err);
 int			ycheckerr(int statement, char *err);
+void		yassert(bool statement, char *err);
 /*
 ** < ysyscall.c > */
 
