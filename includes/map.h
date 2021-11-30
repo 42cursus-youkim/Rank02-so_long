@@ -22,11 +22,15 @@ typedef struct s_checklist
 
 //	===== @Functions =====
 /*
-** < initialize.c > */
+** < del_map.c > */
+
+void		del_map(t_map *map);
+/*
+** < new_map.c > */
 
 char		**new_loadgrid(const char *file_name);
 void		place_player(t_map *map);
-t_map		*init_map(const char *map_name);
+t_map		*new_map(const char *map_name);
 /*
 ** < render.c > */
 

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/30 20:55:34 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/30 21:53:42 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ endef
 # ===== Packages =====
 PKGS     := engine map utils
 engineV  := so_long initialize hooks images
-mapV     := initialize render
+mapV     := new_map del_map render
 utilsV   := vectors
 
 # ===== Sources & Objects & Includes =====

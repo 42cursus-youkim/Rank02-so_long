@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 21:44:59 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:53:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	set_map_size(t_map *map)
 			map->size.w++;
 }
 
-t_map	*init_map(const char *map_name)
+t_map	*new_map(const char *map_name)
 {
 	t_map	*map;
 

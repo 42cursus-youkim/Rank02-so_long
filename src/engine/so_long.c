@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 21:13:45 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:54:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ int	main(const int argc, const char *argv[])
 {
 	t_engine	engine;
 
-	char **grid = new_loadgrid(argv[1]);
-	del_ystrs(grid);
-	free(grid);
-	// yassert(argc == 2, "usage: ./so_long [map]\n");
+	yassert(argc == 2, "usage: ./so_long [map]\n");
+	t_map *map = new_map(argv[1]);
+	del_map(map);
 	// init_engine(&engine, init_map(argv[1]));
 	// run_engine(&engine);
 	return (0);
