@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/30 20:04:19 by youkim           ###   ########.fr        #
+#    Updated: 2021/11/30 20:55:34 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,7 @@ leaksupp: docs all
 leaks: docs all
 	@echo "$(Y)<Info for Leaks>$(E)"
 	@$(TEST) &
-	ps -U $(USER) | grep -i so_long
+	ps -U ${USER} | grep -i so_long | grep -v grep
 
 # @$(CC) $(INC) $(NAME) test.c -o test
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:31:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:13:45 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	end_game(int keycode, t_engine *engine)
 
 static void	run_engine(t_engine *engine)
 {
-	mlx_do_key_autorepeaton(engine->mlx);
-	mlx_mouse_hook(engine->win, mouse_hook, engine);
-	mlx_hook(engine->win, KeyPress, KeyPressMask, key_hook, engine);
-	mlx_hook(engine->win, DestroyNotify, StructureNotifyMask, end_game, engine);
+	// mlx_do_key_autorepeaton(engine->mlx);
+	// mlx_mouse_hook(engine->win, mouse_hook, engine);
+	// mlx_hook(engine->win, KeyPress, KeyPressMask, key_hook, engine);
+	// mlx_hook(engine->win, DestroyNotify, StructureNotifyMask, end_game, engine);
 	mlx_loop_hook(engine->mlx, engine_update, engine);
 	mlx_loop(engine->mlx);
 }
@@ -35,9 +35,12 @@ int	main(const int argc, const char *argv[])
 {
 	t_engine	engine;
 
-	yassert(argc == 2, "usage: ./so_long [map]\n");
-	init_engine(&engine, init_map(argv[1]));
-	run_engine(&engine);
+	char **grid = new_loadgrid(argv[1]);
+	del_ystrs(grid);
+	free(grid);
+	// yassert(argc == 2, "usage: ./so_long [map]\n");
+	// init_engine(&engine, init_map(argv[1]));
+	// run_engine(&engine);
 	return (0);
 }
 

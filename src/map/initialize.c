@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:48:16 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:44:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,33 @@ char	**new_loadgrid(const char *file_name)
 		if (!buffer)
 			break ;
 		ystr_append(&line, buffer);
+		del_ystr(buffer);
 	}
 	grid = new_ysplit(line, '\n');
 	close(fd);
+	del_ystrs((char *[]){line, buffer, NULL});
 	return (grid);
 }
 
 void	place_player(t_map *map)
 {
-	map->ppos.x = 3;
-	map->ppos.y = 3;
+	t_vec	vec;
+
+	vec.y = -1;
+	while (++vec.y < map->size.h)
+	{
+		vec.x = -1;
+		while (++vec.x < map->size.w)
+		{
+			if (map->grid[vec.y][vec.x] == 'P')
+			{
+				map->ppos.x = vec.x;
+				map->ppos.y = vec.y;
+				map->grid[vec.y][vec.x] = ' ';
+				return ;
+			}
+		}
+	}
 }
 
 // int	valdidate_map_file(, t_map *map)
@@ -63,9 +80,8 @@ t_map	*init_map(const char *map_name)
 	if (!map)
 		yerror("init_map", "malloc error");
 	map->symbols = new_ydictinits(del_ystr,
-			(char *[]){"0", "1", "C", "E", "P", NULL}, \
-			(char *[]){"ground", "wall", "data0",
-			"hatch-closed", "player", NULL});
+			(char *[]){"0", "1", NULL}, \
+			(char *[]){"ground", "wall", NULL});
 	ydict_list_items(map->symbols);
 	map->grid = new_loadgrid(map_name);
 	set_map_size(map);
