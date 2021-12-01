@@ -15,6 +15,10 @@
 
 //	===== @Functions =====
 /*
+** < collision.c > */
+
+bool	is_wall(t_map *map, int tilex, int tiley);
+/*
 ** < hooks.c > */
 
 int		mouse_hook(int button, int x, int y, t_engine *engine);

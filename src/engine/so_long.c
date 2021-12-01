@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 16:41:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 16:51:56 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	end_game(int keycode, t_engine *engine)
 
 static void	run_engine(t_engine *engine)
 {
-	// mlx_do_key_autorepeaton(engine->mlx);
-	// mlx_mouse_hook(engine->win, mouse_hook, engine);
-	// mlx_hook(engine->win, KeyPress, KeyPressMask, key_hook, engine);
-	// mlx_hook(engine->win, DestroyNotify, StructureNotifyMask, end_game, engine);
+	mlx_do_key_autorepeaton(engine->mlx);
+	mlx_mouse_hook(engine->win, mouse_hook, engine);
+	mlx_hook(engine->win, KeyPress, KeyPressMask, key_hook, engine);
+	mlx_hook(engine->win, DestroyNotify, StructureNotifyMask, end_game, engine);
 	mlx_loop_hook(engine->mlx, engine_update, engine);
 	mlx_loop(engine->mlx);
 }
@@ -41,8 +41,6 @@ int	main(const int argc, const char *argv[])
 	yassert(argc == 2, "usage: ./so_long [map]\n");
 	init_engine(&engine, new_map(argv[1]));
 	run_engine(&engine);
-	// init_engine(&engine, init_map(argv[1]));
-	while (1) {};
 	return (0);
 }
 
