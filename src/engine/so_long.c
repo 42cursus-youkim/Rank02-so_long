@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 16:51:56 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 17:37:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 //	kill engine
 int	end_game(int keycode, t_engine *engine)
 {
-	printf("kill them all! with key %d\n", keycode);
+	keycode = 0;
+	printf("kill them all!\n");
 	del_map(engine->map);
-	// del_ydict(engine->imgs);
-	// mlx_destroy_window(engine->mlx, engine->win);
+	del_ydict(engine->imgs);
+	mlx_destroy_window(engine->mlx, engine->win);
 	exit(0);
 	return (0);
 }
