@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:07:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:33:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 14:48:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	init_engine(t_engine *engine, t_map *map)
 {
 	engine->map = map;
 	engine->mlx = mlx_init();
-	printf("%d, %d\n", map->size.w, map->size.h);
 	engine->win = mlx_new_window(
 			engine->mlx,
 			TILE_SIZE * map->size.w,

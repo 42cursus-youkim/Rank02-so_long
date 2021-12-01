@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/30 21:53:42 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/01 16:42:13 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := #-g3 #-Wall -Wextra -Werror
+CFLAGS   := -g -Wall -Wextra #-Werror
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \
@@ -83,7 +83,7 @@ docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
 	@set -e;\
 		for p in $(PKGS); do\
-			../protogen/run.py "" includes/$$p.h src/$$p;\
+			../hgen/run.py "" includes/$$p.h src/$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
@@ -105,7 +105,11 @@ leaksupp: docs all
 leaks: docs all
 	@echo "$(Y)<Info for Leaks>$(E)"
 	@$(TEST) &
-	ps -U ${USER} | grep -i so_long | grep -v grep
+	@set -e; \
+	PID=$$(ps -U $$USER | grep -i so_long | \
+			grep -v grep | cut -d ' ' -f 1) ;\
+		echo "so_long: $$PID" ;\
+		pbcopy <<< "leakchk $$PID" ;\
 
 # @$(CC) $(INC) $(NAME) test.c -o test
 

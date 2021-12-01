@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:15:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 15:35:08 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ t_dict	*new_ydict(t_destructor_f del_value)
 }
 
 //	creates a new dict with string k,v
-t_dict	*new_ydictinits(t_destructor_f del_value, char *key[], char *value[])
+t_dict	*new_ydictinits(char *key[], char *value[])
 {
 	int		i;
 	t_dict	*dict;
 
-	dict = new_ydict(del_value);
+	dict = new_ydict(del_ystr);
 	if (!dict)
 		return (NULL);
 	i = -1;

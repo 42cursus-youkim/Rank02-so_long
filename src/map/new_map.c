@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   new_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 21:53:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 16:50:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,10 @@ t_map	*new_map(const char *map_name)
 	map = malloc(sizeof(t_map));
 	if (!map)
 		yerror("init_map", "malloc error");
-	map->symbols = new_ydictinits(del_ystr,
-			(char *[]){"0", "1", NULL}, \
-			(char *[]){"ground", "wall", NULL});
-	ydict_list_items(map->symbols);
 	map->grid = new_loadgrid(map_name);
+	map->charmap = new_ycharmap(
+			(char []){'0', '1', '\0'},
+			(char *[]){"ground", "wall", NULL});
 	set_map_size(map);
 	place_player(map);
 	// yassert(valdidate_map_file(map) == SUCCESS, "invalid map!");

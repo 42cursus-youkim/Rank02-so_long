@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/01 11:05:30 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/01 16:40:28 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME     := libft.a
 
 CC       := gcc
-CFLAGS   := -Wall -Wextra -Werror -g3
+CFLAGS   := -Wall -Wextra -Werror -g
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
 			--suppressions=./macos.supp
@@ -90,13 +90,16 @@ docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
 	@set -e;\
 		for p in $(PKGS); do\
-			../../protogen/run.py "" includes/y$$p.h src/y$$p;\
+			../../hgen/run.py "" includes/y$$p.h src/y$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
-test: docs all
+testdry: docs all
 	@echo "$(Y)<Running Test>$(E)"
 	@$(CC) $(INC) $(NAME) test.c -o test
+	@echo "$(G)<Compiled Test>$(E)"
+
+test: testdry
 	@./test
 	@rm test
 	@echo "$(G)<Ended Test>$(E)"
