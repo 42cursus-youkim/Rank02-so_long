@@ -19,6 +19,7 @@
 ** < vectors.c > */
 
 void	vec_set(t_vec *v, int x, int y);
-void	vec_assign(t_vec *v, t_vec *u);
+void	vec_assign(t_vec *v, t_vec *f);
 void	size_set(t_size *s, int w, int h);
+void	size_assign(t_size *s, t_size *f);
 #endif

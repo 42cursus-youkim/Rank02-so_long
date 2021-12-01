@@ -24,6 +24,7 @@ int		engine_update(t_engine *engine);
 ** < images.c > */
 
 void	init_imgs(t_engine *engine, char *files[]);
+void	del_img(void *img);
 /*
 ** < initialize.c > */
 

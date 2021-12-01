@@ -28,7 +28,6 @@ typedef struct s_dict
 {
 	int				size;
 	int				capacity;
-	void			*parent;
 	t_dictitem		**items;
 	t_destructor_f	del_value;
 }	t_dict;

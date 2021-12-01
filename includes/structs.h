@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 11:14:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 17:51:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ typedef struct s_size
 
 typedef struct s_img
 {
-	void			*data;
-	t_size			size;
+	void	*data;
+	void	*mlx;
+	t_size	size;
 }	t_img;
 
 typedef struct s_map
