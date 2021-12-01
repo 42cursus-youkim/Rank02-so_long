@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:08:33 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:43:43 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ t_map	*new_map(const char *map_name)
 	if (!map)
 		yerror("init_map", "malloc error");
 	map->grid = new_loadgrid(map_name);
-	map->charmap = new_ycharmap(
-			(char []){GROUND, WALL, '\0'},
-			(char *[]){"ground", "wall", NULL});
 	yassert(set_map_size_and_is_valid(map), "map is not rectangular!");
 	yassert(set_map_entities_and_is_valid(map), "invalid map!");
 	return (map);
