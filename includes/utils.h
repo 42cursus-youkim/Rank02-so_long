@@ -18,6 +18,6 @@
 /*
 ** < vectors.c > */
 
-void		vector_set(t_vec *v, int x, int y);
-void		size_set(t_size *s, int w, int h);
+void	vector_set(t_vec *v, int x, int y);
+void	size_set(t_size *s, int w, int h);
 #endif

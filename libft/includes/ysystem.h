@@ -19,28 +19,28 @@
 /*
 ** < yalloc.c > */
 
-void		*ymemset(void *b, int c, int len);
-void		ybzero(void *s, int n);
-void		*ycalloc(int count, int size);
+void	*ymemset(void *b, int c, int len);
+void	ybzero(void *s, int n);
+void	*ycalloc(int count, int size);
 /*
 ** < yexit.c > */
 
-void		yexit(int status);
+void	yexit(int status);
 /*
 ** < ygnl.c > */
 
-char		*yreadline(int fd);
+char	*yreadline(int fd);
 /*
 ** < ylog.c > */
 
-void		ywarn(char *warn);
-void		yerror(char *where, char *err);
-int			ycheckerr(int statement, char *err);
-void		yassert(bool statement, char *err);
+void	ywarn(char *warn);
+void	yerror(char *where, char *err);
+int		ycheckerr(int statement, char *err);
+void	yassert(bool statement, char *err);
 /*
 ** < ysyscall.c > */
 
-int			ywrite(int fd, char *str);
-int			ywritecolor(int fd, char *str, char *color);
-int			yread(int fd, char *buf, int buffer_size);
+int		ywrite(int fd, char *str);
+int		ywritecolor(int fd, char *str, char *color);
+int		yread(int fd, char *buf, int buffer_size);
 #endif

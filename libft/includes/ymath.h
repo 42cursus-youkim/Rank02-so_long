@@ -17,9 +17,9 @@
 /*
 ** < func_ymath.c > */
 
-int			ydigits(long long n);
+int		ydigits(long long n);
 /*
 ** < new_yitoa.c > */
 
-char		*new_yitoa(int n);
+char	*new_yitoa(int n);
 #endif
