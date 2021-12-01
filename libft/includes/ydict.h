@@ -46,6 +46,12 @@ t_dictitem		**new_ydictitem_arr(int capacity);
 t_dict			*new_ydict(t_destructor_f del_value);
 t_dict			*new_ydictinits(t_destructor_f del_value, char *key[], char *value[]);
 /*
+** < ycharmap.c > */
+
+char			**new_ycharmap(char symbols[], char *values[]);
+void			del_ycharmap(void *map);
+void			ycharmap_visualize(char **map);
+/*
 ** < ydict_expand.c > */
 
 int				ydict_expand(t_dict *dict);
@@ -58,7 +64,7 @@ char			*ydict_getd(t_dict *dict, char *key, char *defaultv);
 /*
 ** < ydict_property.c > */
 
-void			ydict_list_items(t_dict *dict);
+void			ydict_visualize(t_dict *dict);
 /*
 ** < ydict_set.c > */
 

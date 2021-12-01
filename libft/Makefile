@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/29 20:17:31 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/01 11:05:30 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ stringV  := \
 dictV    := \
 	new_ydict del_ydict yhash			\
 	ydict_set ydict_get	ydict_expand	\
-	ydict_property ydict_status
+	ydict_property ydict_status			\
+	ycharmap
 
 linkedV  := \
 	new_ylist func_ylist
