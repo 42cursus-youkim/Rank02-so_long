@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   vectors.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 12:53:21 by youkim           ###   ########.fr       */
+/*   Created: 2021/11/30 19:57:08 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/01 19:58:07 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#include "so_long.h"
 
-//	===== @Functions =====
-/*
-** < func_ymath.c > */
+void	vec_set(t_vec *v, int x, int y)
+{
+	v->x = x;
+	v->y = y;
+}
 
-int		ydigits(long long n);
-/*
-** < new_yitoa.c > */
+void	vec_assign(t_vec *v, t_vec *f)
+{
+	v->x = f->x;
+	v->y = f->y;
+}
 
-char	*new_yitoa(int n);
-#endif
+void	size_set(t_size *s, int w, int h)
+{
+	s->w = w;
+	s->h = h;
+}
+
+void	size_assign(t_size *s, t_size *f)
+{
+	s->w = f->w;
+	s->h = f->h;
+}

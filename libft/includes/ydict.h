@@ -36,43 +36,50 @@ typedef struct s_dict
 /*
 ** < del_ydict.c > */
 
-void			del_ydictitem(t_dict *dict, int id);
-void			del_ydict(t_dict *dict);
+void		del_ydictitem(t_dict *dict, int id);
+void		del_ydict(t_dict *dict);
 /*
 ** < new_ydict.c > */
 
-t_dictitem		*new_ydictitem(const char *key, void *value);
-t_dictitem		**new_ydictitem_arr(int capacity);
-t_dict			*new_ydict(t_destructor_f del_value);
+t_dictitem	*new_ydictitem(const char *key, void *value);
+t_dictitem	**new_ydictitem_arr(int capacity);
+t_dict		*new_ydict(t_destructor_f del_value);
+t_dict		*new_ydictinits(char *key[], char *value[]);
+/*
+** < ycharmap.c > */
+
+char		**new_ycharmap(char symbols[], char *values[]);
+void		del_ycharmap(void *map);
+void		ycharmap_visualize(char **map);
 /*
 ** < ydict_expand.c > */
 
-int				ydict_expand(t_dict *dict);
+int			ydict_expand(t_dict *dict);
 /*
 ** < ydict_get.c > */
 
-int				ydict_getid(int capacity, char *key);
-void			*ydict_get(t_dict *dict, char *key);
-char			*ydict_getd(t_dict *dict, char *key, char *defaultv);
+int			ydict_getid(int capacity, char *key);
+void		*ydict_get(t_dict *dict, char *key);
+char		*ydict_getd(t_dict *dict, char *key, char *defaultv);
 /*
 ** < ydict_property.c > */
 
-void			ydict_list_items(t_dict *dict);
+void		ydict_visualize(t_dict *dict);
 /*
 ** < ydict_set.c > */
 
-void			ydict_set(t_dict *dict, char *key, void *value);
-void			ydict_setstr(t_dict *dict, char *key, char *value);
+void		ydict_set(t_dict *dict, char *key, void *value);
+void		ydict_setstr(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
 
-bool			is_input_valid(t_dict *dict, char *key, void *value);
-bool			is_key_vacant(t_dict *dict, int id);
-bool			is_key_update(t_dict *dict, int id, char *key);
-bool			is_dict_almostfull(t_dict *dict);
-bool			is_capacity_overflow(t_dict *dict);
+bool		is_input_valid(t_dict *dict, char *key, void *value);
+bool		is_key_vacant(t_dict *dict, int id);
+bool		is_key_update(t_dict *dict, int id, char *key);
+bool		is_dict_almostfull(t_dict *dict);
+bool		is_capacity_overflow(t_dict *dict);
 /*
 ** < yhash.c > */
 
-uint64_t		yhash_fnv1a(const char *key);
+uint64_t	yhash_fnv1a(const char *key);
 #endif

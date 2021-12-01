@@ -6,12 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:04:39 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:54:23 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+# define FRAME_CYCLE 30
 
 typedef struct s_vec
 {
@@ -27,21 +29,26 @@ typedef struct s_size
 
 typedef struct s_img
 {
-	// struct s_engine	*engineptr;
-	void			*data;
-	t_size			size;
+	void	*data;
+	void	*mlx;
+	t_size	size;
 }	t_img;
 
 typedef struct s_map
 {
 	t_vec	ppos;
+	t_vec	epos;
+	t_size	size;
+	char	**charmap;
 	char	**grid;
+	size_t	disks;
 }	t_map;
 
 typedef struct s_info
 {
+	int		frames;
+	bool	otherwalk;
 	size_t	walks;
-	bool	frame;
 }	t_info;
 
 typedef struct s_engine

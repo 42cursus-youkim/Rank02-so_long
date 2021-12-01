@@ -39,15 +39,15 @@ typedef struct s_deque
 /*
 ** < func_ylist.c > */
 
-int				ylistlen(t_list *lst);
-t_list			*ylistindex(t_list *lst, int index);
+int			ylistlen(t_list *lst);
+t_list		*ylistindex(t_list *lst, int index);
 /*
 ** < new_ydeque.c > */
 
-t_dequenode		*new_ydequenode(int num);
-t_deque			*new_ydeque(int size, int nums[]);
+t_dequenode	*new_ydequenode(int num);
+t_deque		*new_ydeque(int size, int nums[]);
 /*
 ** < new_ylist.c > */
 
-t_list			*new_ylist(void *content);
+t_list		*new_ylist(void *content);
 #endif

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 14:42:11 by youkim           ###   ########.fr       */
+/*   Updated: 2021/11/30 21:44:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,28 @@
 /*
 ** < yalloc.c > */
 
-void		*ymemset(void *b, int c, int len);
-void		ybzero(void *s, int n);
-void		*ycalloc(int count, int size);
+void	*ymemset(void *b, int c, int len);
+void	ybzero(void *s, int n);
+void	*ycalloc(int count, int size);
 /*
 ** < yexit.c > */
 
-void		yexit(int status);
+void	yexit(int status);
 /*
 ** < ygnl.c > */
 
-char		*yreadline(int fd);
+char	*yreadline(int fd);
 /*
 ** < ylog.c > */
 
-void		ywarn(char *warn);
-void		yerror(char *where, char *err);
+void	ywarn(char *warn);
+void	yerror(char *where, char *err);
+int		ycheckerr(int statement, char *err);
+void	yassert(bool statement, char *err);
 /*
 ** < ysyscall.c > */
 
-int			ywrite(int fd, char *str);
-int			ywritecolor(int fd, char *str, char *color);
-int			yread(int fd, char *buf, int buffer_size);
+int		ywrite(int fd, char *str);
+int		ywritecolor(int fd, char *str, char *color);
+int		yread(int fd, char *buf, int buffer_size);
 #endif

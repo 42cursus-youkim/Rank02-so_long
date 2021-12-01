@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/11/26 18:49:57 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/01 16:40:28 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME     := libft.a
 
 CC       := gcc
-CFLAGS   := -Wall -Wextra -Werror -g3
+CFLAGS   := -Wall -Wextra -Werror -g
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
 			--suppressions=./macos.supp
@@ -43,13 +43,14 @@ systemV  := \
 	yexit yalloc ysyscall ylog ygnl
 
 stringV  := \
-	new_ystr new_ystrjoin del_ystr	\
-	mod_ystr func_ystr				\
+	new_ystr new_ystrjoin new_ysplit	\
+	del_ystr mod_ystr func_ystr			\
 
 dictV    := \
 	new_ydict del_ydict yhash			\
 	ydict_set ydict_get	ydict_expand	\
-	ydict_property ydict_status
+	ydict_property ydict_status			\
+	ycharmap
 
 linkedV  := \
 	new_ylist func_ylist
@@ -89,13 +90,16 @@ docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
 	@set -e;\
 		for p in $(PKGS); do\
-			../../protogen/run.py "" includes/y$$p.h src/y$$p;\
+			../../hgen/run.py "" includes/y$$p.h src/y$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
-test: docs all
+testdry: docs all
 	@echo "$(Y)<Running Test>$(E)"
 	@$(CC) $(INC) $(NAME) test.c -o test
+	@echo "$(G)<Compiled Test>$(E)"
+
+test: testdry
 	@./test
 	@rm test
 	@echo "$(G)<Ended Test>$(E)"

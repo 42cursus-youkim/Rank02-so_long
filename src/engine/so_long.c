@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:08:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:55:16 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 //	kill engine
 int	end_game(int keycode, t_engine *engine)
 {
-	printf("kill them all!\n");
+	keycode = 0;
+	printf("bye!\n");
 	exit(0);
 	return (0);
 }
@@ -25,26 +26,19 @@ static void	run_engine(t_engine *engine)
 	mlx_do_key_autorepeaton(engine->mlx);
 	mlx_mouse_hook(engine->win, mouse_hook, engine);
 	mlx_hook(engine->win, KeyPress, KeyPressMask, key_hook, engine);
-	mlx_hook(engine->win, DestroyNotify, StructureNotifyMask, end_game, engine);
+	mlx_hook(engine->win, DestroyNotify, NoEventMask, end_game, engine);
 	mlx_loop_hook(engine->mlx, engine_update, engine);
 	mlx_loop(engine->mlx);
 }
 
 //	The engine!
-int	main(int argc, char *argv[])
+int	main(const int argc, const char *argv[])
 {
 	t_engine	engine;
 
-	// if (argc != 2)
-	// {
-	// 	printf("usage: ./so_long [map]\n");
-	// 	return (0);
-	// }
-	load_map(NULL, "map/map.ber");
-	// load_map(NULL, argv[1]);
-	// engine.map = load_map(argv[1]);
-	// init_engine(&engine);
-	// run_engine(&engine);
+	yassert(argc == 2, "usage: ./so_long [map]\n");
+	init_engine(&engine, argv[1]);
+	run_engine(&engine);
 	return (0);
 }
 

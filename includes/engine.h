@@ -17,18 +17,25 @@
 /*
 ** < hooks.c > */
 
-int			mouse_hook(int button, int x, int y, t_engine *engine);
-void		player_move(t_engine *engine, int keycode);
-int			key_hook(int keycode, t_engine *engine);
-int			engine_update(t_engine *engine);
+int		mouse_hook(int button, int x, int y, t_engine *engine);
+int		key_hook(int keycode, t_engine *engine);
+int		engine_update(t_engine *engine);
+/*
+** < images.c > */
+
+void	init_imgs(t_engine *engine, char *files[]);
+void	del_img(void *img);
 /*
 ** < initialize.c > */
 
-void		init_engine(t_engine *engine);
-void		init_map(t_engine *engine);
-void		init_imgs(t_engine *engine, char *files[]);
+void	init_engine(t_engine *engine, const char *map_name);
+/*
+** < player.c > */
+
+void	walk_anim(t_engine *engine);
+void	player_trymove(t_engine *engine, int keycode);
 /*
 ** < so_long.c > */
 
-int			end_game(int keycode, t_engine *engine);
+int		end_game(int keycode, t_engine *engine);
 #endif
