@@ -28,11 +28,11 @@ void	del_img(void *img);
 /*
 ** < initialize.c > */
 
-void	init_engine(t_engine *engine, t_map *map);
+void	init_engine(t_engine *engine, const char *map_name);
 /*
 ** < player.c > */
 
-bool	is_wall(t_map *map, t_vec *pos);
+void	walk_anim(t_engine *engine);
 void	player_trymove(t_engine *engine, int keycode);
 /*
 ** < so_long.c > */

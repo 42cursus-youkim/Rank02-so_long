@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 17:18:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:11:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	mouse_hook(int button, int x, int y, t_engine *engine)
 {
-	printf("clicked button:%d x:%d y:%d\n", button, x, y);
+	printf("%sclicked button:%d x:%d y:%d%s\n", HYEL, button, x, y, END);
+	walk_anim(engine);
 	return (0);
 }
 
@@ -24,8 +25,7 @@ int	key_hook(int keycode, t_engine *engine)
 	if (keycode == KEY_ESC)
 		end_game(keycode, engine);
 	player_trymove(engine, keycode);
-	engine->info.frame = !engine->info.frame;
-	engine->info.walks++;
+	walk_anim(engine);
 	return (0);
 }
 
@@ -34,7 +34,10 @@ int	engine_update(t_engine *engine)
 {
 	mlx_clear_window(engine->mlx, engine->win);
 	render_map(engine);
-	render_tile_anim(
-		engine, "player", engine->map->ppos.x, engine->map->ppos.y);
+	if (engine->info.otherwalk)
+		render_tile(engine, "player0", &engine->map->ppos);
+	else
+		render_tile(engine, "player1", &engine->map->ppos);
+	update_frame(&engine->info);
 	return (0);
 }

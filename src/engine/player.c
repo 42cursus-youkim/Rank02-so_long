@@ -6,16 +6,15 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 17:26:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:09:42 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//	check if thee tile is a wall
-bool	is_wall(t_map *map, t_vec *pos)
+void	walk_anim(t_engine *engine)
 {
-	return (map->grid[pos->y][pos->x] == '1');
+	engine->info.otherwalk = !engine->info.otherwalk;
 }
 
 static void	player_move(t_engine *engine, int dx, int dy)
@@ -25,8 +24,12 @@ static void	player_move(t_engine *engine, int dx, int dy)
 
 	ppos = &engine->map->ppos;
 	vec_set(&newpos, ppos->x + dx, ppos->y + dy);
-	if (!is_wall(engine->map, &newpos))
-		vec_assign(ppos, &newpos);
+	if (is_wall(engine->map, &newpos))
+		return ;
+
+	vec_assign(ppos, &newpos);
+	engine->info.walks++;
+	printf("%swalks: %zu%s\n", HGRN, engine->info.walks, END);
 }
 
 void	player_trymove(t_engine *engine, int keycode)
