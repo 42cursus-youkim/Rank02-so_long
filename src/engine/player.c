@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:20:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:27:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ static void	try_collect_disk(t_map *map, t_vec *vec)
 		return ;
 	map->disks--;
 	map->grid[vec->y][vec->x] = GROUND;
+	printf("\n%syou've collected a disk!%s\n", HGRN, END);
+}
+
+static void	handle_walks(t_info *info)
+{
+	char	*log;
+	char	*walks;
+
+	info->walks++;
+	walks = new_yitoa(info->walks);
+	log = new_ystrjoin((char *[]){"\rwalks: ", walks, NULL});
+	ywritecolor(1, log, HMAG);
+	del_ystrs((char *[]){log, walks, NULL});
 }
 
 static void	player_move(t_engine *engine, int dx, int dy)
@@ -36,8 +49,7 @@ static void	player_move(t_engine *engine, int dx, int dy)
 		return ;
 	try_collect_disk(engine->map, &newpos);
 	vec_assign(ppos, &newpos);
-	engine->info.walks++;
-	printf("%swalks: %zu%s\n", HGRN, engine->info.walks, END);
+	handle_walks(&engine->info);
 }
 
 void	player_trymove(t_engine *engine, int keycode)
