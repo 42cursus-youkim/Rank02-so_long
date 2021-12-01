@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 16:52:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 17:18:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,12 @@ int	mouse_hook(int button, int x, int y, t_engine *engine)
 	return (0);
 }
 
-void	player_move(t_engine *engine, int keycode)
-{
-	if (!(KEY_LEFT <= keycode && keycode <= KEY_UP))
-		return ;
-	if (keycode == KEY_UP)
-		engine->map->ppos.y -= 1;
-	if (keycode == KEY_DOWN)
-		engine->map->ppos.y += 1;
-	if (keycode == KEY_LEFT)
-		engine->map->ppos.x -= 1;
-	if (keycode == KEY_RIGHT)
-		engine->map->ppos.x += 1;
-}
-
 //	 called every time a key is pressed. see e_keycode in so_long.h
 int	key_hook(int keycode, t_engine *engine)
 {
 	if (keycode == KEY_ESC)
 		end_game(keycode, engine);
-	player_move(engine, keycode);
+	player_trymove(engine, keycode);
 	engine->info.frame = !engine->info.frame;
 	engine->info.walks++;
 	return (0);
