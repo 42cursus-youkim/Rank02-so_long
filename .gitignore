@@ -8,3 +8,4 @@ map/*
 
 so_long.code-workspace
 *.supp
+*.dSYM
