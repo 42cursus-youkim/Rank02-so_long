@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 10:38:34 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 11:04:55 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 11:14:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*	creates a simple dict of size 256, indexed with char.
-	usage: new_ycharmap((char []){'a', 'b', 0}, (char *[]){"A", "B", 0})
+	usage: new_ycharmap((char []){'a', 'b', '\0'}, (char *[]){"A", "B", NULL})
 */
 char	**new_ycharmap(char symbols[], char *values[])
 {
