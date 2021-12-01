@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:09:42 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:20:10 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@ void	walk_anim(t_engine *engine)
 	engine->info.otherwalk = !engine->info.otherwalk;
 }
 
+static void	try_collect_disk(t_map *map, t_vec *vec)
+{
+	if (!is_there(map, vec, DISK))
+		return ;
+	map->disks--;
+	map->grid[vec->y][vec->x] = GROUND;
+}
+
 static void	player_move(t_engine *engine, int dx, int dy)
 {
 	t_vec	*ppos;
@@ -24,9 +32,9 @@ static void	player_move(t_engine *engine, int dx, int dy)
 
 	ppos = &engine->map->ppos;
 	vec_set(&newpos, ppos->x + dx, ppos->y + dy);
-	if (is_wall(engine->map, &newpos))
+	if (is_there(engine->map, &newpos, WALL))
 		return ;
-
+	try_collect_disk(engine->map, &newpos);
 	vec_assign(ppos, &newpos);
 	engine->info.walks++;
 	printf("%swalks: %zu%s\n", HGRN, engine->info.walks, END);

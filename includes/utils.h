@@ -19,7 +19,7 @@
 ** < utils.c > */
 
 void	update_frame(t_info *info);
-bool	is_wall(t_map *map, t_vec *pos);
+bool	is_there(t_map *map, t_vec *pos, char thing);
 /*
 ** < vectors.c > */
 

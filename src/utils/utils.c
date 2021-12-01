@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:05:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:10:19 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:16:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	update_frame(t_info *info)
 		info->frames = 0;
 }
 
-//	check if thee tile is a wall
-bool	is_wall(t_map *map, t_vec *pos)
+//	check if the tile the entity's trying to go is smthn
+bool	is_there(t_map *map, t_vec *pos, char thing)
 {
-	return (map->grid[pos->y][pos->x] == WALL);
+	return (map->grid[pos->y][pos->x] == thing);
 }
