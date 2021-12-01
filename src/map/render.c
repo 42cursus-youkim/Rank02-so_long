@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:47:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 10:34:09 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	render_background(t_engine *engine)
 	t_vec	vec;
 	t_map	*map;
 	char	*name;
+	char	*sym;
 
 	map = engine->map;
 	vec.y = -1;
@@ -46,10 +47,11 @@ void	render_background(t_engine *engine)
 		vec.x = -1;
 		while (++vec.x < map->size.w)
 		{
-			name = ydict_get(map->symbols,
-					new_yctostr(map->grid[vec.y][vec.x]));
+			sym = new_yctostr(map->grid[vec.y][vec.x]);
+			name = ydict_get(map->symbols, sym);
 			if (name && !ystrequ(name, "player"))
 				render_tile(engine, name, vec.x, vec.y);
+			del_ystr(sym);
 		}
 	}
 }
@@ -57,6 +59,6 @@ void	render_background(t_engine *engine)
 void	render_map(t_engine *engine)
 {
 	render_background(engine);
-	// render_tile(engine, "wall", i, 7);
-	render_tile(engine, "hatch-closed", 4, 6);
+	// render_tile(engine, "wall", 1, 1);
+	// render_tile(engine, "hatch-closed", 4, 3);
 }
