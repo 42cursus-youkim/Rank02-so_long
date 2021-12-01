@@ -40,8 +40,9 @@ t_map	*new_map(const char *map_name);
 
 void	render_tile(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_anim(t_engine *engine, char *key, t_vec *vec);
+void	render_tile_cond(t_engine *engine, char *key, t_vec *vec, bool cond);
 void	render_background(t_engine *engine);
-void	render_map(t_engine *engine);
+void	render(t_engine *engine);
 /*
 ** < valdidate.c > */
 

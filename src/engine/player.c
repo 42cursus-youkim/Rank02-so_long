@@ -6,36 +6,28 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:27:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:39:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	walk_anim(t_engine *engine)
+static void	try_collect_disk(t_map *map, t_vec *pos)
 {
-	engine->info.otherwalk = !engine->info.otherwalk;
-}
-
-static void	try_collect_disk(t_map *map, t_vec *vec)
-{
-	if (!is_there(map, vec, DISK))
+	if (!is_there(map, pos, DISK))
 		return ;
 	map->disks--;
-	map->grid[vec->y][vec->x] = GROUND;
+	map->grid[pos->y][pos->x] = GROUND;
 	printf("\n%syou've collected a disk!%s\n", HGRN, END);
 }
 
-static void	handle_walks(t_info *info)
+static void	check_win(t_engine *engine, t_vec *pos)
 {
-	char	*log;
-	char	*walks;
-
-	info->walks++;
-	walks = new_yitoa(info->walks);
-	log = new_ystrjoin((char *[]){"\rwalks: ", walks, NULL});
-	ywritecolor(1, log, HMAG);
-	del_ystrs((char *[]){log, walks, NULL});
+	if (engine->map->disks == 0 && is_there(engine->map, pos, EXIT))
+	{
+		printf("\n%sYou've won!%s\n", HGRN, END);
+		end_game(0, engine);
+	}
 }
 
 static void	player_move(t_engine *engine, int dx, int dy)
@@ -49,6 +41,7 @@ static void	player_move(t_engine *engine, int dx, int dy)
 		return ;
 	try_collect_disk(engine->map, &newpos);
 	vec_assign(ppos, &newpos);
+	check_win(engine, &newpos);
 	handle_walks(&engine->info);
 }
 

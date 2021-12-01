@@ -32,7 +32,6 @@ void	init_engine(t_engine *engine, const char *map_name);
 /*
 ** < player.c > */
 
-void	walk_anim(t_engine *engine);
 void	player_trymove(t_engine *engine, int keycode);
 /*
 ** < so_long.c > */

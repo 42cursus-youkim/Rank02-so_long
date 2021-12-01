@@ -20,6 +20,8 @@
 
 void	update_frame(t_info *info);
 bool	is_there(t_map *map, t_vec *pos, char thing);
+void	walk_anim(t_engine *engine);
+void	handle_walks(t_info *info);
 /*
 ** < vectors.c > */
 
