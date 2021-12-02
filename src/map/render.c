@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:44:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 10:25:16 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	render(t_engine *engine)
 	render_background(engine);
 	render_tile_cond(engine, "player",
 		&engine->map->ppos, engine->info.otherwalk);
+	render_tile_anim(engine, "alien", &engine->map->epos);
 	update_frame(&engine->info);
 }

@@ -16,6 +16,10 @@
 # include "structs.h"
 //	===== @Functions =====
 /*
+** < math.c > */
+
+int		normalized(int n);
+/*
 ** < utils.c > */
 
 void	update_frame(t_info *info);
@@ -28,6 +32,7 @@ void	log_walk(t_info *info);
 
 void	vec_set(t_vec *v, int x, int y);
 void	vec_assign(t_vec *v, t_vec *f);
+void	vec_update(t_vec *v, int dx, int dy);
 void	size_set(t_size *s, int w, int h);
 void	size_assign(t_size *s, t_size *f);
 #endif
