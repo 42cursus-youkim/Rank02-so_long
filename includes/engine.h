@@ -37,4 +37,8 @@ void	player_trymove(t_engine *engine, int keycode);
 ** < so_long.c > */
 
 int		end_game(int keycode, t_engine *engine);
+/*
+** < turn.c > */
+
+void	take_turn(t_engine *engine, int dx, int dy);
 #endif
