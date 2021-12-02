@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 12:59:07 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 21:18:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,15 @@ int	ydigits(long long n)
 		digit++;
 	}
 	return (digit);
+}
+
+//	convert input to one of -1, 0, 1
+int	normalized(int n)
+{
+	if (n > 0)
+		return (1);
+	else if (n < 0)
+		return (-1);
+	else
+		return (0);
 }

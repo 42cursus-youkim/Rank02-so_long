@@ -18,6 +18,7 @@
 ** < func_ymath.c > */
 
 int		ydigits(long long n);
+int		normalized(int n);
 /*
 ** < new_yitoa.c > */
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   updates.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:35:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 21:24:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,16 @@ int	key_hook(int keycode, t_engine *engine)
 //	called every screen refresh by mlx_loop_hook()
 int	engine_update(t_engine *engine)
 {
+	t_map	*map;
+
 	mlx_clear_window(engine->mlx, engine->win);
-	render(engine);
+	map = engine->map;
+	render_background(engine);
+	if (!engine->info.end)
+		render_tile_cond(engine, "player",
+			&map->ppos, engine->info.otherwalk);
+	render_enemies(engine);
+	render_texts(engine);
+	update_frame(&engine->info);
 	return (0);
 }

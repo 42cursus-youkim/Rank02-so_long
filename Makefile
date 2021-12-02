@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/02 12:31:03 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/02 21:25:54 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,10 @@ TEST     := ./so_long map/map3.ber
 
 # ===== Packages =====
 PKGS     := engine map utils
-engineV  := so_long initialize hooks images \
+engineV  := so_long initialize updates images \
             player enemy_bonus enemies_bonus turn
-mapV     := new_map del_map render valdidate
-utilsV   := vectors utils math
+mapV     := new_map del_map render render_utils valdidate
+utilsV   := vectors colors utils
 
 # ===== Macros =====
 define choose_modules

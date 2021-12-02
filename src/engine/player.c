@@ -6,11 +6,16 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:25:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 21:13:08 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	walk_anim(t_engine *engine)
+{
+	engine->info.otherwalk = !engine->info.otherwalk;
+}
 
 int	try_collect_disk(t_map *map, t_vec *pos)
 {

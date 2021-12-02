@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:05:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:27:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 21:15:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ bool	is_input(t_keycode input, t_keycode keys[])
 	return (false);
 }
 
-void	walk_anim(t_engine *engine)
-{
-	engine->info.otherwalk = !engine->info.otherwalk;
-}
-
 void	log_walk(t_info *info)
 {
 	char	*log;
@@ -51,4 +46,9 @@ void	log_walk(t_info *info)
 	log = new_ystrjoin((char *[]){"\rwalks: ", walks, NULL});
 	ywritecolor(1, log, HMAG);
 	del_ystrs((char *[]){log, walks, NULL});
+}
+
+void	print_string(t_engine *engine, char *rgb, char *str, t_vec pos)
+{
+	mlx_string_put(engine->mlx, engine->win, pos.x, pos.y, trgb(0, rgb), str);
 }
