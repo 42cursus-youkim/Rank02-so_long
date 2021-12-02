@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:01:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:35:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_map
 {
 	t_vec	ppos;
 	t_vec	epos;
+	t_vec	**enemylst;
 	t_size	size;
 	char	**grid;
 	size_t	disks;
