@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:28:05 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:08:45 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 09:58:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define PLAYER 'P'
 # define DISK 'C'
 # define EXIT 'E'
+
 typedef struct s_checklist
 {
 	bool	has_exit;
@@ -40,8 +41,9 @@ t_map	*new_map(const char *map_name);
 
 void	render_tile(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_anim(t_engine *engine, char *key, t_vec *vec);
+void	render_tile_cond(t_engine *engine, char *key, t_vec *vec, bool cond);
 void	render_background(t_engine *engine);
-void	render_map(t_engine *engine);
+void	render(t_engine *engine);
 /*
 ** < valdidate.c > */
 

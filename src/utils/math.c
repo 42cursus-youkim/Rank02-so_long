@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_map.c                                          :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 21:53:43 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:43:48 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/02 10:31:38 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/02 10:35:04 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	del_map(t_map *map)
+//	convert input to one of -1, 0, 1
+int	normalized(int n)
 {
-	del_ystrs(map->grid);
-	free(map->grid);
-	free(map);
+	if (n > 0)
+		return (1);
+	else if (n < 0)
+		return (-1);
+	else
+		return (0);
 }

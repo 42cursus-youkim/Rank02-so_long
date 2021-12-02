@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/01 21:11:04 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/02 11:33:56 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,15 @@ INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
 LIBFT    := libft/libft.a
 
-TEST     := ./so_long map/map.ber
+TEST     := ./so_long map/map2.ber
+
+# ===== Packages =====
+PKGS     := engine map utils
+engineV  := so_long initialize hooks images \
+            player enemy_bonus enemies_bonus turn
+mapV     := new_map del_map render valdidate
+utilsV   := vectors utils math
+
 # ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
@@ -42,13 +50,6 @@ define build_library
 	@make all -C libft/
 	@echo "$(G)<Built Library>$(E)"
 endef
-
-# ===== Packages =====
-PKGS     := engine map utils
-engineV  := so_long initialize hooks images \
-            player
-mapV     := new_map del_map render valdidate
-utilsV   := vectors utils
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   enums.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 15:53:01 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/17 17:51:48 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/02 10:01:32 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/02 10:01:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#ifndef ENUMS_H
+# define ENUMS_H
 
 # define TILE_SIZE 64
 # define MAP_WIDTH 20
 # define MAP_HEIGHT 14
 
+# define EEND -1
 # define GAME_NAME "So Long, and Thanks for All the Fish"
 
 typedef enum e_keycode
@@ -157,13 +158,5 @@ typedef enum e_x11masks
 	ColormapChangeMask = (1L<<23),
 	OwnerGrabButtonMask = (1L<<24)
 }	t_x11masks;
-
-typedef enum e_enums
-{
-	NORTH = 0,
-	EAST = 1,
-	SOUTH = 2,
-	WEST = 3,
-}	t_enums;
 
 #endif

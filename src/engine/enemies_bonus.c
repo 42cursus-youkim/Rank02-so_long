@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_map.c                                          :+:      :+:    :+:   */
+/*   enemies_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 21:53:43 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:43:48 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/02 11:23:06 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/02 11:37:49 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	del_map(t_map *map)
+void	init_enemies(t_map *map)
 {
-	del_ystrs(map->grid);
-	free(map->grid);
-	free(map);
+	int	i;
+
+	i = -1;
+	map->enemylst = malloc((map->disks + 1) * sizeof(t_vec *));
+	if (!map->enemylst)
+		yerror("init_enemies", "could not malloc!");
+	while (++i < (int)map->disks)
+	{
+		map->enemylst[i] = malloc(sizeof(t_vec));
+		if (!map->enemylst[i])
+			yerror("init_enemies", "could not malloc element!");
+		vec_set(map->enemylst[i], 0, 0);
+	}
 }

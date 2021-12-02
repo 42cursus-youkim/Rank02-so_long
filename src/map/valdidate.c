@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:41:36 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:09:55 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 10:23:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,25 @@ static void	init_checklist(t_checklist *chk, t_vec *vec, t_map *map)
 
 static void	check_map(t_map *map, t_vec *vec, t_checklist *chk)
 {
+	char	entity;
+
+	entity = map->grid[vec->y][vec->x];
 	if ((vec->y == 0 || vec->y == map->size.h - 1 \
 		|| vec->x == 0 || vec->x == map->size.w - 1) \
-		&& map->grid[vec->y][vec->x] != WALL)
+		&& entity != WALL)
 		chk->is_wall_valid = false;
-	if (map->grid[vec->y][vec->x] == PLAYER)
+	if (entity == PLAYER)
 	{
 		chk->has_player = true;
 		vec_assign(&map->ppos, vec);
 	}
-	if (map->grid[vec->y][vec->x] == EXIT)
-		chk->has_exit = true;
-	if (map->grid[vec->y][vec->x] == DISK)
+	if (entity == DISK)
 		map->disks++;
+	if (entity == EXIT)
+	{
+		chk->has_exit = true;
+		vec_assign(&map->epos, vec);
+	}
 }
 
 bool	set_map_entities_and_is_valid(t_map *map)

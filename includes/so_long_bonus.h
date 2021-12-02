@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_map.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 21:53:43 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:43:48 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/02 11:13:26 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/02 11:14:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-void	del_map(t_map *map)
-{
-	del_ystrs(map->grid);
-	free(map->grid);
-	free(map);
-}
+# include "so_long.h"
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 20:54:23 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:35:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_map
 {
 	t_vec	ppos;
 	t_vec	epos;
+	t_vec	**enemylst;
 	t_size	size;
-	char	**charmap;
 	char	**grid;
 	size_t	disks;
 }	t_map;
@@ -48,6 +48,7 @@ typedef struct s_info
 {
 	int		frames;
 	bool	otherwalk;
+	bool	otherturn;
 	size_t	walks;
 }	t_info;
 

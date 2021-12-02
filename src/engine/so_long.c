@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 20:55:16 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:42:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	end_game(int keycode, t_engine *engine)
 {
 	keycode = 0;
 	printf("bye!\n");
-	exit(0);
+	if (engine || !engine)
+		exit(0);
 	return (0);
 }
 
