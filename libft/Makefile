@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/01 16:40:28 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/02 10:32:26 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,6 @@ RM       := rm -f
 
 PRE      := src/
 INC      := -I includes/
-
-# ===== Macros =====
-define choose_modules
-	$(foreach pkg, $(1),			\
-		$(foreach file, $($(pkg)V),	\
-			$(PRE)y$(pkg)/$(file).c	\
-		)							\
-	)
-endef
 
 # ===== Packages =====
 PKGS     := string system dict math linked
@@ -55,6 +46,15 @@ dictV    := \
 linkedV  := \
 	new_ylist func_ylist
 #new_ydeque
+
+# ===== Macros =====
+define choose_modules
+	$(foreach pkg, $(1),			\
+		$(foreach file, $($(pkg)V),	\
+			$(PRE)y$(pkg)/$(file).c	\
+		)							\
+	)
+endef
 
 # ===== Sources & Objects & Includes =====
 SRC      := $(call choose_modules, $(PKGS))
