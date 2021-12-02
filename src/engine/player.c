@@ -6,11 +6,20 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:02:26 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 09:59:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:08:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	try_collect_disk(t_map *map, t_vec *pos)
+{
+	if (!is_there(map, pos, DISK))
+		return ;
+	map->disks--;
+	map->grid[pos->y][pos->x] = GROUND;
+	printf("\n%syou've collected a disk!%s\n", HGRN, END);
+}
 
 void	player_trymove(t_engine *engine, int keycode)
 {

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/02 10:32:56 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/02 11:07:33 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ TEST     := ./so_long map/map2.ber
 # ===== Packages =====
 PKGS     := engine map utils
 engineV  := so_long initialize hooks images \
-            player turn
+            player enemy turn
 mapV     := new_map del_map render valdidate
 utilsV   := vectors utils math
 
