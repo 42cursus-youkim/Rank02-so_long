@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:46:14 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:35:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	key_hook(int keycode, t_engine *engine)
 {
 	if (keycode == KEY_ESC)
 		end_game(keycode, engine);
-	player_trymove(engine, keycode);
+	if (!engine->info.end)
+		player_trymove(engine, keycode);
 	return (0);
 }
 

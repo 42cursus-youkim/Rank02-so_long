@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/02 11:33:56 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/02 12:31:03 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
 LIBFT    := libft/libft.a
 
-TEST     := ./so_long map/map2.ber
+TEST     := ./so_long map/map3.ber
 
 # ===== Packages =====
 PKGS     := engine map utils

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:07:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:18:24 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:33:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy)
 	}
 }
 
-void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map)
+void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map, bool do_act)
 {
 	t_vec	*ppos;
 
 	ppos = &map->ppos;
 	check_lose(engine, ppos, epos);
-	try_move_manhattan(map, epos,
-		normalized(ppos->x - epos->x), normalized(ppos->y - epos->y));
+	if (do_act)
+		try_move_manhattan(map, epos,
+			normalized(ppos->x - epos->x), normalized(ppos->y - epos->y));
 	check_lose(engine, ppos, epos);
 }

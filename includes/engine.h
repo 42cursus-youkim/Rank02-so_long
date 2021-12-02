@@ -23,7 +23,7 @@ void	init_enemies(t_map *map);
 ** < enemy_bonus.c > */
 
 void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy);
-void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map);
+void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map, bool do_act);
 /*
 ** < hooks.c > */
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:11:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:37:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ void	render(t_engine *engine)
 
 	map = engine->map;
 	render_background(engine);
-	render_tile_cond(engine, "player",
-		&map->ppos, engine->info.otherwalk);
+	if (!engine->info.end)
+		render_tile_cond(engine, "player",
+			&map->ppos, engine->info.otherwalk);
 	render_enemies(engine);
 	update_frame(&engine->info);
 }
