@@ -6,29 +6,39 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:07:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:12:07 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:22:12 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy)
+static bool	manhattan(t_map *map, t_vec *epos, int dx, int dy)
 {
 	t_vec	newepos;
 
-	if (dx)
+	vec_assign(&newepos, epos);
+	vec_update(&newepos, dx, dy);
+	if (is_there(map, &newepos, WALL))
+		return (false);
+	vec_assign(epos, &newepos);
+	return (true);
+}
+
+void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy)
+{
+	if (rand() % 2)
 	{
-		vec_assign(&newepos, epos);
-		vec_update(&newepos, dx, 0);
-		if (!is_there(map, &newepos, WALL))
-			return (vec_assign(epos, &newepos));
+		if (dx && manhattan(map, epos, dx, 0))
+			return ;
+		if (dy && manhattan(map, epos, 0, dy))
+			return ;
 	}
-	if (dy)
+	else
 	{
-		vec_assign(&newepos, epos);
-		vec_update(&newepos, 0, dy);
-		if (!is_there(map, &newepos, WALL))
-			return (vec_assign(epos, &newepos));
+		if (dy && manhattan(map, epos, 0, dy))
+			return ;
+		if (dx && manhattan(map, epos, dx, 0))
+			return ;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:59:23 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:11:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:16:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_lose(t_engine *engine, t_vec *pos, t_vec *epos)
 	if (pos->x == epos->x && pos->y == epos->y)
 	{
 		printf("\n%sYou've lost!%s\n", HRED, END);
-		end_game(0, engine);
+		// end_game(0, engine);
 	}
 }
 
