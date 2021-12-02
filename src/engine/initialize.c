@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:07:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 10:26:03 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:10:45 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	init_engine(t_engine *engine, const char *map_name)
 	init_info(&engine->info);
 	init_imgs(engine, (char *[]){
 		"ground", "wall", "hatch0", "hatch1",
-		"alien0", "alien1", "player0", "player1", "data0", "data1", NULL});
+		"enemy0", "enemy1", "player0", "player1", "data0", "data1", NULL});
 }

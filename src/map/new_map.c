@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:03:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:43:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:06:45 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,22 @@ char	**new_loadgrid(const char *file_name)
 	return (grid);
 }
 
+void	spawn_enemies(t_map *map)
+{
+	int		id;
+	t_vec	vec;
+
+	id = 0;
+	vec_set(&vec, -1, -1);
+	while (map->grid[++vec.y])
+	{
+		vec.x = -1;
+		while (map->grid[vec.y][++vec.x])
+			if (map->grid[vec.y][vec.x] == DISK)
+				vec_assign(map->enemylst[id++], &vec);
+	}
+}
+
 t_map	*new_map(const char *map_name)
 {
 	t_map	*map;
@@ -45,5 +61,7 @@ t_map	*new_map(const char *map_name)
 	map->grid = new_loadgrid(map_name);
 	yassert(set_map_size_and_is_valid(map), "map is not rectangular!");
 	yassert(set_map_entities_and_is_valid(map), "invalid map!");
+	init_enemies(map);
+	spawn_enemies(map);
 	return (map);
 }

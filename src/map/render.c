@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:14:59 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 10:25:16 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:11:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	render_tile(t_engine *engine, char *key, t_vec *vec)
 	t_img	*img;
 
 	img = ydict_get(engine->imgs, key);
+	if (!img)
+		yerror("render_tile", "invlaid image!");
 	mlx_put_image_to_window(
 		engine->mlx, engine->win, img->data,
 		vec->x * TILE_SIZE, vec->y * TILE_SIZE);
@@ -61,11 +63,23 @@ void	render_background(t_engine *engine)
 	}
 }
 
+void	render_enemies(t_engine *engine)
+{
+	int	id;
+
+	id = -1;
+	while (engine->map->enemylst[++id])
+		render_tile_anim(engine, "enemy", engine->map->enemylst[id]);
+}
+
 void	render(t_engine *engine)
 {
+	t_map	*map;
+
+	map = engine->map;
 	render_background(engine);
 	render_tile_cond(engine, "player",
-		&engine->map->ppos, engine->info.otherwalk);
-	render_tile_anim(engine, "alien", &engine->map->epos);
+		&map->ppos, engine->info.otherwalk);
+	render_enemies(engine);
 	update_frame(&engine->info);
 }

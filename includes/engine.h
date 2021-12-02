@@ -17,12 +17,13 @@
 /*
 ** < enemies_bonus.c > */
 
+bool	is_there_enemy(t_map *map, t_vec *pos);
 void	init_enemies(t_map *map);
 /*
 ** < enemy_bonus.c > */
 
 void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy);
-void	try_enemy_act(t_engine *engine, t_map *map, t_info *info);
+void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map);
 /*
 ** < hooks.c > */
 
@@ -41,7 +42,7 @@ void	init_engine(t_engine *engine, const char *map_name);
 /*
 ** < player.c > */
 
-void	try_collect_disk(t_map *map, t_vec *pos);
+int		try_collect_disk(t_map *map, t_vec *pos);
 void	player_trymove(t_engine *engine, int keycode);
 /*
 ** < so_long.c > */
@@ -52,5 +53,6 @@ int		end_game(int keycode, t_engine *engine);
 
 void	check_win(t_engine *engine, t_vec *pos);
 void	check_lose(t_engine *engine, t_vec *pos, t_vec *epos);
+void	enemies_turn(t_engine *engine, t_map *map, t_info *info);
 void	take_turn(t_engine *engine, int dx, int dy);
 #endif

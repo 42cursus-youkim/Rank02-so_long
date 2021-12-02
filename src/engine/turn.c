@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:59:23 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:43:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:14:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	check_lose(t_engine *engine, t_vec *pos, t_vec *epos)
 	}
 }
 
+void	enemies_turn(t_engine *engine, t_map *map, t_info *info)
+{
+	int	id;
+
+	id = -1;
+	info->otherturn = !info->otherturn;
+	if (info->otherturn)
+		return ;
+	while (map->enemylst[++id])
+		try_enemy_act(engine, map->enemylst[id], map);
+}
 void	take_turn(t_engine *engine, int dx, int dy)
 {
 	t_vec	*ppos;
@@ -41,7 +52,7 @@ void	take_turn(t_engine *engine, int dx, int dy)
 		return ;
 	vec_assign(ppos, &newpos);
 	check_win(engine, &newpos);
-	try_enemy_act(engine, engine->map, &engine->info);
+	enemies_turn(engine, engine->map, &engine->info);
 	try_collect_disk(engine->map, &newpos);
 	// log_walk(&engine->info);
 	engine->info.walks++;
