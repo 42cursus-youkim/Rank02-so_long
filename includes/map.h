@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:28:05 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:08:45 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/02 09:58:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define PLAYER 'P'
 # define DISK 'C'
 # define EXIT 'E'
+
 typedef struct s_checklist
 {
 	bool	has_exit;
