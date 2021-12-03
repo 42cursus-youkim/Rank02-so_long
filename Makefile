@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/03 13:52:43 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 14:22:36 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g -Wall -Wextra -Werror #\
-			# -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -g
+CFLAGS   := -Wall -Wextra -Werror \
+			#-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -g
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \

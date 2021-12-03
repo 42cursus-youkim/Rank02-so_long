@@ -18,6 +18,7 @@
 ** < enemies.c > */
 
 bool	is_there_enemy(t_map *map, t_vec *pos);
+void	del_enemies(t_vec **enemylst);
 void	init_enemies(t_map *map);
 /*
 ** < enemy.c > */

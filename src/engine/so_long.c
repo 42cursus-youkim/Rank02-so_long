@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:02:18 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:25:18 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	end_game(t_engine *engine)
 	del_ydict(engine->imgs);
 	del_map(engine->map);
 	mlx_destroy_window(engine->mlx, engine->win);
-	printf("bye!\n");
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 19:06:15 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 20:37:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:26:23 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	init_imgs(t_engine *engine, char *files[])
 	int	i;
 
 	engine->imgs = new_ydict(del_img);
+	if (!engine->imgs)
+		yerror("init_imgs", "ydict malloc failed!");
 	i = -1;
 	while (files[++i])
 		load_img(engine, files[i]);

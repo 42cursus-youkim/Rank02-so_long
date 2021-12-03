@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemies_bonus.c                                    :+:      :+:    :+:   */
+/*   enemies.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:23:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:17:59 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:07:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ bool	is_there_enemy(t_map *map, t_vec *pos)
 		if (pos->x == map->enemylst[id]->x && pos->y == map->enemylst[id]->y)
 			return (true);
 	return (false);
+}
+
+void	del_enemies(t_vec **enemylst)
+{
+	int	i;
+
+	i = -1;
+	while (enemylst[++i])
+		free(enemylst[i]);
+	free(enemylst);
 }
 
 void	init_enemies(t_map *map)
