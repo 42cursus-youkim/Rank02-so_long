@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:27:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:06:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ char	*yreadline(int fd)
 	while (true)
 	{
 		read_length = yread(fd, buf, BUFFER_SIZE);
-		if (read_length <= 0)
+		if (read_length == 0)
 			break ;
+		if (read_length == ERROR)
+			return (NULL);
 		ystr_append(&backup[fd], buf);
 		nl_idx = ystrchri(backup[fd], '\n');
 		if (nl_idx >= 0)

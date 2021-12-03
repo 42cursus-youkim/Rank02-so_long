@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:41:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:15:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int	yread(int fd, char *buf, int buffer_size)
 	int	len;
 
 	len = read(fd, buf, buffer_size);
-	if (len == ERROR || len != buffer_size)
-		return (ERROR);
 	buf[len] = '\0';
 	return (len);
 }
