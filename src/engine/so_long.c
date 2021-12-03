@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 21:11:07 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 10:21:13 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,3 @@ int	main(const int argc, const char *argv[])
 	run_engine(&engine);
 	return (0);
 }
-
-	// mlx_destroy_window(engine.mlx, engine.win);
-	//	mlx_key_hook(engine.win, key_hook, &engine);
-	//	mlx_mouse_hook(engine.win, mouse_hook, &engine);
-	// mlx_hook(engine.win, DestroyNotify, StructureNotifyMask, end_game, &engine);
-	// mlx_loop_hook(engine.mlx, engine_update, &engine);
-	// mlx_loop(engine.mlx);

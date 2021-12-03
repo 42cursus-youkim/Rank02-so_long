@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/02 21:25:54 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 11:01:11 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g -Wall -Wextra #-Werror
+CFLAGS   := -g -Wall -Wextra -Werror
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \
@@ -47,6 +47,7 @@ define choose_modules
 endef
 
 define build_library
+	@echo "$(Y)<Building Library>$(E)"
 	@make all -C libft/
 	@echo "$(G)<Built Library>$(E)"
 endef
@@ -115,7 +116,7 @@ leaks: docs all
 
 # @$(CC) $(INC) $(NAME) test.c -o test
 
-.PHONY: all re clean fclean test
+.PHONY: all re clean fclean red ald test leak leaksupp leaks
 
 # ===== Colors =====
 Y ?= \033[0;33m
