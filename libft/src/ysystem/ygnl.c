@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 21:46:55 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:27:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*yreadline(int fd)
 	int			nl_idx;
 	int			read_length;
 
-	nl_idx = -1;
 	read_length = 0;
 	if (!backup[fd])
 		backup[fd] = new_ystr("");
