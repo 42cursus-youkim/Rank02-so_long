@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:46:09 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:37:39 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ int	ywritecolor(int fd, char *str, char *color)
 */
 int	yread(int fd, char *buf, int buffer_size)
 {
-	int	read_size;
+	int	len;
 
-	read_size = read(fd, buf, buffer_size);
-	buf[read_size] = '\0';
-	return (read_size);
+	len = read(fd, buf, buffer_size);
+	if (len == ERROR)
+		return (ERROR);
+	buf[len] = '\0';
+	return (len);
 }
 
 // TODO: ymemcpy
