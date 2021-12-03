@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 21:25:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 21:41:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:11:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	render_tile_cond(t_engine *engine, char *key, t_vec *vec, bool cond)
 }
 
 //	char *texts[] => const, malloc, const, malloc, ..., NULL
-void	render_text(t_engine *engine, char *rgb, t_vec vec, char *texts[])
+void	render_text(t_engine *engine, t_vec vec, char *rgb, char *texts[])
 {
 	int		i;
 	char	*text;

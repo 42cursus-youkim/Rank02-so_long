@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:01:32 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 10:01:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:17:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 
 # define EEND -1
 # define GAME_NAME "So Long, and Thanks for All the Fish"
+
+typedef enum e_status
+{
+	PLAY,
+	WIN,
+	LOSE
+}	t_status;
 
 typedef enum e_keycode
 {

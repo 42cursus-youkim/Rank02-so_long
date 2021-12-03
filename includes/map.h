@@ -42,14 +42,13 @@ t_map	*new_map(const char *map_name);
 
 void	render_background(t_engine *engine);
 void	render_enemies(t_engine *engine);
-void	render_texts(t_engine *engine);
 /*
 ** < render_utils.c > */
 
 void	render_tile(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_anim(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_cond(t_engine *engine, char *key, t_vec *vec, bool cond);
-void	render_text(t_engine *engine, char *rgb, t_vec vec, char *texts[]);
+void	render_text(t_engine *engine, t_vec vec, char *rgb, char *texts[]);
 /*
 ** < valdidate.c > */
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:41:36 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:45:51 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:10:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ bool	set_map_entities_and_is_valid(t_map *map)
 		while (++vec.x < map->size.w)
 			check_map(map, &vec, &chk);
 	}
-	map->total_disks = map->disks;
 	return (chk.has_exit && chk.has_player && chk.is_wall_valid \
 			&& map->disks > 0);
 }

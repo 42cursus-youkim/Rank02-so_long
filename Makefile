@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/03 11:01:11 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 11:30:38 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g -Wall -Wextra -Werror
+CFLAGS   := -g -Wall -Wextra -Werror -fsanitize=address
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \
@@ -35,7 +35,7 @@ PKGS     := engine map utils
 engineV  := so_long initialize updates images \
             player enemy_bonus enemies_bonus turn
 mapV     := new_map del_map render render_utils valdidate
-utilsV   := vectors colors utils
+utilsV   := vectors colors utils texts
 
 # ===== Macros =====
 define choose_modules

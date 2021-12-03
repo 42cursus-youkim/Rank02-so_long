@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:31:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 21:24:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:18:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	key_hook(int keycode, t_engine *engine)
 {
 	if (keycode == KEY_ESC)
 		end_game(keycode, engine);
-	if (!engine->info.end)
+	if (engine->info.status == PLAY)
 		player_trymove(engine, keycode);
 	return (0);
 }
@@ -37,7 +37,7 @@ int	engine_update(t_engine *engine)
 	mlx_clear_window(engine->mlx, engine->win);
 	map = engine->map;
 	render_background(engine);
-	if (!engine->info.end)
+	if (engine->info.status == PLAY)
 		render_tile_cond(engine, "player",
 			&map->ppos, engine->info.otherwalk);
 	render_enemies(engine);

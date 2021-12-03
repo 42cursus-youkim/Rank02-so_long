@@ -21,13 +21,17 @@
 int		create_trgb(int t, int r, int g, int b);
 int		trgb(int transparency, const char *rgb);
 /*
+** < texts.c > */
+
+void	log_walk(t_info *info);
+void	print_string(t_engine *engine, char *rgb, char *str, t_vec pos);
+void	render_texts(t_engine *engine);
+/*
 ** < utils.c > */
 
 void	update_frame(t_info *info);
 bool	is_there(t_map *map, t_vec *pos, char thing);
 bool	is_input(t_keycode input, t_keycode keys[]);
-void	log_walk(t_info *info);
-void	print_string(t_engine *engine, char *rgb, char *str, t_vec pos);
 /*
 ** < vectors.c > */
 

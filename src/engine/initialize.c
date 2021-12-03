@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:07:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 12:35:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:32:32 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ static void	init_info(t_info *info)
 {
 	info->walks = 0;
 	info->frames = 0;
+	info->collected = 0;
 	info->otherwalk = false;
 	info->otherturn = false;
-	info->end = false;
+	info->status = PLAY;
 }
 
 //	init mlx, create window
