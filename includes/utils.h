@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 19:59:00 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 17:23:20 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:50:19 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "structs.h"
+
 //	===== @Functions =====
 /*
 ** < colors.c > */

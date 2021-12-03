@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:07:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:52:23 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:36:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	manhattan(t_map *map, t_vec *epos, t_vec d)
 
 void	try_move_manhattan(t_map *map, t_vec *epos, t_vec d)
 {
-	if (rand() % 2)
+	if (yrand() % 2)
 	{
 		if ((d.x && manhattan(map, epos, (t_vec){d.x, 0}))
 			|| (d.y && manhattan(map, epos, (t_vec){0, d.y})))

@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/03 12:55:49 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 13:52:43 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
 LIBFT    := libft/libft.a
 
-TEST     := ./so_long map/map3.ber
+TEST     := ./so_long map/map5.ber
 
 # ===== Packages =====
 PKGS     := engine map utils
@@ -68,6 +68,8 @@ $(NAME): $(OBJ)
 	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	@$(RM) $(OBJ)
@@ -117,7 +119,7 @@ leaks: docs all
 
 # @$(CC) $(INC) $(NAME) test.c -o test
 
-.PHONY: all re clean fclean red ald test leak leaksupp leaks
+.PHONY: all bonus re clean fclean red ald test leak leaksupp leaks
 
 # ===== Colors =====
 Y ?= \033[0;33m

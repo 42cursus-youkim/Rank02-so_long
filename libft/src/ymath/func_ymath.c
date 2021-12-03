@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:35:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:37:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	normalized(int n)
 }
 
 //	returns pseudo-random number
-int	pseudorand(void)
+int	yrand(void)
 {
 	static unsigned int	r = 2151901553;
 
-	r = (r * 1103515245 + 12345) % 479001599;
+	r = (r * 1103515245 + 30029) % 479001599;
 	return (r);
 }
