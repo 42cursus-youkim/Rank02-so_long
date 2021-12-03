@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/02 11:33:56 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 14:22:36 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g -Wall -Wextra #-Werror
+CFLAGS   := -Wall -Wextra -Werror \
+			#-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -g
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \
@@ -28,14 +29,14 @@ INC      := -I includes/ -I mlx
 MLX      := -l mlx -framework OpenGL -framework Appkit
 LIBFT    := libft/libft.a
 
-TEST     := ./so_long map/map2.ber
+TEST     := ./so_long map/map5.ber
 
 # ===== Packages =====
 PKGS     := engine map utils
-engineV  := so_long initialize hooks images \
-            player enemy_bonus enemies_bonus turn
-mapV     := new_map del_map render valdidate
-utilsV   := vectors utils math
+engineV  := so_long initialize updates images \
+            player enemy enemies turn
+mapV     := new_map del_map render render_utils valdidate
+utilsV   := vectors colors utils texts
 
 # ===== Macros =====
 define choose_modules
@@ -47,6 +48,7 @@ define choose_modules
 endef
 
 define build_library
+	@echo "$(Y)<Building Library>$(E)"
 	@make all -C libft/
 	@echo "$(G)<Built Library>$(E)"
 endef
@@ -66,6 +68,8 @@ $(NAME): $(OBJ)
 	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	@$(RM) $(OBJ)
@@ -115,7 +119,7 @@ leaks: docs all
 
 # @$(CC) $(INC) $(NAME) test.c -o test
 
-.PHONY: all re clean fclean test
+.PHONY: all bonus re clean fclean red ald test leak leaksupp leaks
 
 # ===== Colors =====
 Y ?= \033[0;33m

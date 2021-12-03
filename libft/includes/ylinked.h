@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:22:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 13:03:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:30:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 //	===== Deque =====
 typedef struct s_dequenode
 {
-	void				*value;
+	int					num;
 	struct s_dequenode	*left;
 	struct s_dequenode	*right;
 }	t_dequenode;

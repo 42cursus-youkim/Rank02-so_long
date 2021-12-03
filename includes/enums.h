@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:01:32 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 10:01:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:11:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 # define ENUMS_H
 
 # define TILE_SIZE 64
-# define MAP_WIDTH 20
-# define MAP_HEIGHT 14
 
 # define EEND -1
-# define GAME_NAME "So Long, and Thanks for All the Fish"
+
+typedef enum e_status
+{
+	PLAY,
+	WIN,
+	LOSE,
+	SHUTDOWN
+}	t_status;
 
 typedef enum e_keycode
 {

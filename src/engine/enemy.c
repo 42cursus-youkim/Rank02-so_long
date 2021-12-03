@@ -6,54 +6,48 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:07:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:22:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:36:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static bool	manhattan(t_map *map, t_vec *epos, int dx, int dy)
+static bool	manhattan(t_map *map, t_vec *epos, t_vec d)
 {
 	t_vec	newepos;
 
 	vec_assign(&newepos, epos);
-	vec_update(&newepos, dx, dy);
-	if (is_there(map, &newepos, WALL))
+	vec_update(&newepos, d.x, d.y);
+	if (is_there(map, &newepos, WALL) || is_there_enemy(map, &newepos))
 		return (false);
 	vec_assign(epos, &newepos);
 	return (true);
 }
 
-void	try_move_manhattan(t_map *map, t_vec *epos, int dx, int dy)
+void	try_move_manhattan(t_map *map, t_vec *epos, t_vec d)
 {
-	if (rand() % 2)
+	if (yrand() % 2)
 	{
-		if (dx && manhattan(map, epos, dx, 0))
-			return ;
-		if (dy && manhattan(map, epos, 0, dy))
+		if ((d.x && manhattan(map, epos, (t_vec){d.x, 0}))
+			|| (d.y && manhattan(map, epos, (t_vec){0, d.y})))
 			return ;
 	}
 	else
 	{
-		if (dy && manhattan(map, epos, 0, dy))
-			return ;
-		if (dx && manhattan(map, epos, dx, 0))
+		if ((d.y && manhattan(map, epos, (t_vec){0, d.y}))
+			|| (d.x && manhattan(map, epos, (t_vec){d.x, 0})))
 			return ;
 	}
 }
 
-void	try_enemy_act(t_engine *engine, t_map *map, t_info *info)
+void	try_enemy_act(t_engine *engine, t_vec *epos, t_map *map, bool do_act)
 {
-	t_vec	*epos;
 	t_vec	*ppos;
 
-	epos = &map->epos;
 	ppos = &map->ppos;
 	check_lose(engine, ppos, epos);
-	info->otherturn = !info->otherturn;
-	if (info->otherturn)
-		return ;
-	try_move_manhattan(map, epos,
-		normalized(ppos->x - epos->x), normalized(ppos->y - epos->y));
+	if (do_act)
+		try_move_manhattan(map, epos, (t_vec){
+			normalized(ppos->x - epos->x), normalized(ppos->y - epos->y)});
 	check_lose(engine, ppos, epos);
 }

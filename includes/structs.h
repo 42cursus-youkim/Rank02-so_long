@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 11:35:25 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:17:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ typedef struct s_map
 
 typedef struct s_info
 {
-	int		frames;
-	bool	otherwalk;
-	bool	otherturn;
-	size_t	walks;
+	int			frames;
+	bool		otherwalk;
+	bool		otherturn;
+	size_t		walks;
+	size_t		collected;
+	t_status	status;
 }	t_info;
 
 typedef struct s_engine

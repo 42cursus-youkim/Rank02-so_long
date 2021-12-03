@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:05:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/02 10:00:24 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:49:05 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,4 @@ bool	is_input(t_keycode input, t_keycode keys[])
 		if (input == keys[i])
 			return (true);
 	return (false);
-}
-
-void	walk_anim(t_engine *engine)
-{
-	engine->info.otherwalk = !engine->info.otherwalk;
-}
-
-void	log_walk(t_info *info)
-{
-	char	*log;
-	char	*walks;
-
-	walks = new_yitoa(info->walks);
-	log = new_ystrjoin((char *[]){"\rwalks: ", walks, NULL});
-	ywritecolor(1, log, HMAG);
-	del_ystrs((char *[]){log, walks, NULL});
 }
