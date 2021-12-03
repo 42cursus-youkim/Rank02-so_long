@@ -49,6 +49,7 @@ void	render_tile(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_anim(t_engine *engine, char *key, t_vec *vec);
 void	render_tile_cond(t_engine *engine, char *key, t_vec *vec, bool cond);
 void	render_text(t_engine *engine, t_vec vec, char *rgb, char *texts[]);
+void	walk_anim(t_engine *engine);
 /*
 ** < valdidate.c > */
 

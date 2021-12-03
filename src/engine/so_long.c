@@ -6,19 +6,21 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 11:31:54 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:18:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //	kill engine
-int	end_game(int keycode, t_engine *engine)
+int	end_game(t_engine *engine)
 {
-	keycode = 0;
+	engine->info.status = SHUTDOWN;
+	del_ydict(engine->imgs);
+	del_map(engine->map);
+	mlx_destroy_window(engine->mlx, engine->win);
 	printf("bye!\n");
-	if (engine || !engine)
-		exit(0);
+	exit(0);
 	return (0);
 }
 

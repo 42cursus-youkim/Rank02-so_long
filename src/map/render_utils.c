@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 21:25:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 11:11:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 11:58:39 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,9 @@ void	render_text(t_engine *engine, t_vec vec, char *rgb, char *texts[])
 		if (i % 2 && texts[i])
 			del_ystr(texts[i]);
 	del_ystr(text);
+}
+
+void	walk_anim(t_engine *engine)
+{
+	engine->info.otherwalk = !engine->info.otherwalk;
 }

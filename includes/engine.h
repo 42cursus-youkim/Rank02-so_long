@@ -36,19 +36,19 @@ void	init_engine(t_engine *engine, const char *map_name);
 /*
 ** < player.c > */
 
-void	walk_anim(t_engine *engine);
 int		try_collect_disk(t_map *map, t_vec *pos, t_info *info);
 void	player_trymove(t_engine *engine, int keycode);
 /*
 ** < so_long.c > */
 
-int		end_game(int keycode, t_engine *engine);
+int		end_game(t_engine *engine);
 /*
 ** < turn.c > */
 
 void	check_win(t_engine *engine, t_vec *pos);
 void	check_lose(t_engine *engine, t_vec *pos, t_vec *epos);
 void	enemies_turn(t_engine *engine, t_map *map, t_info *info);
+void	player_turn(t_engine *engine, t_info *info, t_vec delta);
 void	take_turn(t_engine *engine, t_vec delta);
 /*
 ** < updates.c > */

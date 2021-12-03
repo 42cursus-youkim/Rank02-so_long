@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:01:32 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 11:17:11 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:01:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum e_status
 {
 	PLAY,
 	WIN,
-	LOSE
+	LOSE,
+	SHUTDOWN
 }	t_status;
 
 typedef enum e_keycode
