@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:59:23 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 11:57:23 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:50:12 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	enemies_turn(t_engine *engine, t_map *map, t_info *info)
 		try_enemy_act(engine, map->enemylst[id], map, !info->otherturn);
 }
 
-void	player_turn(t_engine *engine, t_info *info, t_vec delta)
+void	player_turn(t_engine *engine, t_info *info, t_vec d)
 {
 	t_vec	newpos;
 	t_vec	*ppos;
 
 	ppos = &engine->map->ppos;
-	vec_set(&newpos, ppos->x + delta.x, ppos->y + delta.y);
-	if ((delta.x || delta.y) && is_there(engine->map, &newpos, WALL))
+	vec_set(&newpos, ppos->x + d.x, ppos->y + d.y);
+	if ((d.x || d.y) && is_there(engine->map, &newpos, WALL))
 		return ;
 	vec_assign(ppos, &newpos);
 	try_collect_disk(engine->map, &newpos, &engine->info);
@@ -58,8 +58,8 @@ void	player_turn(t_engine *engine, t_info *info, t_vec delta)
 	log_walk(info);
 }
 
-void	take_turn(t_engine *engine, t_vec delta)
+void	take_turn(t_engine *engine, t_vec d)
 {
-	player_turn(engine, &engine->info, delta);
+	player_turn(engine, &engine->info, d);
 	enemies_turn(engine, engine->map, &engine->info);
 }

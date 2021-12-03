@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/03 12:20:48 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/03 12:55:49 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 NAME     := so_long
 
 CC       := gcc
-CFLAGS   := -g -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS   := -g -Wall -Wextra -Werror #\
+			# -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -g
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --show-reachable=no \
 			--suppressions=./libft/macos.supp \
@@ -33,7 +34,7 @@ TEST     := ./so_long map/map3.ber
 # ===== Packages =====
 PKGS     := engine map utils
 engineV  := so_long initialize updates images \
-            player enemy_bonus enemies_bonus turn
+            player enemy enemies turn
 mapV     := new_map del_map render render_utils valdidate
 utilsV   := vectors colors utils texts
 

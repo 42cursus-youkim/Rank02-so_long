@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:37:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:18:40 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:02:18 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,20 @@ static void	run_engine(t_engine *engine)
 	mlx_loop(engine->mlx);
 }
 
+static void	check_args(const int argc, const char *argv[])
+{
+	yassert(argc == 2, "usage: ./so_long [map]\n");
+	yassert(ystrlen(argv[1]) > 4
+		&& ystrequ(argv[1] + ystrlen(argv[1]) - 4, ".ber"),
+		"map file should end with .ber\n");
+}
+
 //	The engine!
 int	main(const int argc, const char *argv[])
 {
 	t_engine	engine;
 
-	yassert(argc == 2, "usage: ./so_long [map]\n");
+	check_args(argc, argv);
 	init_engine(&engine, argv[1]);
 	run_engine(&engine);
 	return (0);
