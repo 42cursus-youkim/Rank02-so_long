@@ -19,6 +19,7 @@
 
 int		ydigits(long long n);
 int		normalized(int n);
+int		pseudorand(void);
 /*
 ** < new_yitoa.c > */
 
