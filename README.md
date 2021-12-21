@@ -1,4 +1,4 @@
-# so_long
+# 🐬 so_long
 ## so long and thanks for all the fish
 
 ![](https://badge42.herokuapp.com/api/project/youkim/so_long) 
